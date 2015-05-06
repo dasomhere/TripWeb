@@ -3,12 +3,14 @@
 <%@include file="/WEB-INF/taglib.jspf" %>
 
 <section class="container">
-	<h1>local</h1>
-	<input type="button" data-ng-click="click()" value="클릭" />
+	<h1>지역</h1>
+	
 	<div>
 		<ul data-role="listview" >
-			<li data-ng-repeat="local in locals">
+			<li class="list-group-item" data-ng-repeat="local in locals track by $index" data-ng-click="click(local)">
 				{{local}}
+				{{local.title}}
+				<img alt="" src="{{local.firstimage}}">
 			</li>
 		</ul>
 	</div>

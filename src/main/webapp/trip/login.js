@@ -37,6 +37,6 @@ myApp.controller('loginController', function($scope, $http) {
 		});
 	};
 	
-	alert("loginController");
+//	alert("loginController");
 });
 

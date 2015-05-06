@@ -1,7 +1,7 @@
 
 myApp.controller('localController', function($scope) {
 	$scope.$parent.pageClass = 'page-local';
-	alert("localController");
+//	alert("localController");
 	
 	$scope.click = function() {
 		alert("asdfdf");

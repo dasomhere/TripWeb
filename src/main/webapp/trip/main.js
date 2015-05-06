@@ -48,7 +48,7 @@ myApp.controller('mainController', function($scope, $http) {
 		});
 	};
 	
-	alert("mainController");
+//	alert("mainController");
 });
 
 

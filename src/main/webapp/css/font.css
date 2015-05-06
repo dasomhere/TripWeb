@@ -1,0 +1,10 @@
+@CHARSET "UTF-8";
+
+@import url(http://fonts.googleapis.com/earlyaccess/jejugothic.css);
+ 	@FONT-FACE {
+ 		font-family : 'Jeju Gothic', serif;
+ 	}
+ 	* {
+ 		font-family : 'Jeju Gothic';
+ 	}
+		

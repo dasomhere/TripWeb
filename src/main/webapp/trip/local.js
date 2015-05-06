@@ -1,5 +1,6 @@
 
 myApp.controller('localController', function($scope) {
+	$scope.$parent.pageClass = 'page-local';
 	alert("localController");
 	
 	$scope.click = function() {

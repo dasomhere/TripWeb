@@ -45,6 +45,8 @@
         margin-left: -80px;
     }
 </style>
+
+<link rel="stylesheet" href="style.css"/>
 <script type="text/javascript" src="main.js"></script>
 <script type="text/javascript" src="event.js"></script>
 <script type="text/javascript" src="join.js"></script>
@@ -74,8 +76,12 @@
 				<a href="#load" class="btn btn-default">load</a>
 		</div>
 	</div>
-	<ng-view>
-	</ng-view>
+	<div class="page {{ pageClass }}" data-ng-view
+									  data-ng-swipe-left="swipeLeft()"
+									  data-ng-swipe-right="swipeRight()"
+									  >
+	<!-- default page = home -->
+	</div>
 		
 </body>
 </html>

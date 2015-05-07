@@ -4,7 +4,6 @@ myApp.controller('localController', function($scope, $http) {
 	alert("localController");
 	
 	$http.get("/TripWeb/m/local/city").success(function(citys) {
-		alert(JSON.stringify(citys));
 		console.log(citys);
 		$scope.citys = citys;
 	});
@@ -16,6 +15,18 @@ myApp.controller('localController', function($scope, $http) {
 			$scope.gus = gus;
 		}).error(function() {
 			alert("server error...");
+		});
+	};
+	
+	$scope.type = function() {
+		alert("cityCode="+ $scope.selectedCity + "&sigunguCode="+ $scope.selectedCityGu + "&contentTypeid="+$scope.selectedType);
+		$http.get("/TripWeb/m/local/type?cityCode="+ $scope.selectedCity +"&sigunguCode=1"+ "&contentTypeId="+$scope.selectedType).success(function(types) {
+			alert(JSON.stringify(types));
+			console.log(type);
+//			$scope.types = types;
+			
+		}).error(function() {
+			alert("type error...");
 		});
 	};
 });

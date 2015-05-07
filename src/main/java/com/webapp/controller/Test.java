@@ -1,40 +1,94 @@
 package com.webapp.controller;
 
-import static org.junit.Assert.*;
-
-import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
-import java.net.MalformedURLException;
+import java.io.InputStreamReader;
 import java.net.URL;
+import java.util.Date;
+import java.util.Iterator;
 import java.util.Scanner;
 
+import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
+
+import com.webapp.model.Weather;
 
 public class Test {
 
 	@org.junit.Test
-	public void test() throws IOException {
-		String url_start = "https://oneid.skplanetx.com/oauth/token?client_id=95270dd6-da5c-35ba-8cf2-f9d3a708e8a2&client_secret=7691fd48-9ccb-30ee-ae0f-a65ab653242b&code=authorization code&scope=weather&redirect_uri=http://TripWeb&grant_type=authorization_code";
-//		String key = "7d%2FbbFXB0fawdZ9r5xCVp486QYWCNaTz71MAAHegiYr8HK%2B%2FIKupIlmIiHZhRIY5%2F9PI2v%2Fkd50vmNV%2FLVAAjQ%3D%3D";
-//		String url_end = "&region=5%EC%9B%94&_type=json";
+	public void test() throws IOException, ParseException {
 		
-		URL get = new URL(url_start);
+		String url_Seoul = "http://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20weather.forecast%20where%20woeid=1132599&u=c&format=json";
+		
+		URL get = new URL(url_Seoul);
 		InputStream in = get.openStream();
 		Scanner s = new Scanner(in);
+		Weather weather = new Weather();
 		
-		JSONObject obj = new JSONObject();
-		try {
-			FileWriter file = new FileWriter("weather.json");
-			file.write(s.nextLine());
-			file.flush();
-			file.close();
-		} catch (IOException e) {
-			e.printStackTrace();
+		JSONParser parser = new JSONParser();
+		
+		JSONObject jsonObject = (JSONObject) parser.parse(new InputStreamReader(in));
+		
+		JSONObject query = (JSONObject) jsonObject.get("query");
+		JSONObject results = (JSONObject) query.get("results");
+		JSONObject channel = (JSONObject) results.get("channel");
+		JSONObject location = (JSONObject) channel.get("location");
+		
+		String city = (String) location.get("city");
+		weather.setCity(city);
+		System.out.println("city = " + city);
+		
+		JSONObject wind = (JSONObject) channel.get("wind");
+		int nowWindSpeed = Integer.parseInt((String) wind.get("speed"));
+		weather.setNowWindSpeed(nowWindSpeed);
+		System.out.println("nowWindSpeed = " + nowWindSpeed);
+		
+		JSONObject atmosphere = (JSONObject) channel.get("atmosphere");
+		int nowHumidity = Integer.parseInt((String) atmosphere.get("humidity"));
+		weather.setNowHumidity(nowHumidity);
+		System.out.println("nowHumidity = " + nowHumidity);
+		
+		JSONObject item = (JSONObject) channel.get("item");
+		JSONObject condition = (JSONObject) item.get("condition");
+		String nowConditionText = (String) condition.get("text");
+		int nowConditionCode = Integer.parseInt((String) condition.get("code"));
+		weather.setNowConditionCode(nowConditionCode);
+		weather.setNowConditionText(nowConditionText);
+		System.out.println("nowConditionCode = " + nowConditionCode + " nowConditionText = " + nowConditionText);
+		
+		double nowTemp = (Integer.parseInt((String) condition.get("temp"))-32)/1.8;
+		weather.setNowTemp(nowTemp);
+		System.out.println("nowTemp = " + nowTemp);
+		
+		JSONArray forecast = (JSONArray) item.get("forecast");
+		
+		Iterator<JSONObject> iterator = forecast.iterator();
+		int[] code = new int[5];
+		String[] day = new String[5];
+		double[] high = new double[5];
+		double[] low = new double[5];
+		String[] text = new String[5];
+		int i = 0;
+		while(iterator.hasNext()) {
+			JSONObject obj = iterator.next();
+			code[i] = Integer.parseInt((String)obj.get("code"));
+			day[i] = (String)obj.get("day");;
+			high[i] = (Integer.parseInt((String)obj.get("high"))-32)/1.8;
+			low[i] = (Integer.parseInt((String)obj.get("low"))-32)/1.8;
+			text[i] = (String)obj.get("text");
+			i += 1;
 		}
 		
-		System.out.println(s.nextLine());
-		
+		for(int j=0; j<code.length; j++) {
+			System.out.println("code = " + code[j]
+							 + " day = " + day[j]
+							 + " high = " + high[j]
+							 + " low = " + low[j]
+							 + " text = " + text[j]
+			);
+		}
 	}
 
 }

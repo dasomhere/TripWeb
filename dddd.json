@@ -1,0 +1,106 @@
+{
+	"query": {
+		"count": 1,
+		"created": "2015-05-07T02:02:47Z",
+		"lang": "en-US",
+		"results": {
+			"channel": {
+				"title": "Yahoo! Weather - Seoul, KR",
+				"link": "http://us.rd.yahoo.com/dailynews/rss/weather/Seoul__KR/*http://weather.yahoo.com/forecast/KSXX0037_f.html",
+				"description": "Yahoo! Weather for Seoul, KR",
+				"language": "en-us",
+				"lastBuildDate": "Thu, 07 May 2015 10:00 am KST",
+				"ttl": "60",
+				"location": {
+					"city": "Seoul",
+					"country": "South Korea",
+					"region": ""
+				},
+				"units": {
+					"distance": "mi",
+					"pressure": "in",
+					"speed": "mph",
+					"temperature": "F"
+				},
+				"wind": {
+					"chill": "68",
+					"direction": "210",
+					"speed": "6"
+				},
+				"atmosphere": {
+					"humidity": "21",
+					"pressure": "29.91",
+					"rising": "0",
+					"visibility": "6.21"
+				},
+				"astronomy": {
+					"sunrise": "5:31 am",
+					"sunset": "7:25 pm"
+				},
+				"image": {
+					"title": "Yahoo! Weather",
+					"width": "142",
+					"height": "18",
+					"link": "http://weather.yahoo.com",
+					"url": "http://l.yimg.com/a/i/brand/purplelogo//uh/us/news-wea.gif"
+				},
+				"item": {
+					"title": "Conditions for Seoul, KR at 10:00 am KST",
+					"lat": "37.56",
+					"long": "126.98",
+					"link": "http://us.rd.yahoo.com/dailynews/rss/weather/Seoul__KR/*http://weather.yahoo.com/forecast/KSXX0037_f.html",
+					"pubDate": "Thu, 07 May 2015 10:00 am KST",
+					"condition": {
+						"code": "34",
+						"date": "Thu, 07 May 2015 10:00 am KST",
+						"temp": "68",
+						"text": "Fair"
+					},
+					"description": "\n<img src=\"http://l.yimg.com/a/i/us/we/52/34.gif\"/><br />\n<b>Current Conditions:</b><br />\nFair, 68 F<BR />\n<BR /><b>Forecast:</b><BR />\nThu - Mostly Sunny. High: 76 Low: 49<br />\nFri - Partly Cloudy. High: 74 Low: 50<br />\nSat - Sunny. High: 77 Low: 51<br />\nSun - Sunny. High: 78 Low: 53<br />\nMon - PM Rain. High: 77 Low: 55<br />\n<br />\n<a href=\"http://us.rd.yahoo.com/dailynews/rss/weather/Seoul__KR/*http://weather.yahoo.com/forecast/KSXX0037_f.html\">Full Forecast at Yahoo! Weather</a><BR/><BR/>\n(provided by <a href=\"http://www.weather.com\" >The Weather Channel</a>)<br/>\n",
+					"forecast": [
+						{
+							"code": "34",
+							"date": "7 May 2015",
+							"day": "Thu",
+							"high": "76",
+							"low": "49",
+							"text": "Mostly Sunny"
+						}, {
+							"code": "30",
+							"date": "8 May 2015",
+							"day": "Fri",
+							"high": "74",
+							"low": "50",
+							"text": "Partly Cloudy"
+						}, {
+							"code": "32",
+							"date": "9 May 2015",
+							"day": "Sat",
+							"high": "77",
+							"low": "51",
+							"text": "Sunny"
+						}, {
+							"code": "32",
+							"date": "10 May 2015",
+							"day": "Sun",
+							"high": "78",
+							"low": "53",
+							"text": "Sunny"
+						}, {
+							"code": "12",
+							"date": "11 May 2015",
+							"day": "Mon",
+							"high": "77",
+							"low": "55",
+							"text": "PM Rain"
+						}
+					],
+					"guid": {
+						"isPermaLink": "false",
+						"content": "KSXX0037_2015_05_11_7_00_KST"
+					}
+				}
+			}
+		}
+	}
+}

@@ -17,4 +17,5 @@
         data-ng-model="selectedCityGu">
 	<option data-ng-repeat="gu in gus" value="{{gu.code}}" data-ng-selected="gu.code==1">{{gu.name}}</option>
 </select>
+
 </div>

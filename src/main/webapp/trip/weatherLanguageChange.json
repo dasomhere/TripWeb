@@ -1,0 +1,154 @@
+{
+	"days": [
+		{
+			"day": "Mon",
+			"dayKR": "월"
+		},
+		{
+			"day": "Tue",
+			"dayKR": "화"
+		},
+		{
+			"day": "Wed",
+			"dayKR": "수"
+		},
+		{
+			"day": "Thu",
+			"dayKR": "목"
+		},
+		{
+			"day": "Fri",
+			"dayKR": "금"
+		},
+		{
+			"day": "Sat",
+			"dayKR": "토"
+		},
+		{
+			"day": "Sun",
+			"dayKR": "일"
+		}
+	],
+	
+	"conditions": [
+		{
+			"code": "0",
+			"text": "폭풍"
+		},
+		{
+			"code": "1",
+			"text": "열대폭풍"
+		},
+		{
+			"code": "2",
+			"text": "허리케인"
+		},
+		{
+			"code": "3",
+			"text": "강한 뇌우"
+		},
+		{
+			"code": "4",
+			"text": "뇌우"
+		},
+		{
+			"code": "5",
+			"text": "눈 또는 비"
+		},
+		{
+			"code": "6",
+			"text": "비 또는 진눈깨비"
+		},
+		{
+			"code": "7",
+			"text": "눈 또는 진눈깨비"
+		},
+		{
+			"code": "8",
+			"text": "결빙성 진눈깨비"
+		},
+		{
+			"code": "9",
+			"text": "이슬비"
+		},
+		{
+			"code": "10",
+			"text": "어는비"
+		},
+		
+
+    <string name="weather_11">소나기</string>
+
+    <string name="weather_12">소나기</string>
+
+    <string name="weather_13">소낙눈</string>
+
+    <string name="weather_14">약한 눈</string>
+
+    <string name="weather_15">강한 눈</string>
+
+    <string name="weather_16">눈</string>
+
+    <string name="weather_17">우박</string>
+
+    <string name="weather_18">진눈깨비</string>
+
+    <string name="weather_19">황사</string>
+
+    <string name="weather_20">짙은 안개</string>
+
+    <string name="weather_21">옅은 안개</string>
+
+    <string name="weather_22">연무</string>
+
+    <string name="weather_23">강풍</string>
+
+    <string name="weather_24">약풍</string>
+
+    <string name="weather_25">추움</string>
+
+    <string name="weather_26">흐림</string>
+
+    <string name="weather_27">대체로 흐림</string> <!-- Night -->
+
+    <string name="weather_28">대체로 흐림</string> <!-- Day -->
+
+    <string name="weather_29">일부 흐림</string> <!-- Night -->
+
+    <string name="weather_30">일부 흐림</string> <!-- Day -->
+
+    <string name="weather_31">흐린 후 갬</string> <!-- Night -->
+
+    <string name="weather_32">맑음</string>
+
+    <string name="weather_33">쾌청(밤)</string> <!-- Night -->
+
+    <string name="weather_34">쾌청(낮)</string> <!-- Day -->
+
+    <string name="weather_35">비 또는 우박</string>
+
+    <string name="weather_36">더움</string>
+
+    <string name="weather_37">국지성 뇌우</string>
+
+    <string name="weather_38">산발성 뇌우</string>
+
+    <string name="weather_39">산발성 뇌우</string>
+
+    <string name="weather_40">산발성 소나기</string>
+
+    <string name="weather_41">대설</string>
+
+    <string name="weather_42">산발성 눈보라</string>
+
+    <string name="weather_43">많은 눈</string>
+
+    <string name="weather_44">약간 흐림</string>
+
+    <string name="weather_45">뇌우 소나기</string>
+
+    <string name="weather_46">눈보라</string>
+
+    <string name="weather_47">국지성 뇌우 소나기</string>
+	]
+}

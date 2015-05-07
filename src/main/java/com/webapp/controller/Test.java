@@ -13,6 +13,8 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
+import com.webapp.model.Weather;
+
 public class Test {
 
 	@org.junit.Test
@@ -23,6 +25,7 @@ public class Test {
 		URL get = new URL(url_Seoul);
 		InputStream in = get.openStream();
 		Scanner s = new Scanner(in);
+		Weather weather = new Weather();
 		
 		JSONParser parser = new JSONParser();
 		
@@ -34,71 +37,58 @@ public class Test {
 		JSONObject location = (JSONObject) channel.get("location");
 		
 		String city = (String) location.get("city");
-		System.out.println(city);
+		weather.setCity(city);
+		System.out.println("city = " + city);
+		
+		JSONObject wind = (JSONObject) channel.get("wind");
+		int nowWindSpeed = Integer.parseInt((String) wind.get("speed"));
+		weather.setNowWindSpeed(nowWindSpeed);
+		System.out.println("nowWindSpeed = " + nowWindSpeed);
+		
+		JSONObject atmosphere = (JSONObject) channel.get("atmosphere");
+		int nowHumidity = Integer.parseInt((String) atmosphere.get("humidity"));
+		weather.setNowHumidity(nowHumidity);
+		System.out.println("nowHumidity = " + nowHumidity);
 		
 		JSONObject item = (JSONObject) channel.get("item");
+		JSONObject condition = (JSONObject) item.get("condition");
+		String nowConditionText = (String) condition.get("text");
+		int nowConditionCode = Integer.parseInt((String) condition.get("code"));
+		weather.setNowConditionCode(nowConditionCode);
+		weather.setNowConditionText(nowConditionText);
+		System.out.println("nowConditionCode = " + nowConditionCode + " nowConditionText = " + nowConditionText);
+		
+		double nowTemp = (Integer.parseInt((String) condition.get("temp"))-32)/1.8;
+		weather.setNowTemp(nowTemp);
+		System.out.println("nowTemp = " + nowTemp);
+		
 		JSONArray forecast = (JSONArray) item.get("forecast");
 		
 		Iterator<JSONObject> iterator = forecast.iterator();
+		int[] code = new int[5];
+		String[] day = new String[5];
+		double[] high = new double[5];
+		double[] low = new double[5];
+		String[] text = new String[5];
+		int i = 0;
 		while(iterator.hasNext()) {
 			JSONObject obj = iterator.next();
-			String date = (String)obj.get("date");
-			String day = (String)obj.get("day");
-			String high = (String)obj.get("high");
-			System.out.println("date = " + date);
-			System.out.println("day = " + day);
-			System.out.println("high = " + high);
+			code[i] = Integer.parseInt((String)obj.get("code"));
+			day[i] = (String)obj.get("day");;
+			high[i] = (Integer.parseInt((String)obj.get("high"))-32)/1.8;
+			low[i] = (Integer.parseInt((String)obj.get("low"))-32)/1.8;
+			text[i] = (String)obj.get("text");
+			i += 1;
 		}
 		
-//		String url_Seoul = "http://api.openweathermap.org/data/2.5/forecast/daily?q=Seoul&cnt=7&mode=json&units=metric";
-//		String url_Chuncheon = "http://api.openweathermap.org/data/2.5/forecast/daily?q=Chuncheon&cnt=7&mode=json&units=metric";
-//		String url_Kangneung = "http://api.openweathermap.org/data/2.5/forecast/daily?q=Kang-neung&cnt=7&mode=json&units=metric";
-//		String url_Daejeon = "http://api.openweathermap.org/data/2.5/forecast/daily?q=Daejeon&cnt=7&mode=json&units=metric";
-//		String url_Cheongju = "http://api.openweathermap.org/data/2.5/forecast/daily?q=Cheongju&cnt=7&mode=json&units=metric";
-//		String url_Daegu = "http://api.openweathermap.org/data/2.5/forecast/daily?q=Daegu&cnt=7&mode=json&units=metric";
-//		String url_Gwangju = "http://api.openweathermap.org/data/2.5/forecast/daily?q=Gwangju&cnt=7&mode=json&units=metric";
-//		String url_Jeonju = "http://api.openweathermap.org/data/2.5/forecast/daily?q=Jeonju&cnt=7&mode=json&units=metric";
-//		String url_Busan = "http://api.openweathermap.org/data/2.5/forecast/daily?q=Busan&cnt=7&mode=json&units=metric";
-//		String url_Jeju = "http://api.openweathermap.org/data/2.5/forecast/daily?q=Jeju&cnt=7&mode=json&units=metric";
-//		
-//		URL get = new URL(url_Seoul);
-//		InputStream in = get.openStream();
-//		Scanner s = new Scanner(in);
-//		
-//		JSONParser parser = new JSONParser();
-//		
-//		JSONObject jsonObject = (JSONObject) parser.parse(new InputStreamReader(in));
-//		
-//		JSONObject city = (JSONObject) jsonObject.get("city");
-//		String name = (String)city.get("name");
-//		
-//		JSONArray list = (JSONArray) jsonObject.get("list");
-//		Iterator<JSONObject> iterator = list.iterator();
-//		while(iterator.hasNext()) {
-//			long dt = (long)iterator.next().get("dt");
-//			
-//			Date d = new Date(dt*1000);
-//			int year = d.getYear();
-//			int month = d.getMonth();
-//			int date = d.getDate();
-//			System.out.println((year + 1900) + "년" + (month+1) + "월" + date + "일");
-//			
-////			JSONObject temp = (JSONObject) iterator.next().get("temp");
-////			double min = (double)temp.get("min");
-////			System.out.println("min : " + min);
-//		}
-//		iterator = list.iterator();
-//		while(iterator.hasNext()){
-//			JSONObject temp = (JSONObject) iterator.next().get("temp");
-//			double min = (double)temp.get("min");
-//			double max = (double)temp.get("max");
-//			
-//			System.out.println("min : " + min);
-//			System.out.println("max : " + max);
-//		}
-//		
-//		System.out.println(name);
-//		
+		for(int j=0; j<code.length; j++) {
+			System.out.println("code = " + code[j]
+							 + " day = " + day[j]
+							 + " high = " + high[j]
+							 + " low = " + low[j]
+							 + " text = " + text[j]
+			);
+		}
 	}
 
 }

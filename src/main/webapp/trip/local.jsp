@@ -1,17 +1,21 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@include file="/WEB-INF/taglib.jspf" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<section class="container">
-	<h1>지역</h1>
-	
-	<div>
-		<ul data-role="listview" >
-			<li class="list-group-item" data-ng-repeat="local in locals track by $index" data-ng-click="click(local)">
-				{{local}}
-				{{local.title}}
-				<img alt="" src="{{local.firstimage}}">
-			</li>
-		</ul>
-	</div>
-</section>
+<!-- local.jsp -->
+
+<div class="container">
+<hr>
+<h1>관광정보 </h1>
+<hr>
+<select data-ng-change="cityChange()"
+        data-ng-model="selectedCity">
+	<option data-ng-repeat="city in citys" value="{{city.code}}" data-ng-selected="city.code==1">{{city.name}}</option>
+</select>
+
+<select data-ng-change=""
+        data-ng-model="selectedCityGu">
+	<option data-ng-repeat="gu in gus" value="{{gu.code}}" data-ng-selected="gu.code==1">{{gu.name}}</option>
+</select>
+
+</div>

@@ -1,31 +1,25 @@
 
 myApp.controller('localController', function($scope, $http) {
 	$scope.$parent.pageClass = 'page-local';
-//	alert("localController");
+	alert("localController");
 	
-	$http.get("/TripWeb/m/local/city").success(function(city) {
-		alert(city);
-		$scope.locals = city;
+	$http.get("/TripWeb/m/local/city").success(function(citys) {
+		alert(JSON.stringify(citys));
+		console.log(citys);
+		$scope.citys = citys;
 	});
 	
-	$scope.click = function(locals) {
-		if(locals=="서울"){
-			$http.get("/TripWeb/m/local/seoul").success(function(seoul) {
-				$scope.locals = seoul;
-			});
-				//  	강서구 클릭시 호출
-			$scope.click= function(data) {
-				if(data=="강서구"){
-					alert("강서구");
-					$http.get("/TripWeb/m/local/nature").success(function(kang) {
-						alert(JSON.stringify(kang));
-						$scope.locals= kang;
-					});
-				}
-			}
-		}
-	}
-	
-
+	$scope.cityChange = function() {
+		alert("cityCahnage.... = " + $scope.selectedCity);
+		$http.get("/TripWeb/m/local/gus?cityCode=" + $scope.selectedCity).success(function(gus) {
+			console.log(gus);
+			$scope.gus = gus;
+		}).error(function() {
+			alert("server error...");
+		});
+	};
 });
+
+
+
 

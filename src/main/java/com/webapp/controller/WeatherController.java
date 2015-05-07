@@ -92,7 +92,7 @@ public class WeatherController {
 		while(iterator.hasNext()) {
 			JSONObject obj = iterator.next();
 			code[i] = Integer.parseInt((String)obj.get("code"));
-			day[i] = (String)obj.get("day");;
+			day[i] = (String)obj.get("day");
 			high[i] =  Math.round(((Integer.parseInt((String)obj.get("high"))-32)/1.8)*10)/10.0;
 			low[i] =  Math.round(((Integer.parseInt((String)obj.get("low"))-32)/1.8)*10)/10.0;
 			text[i] = (String)obj.get("text");
@@ -113,7 +113,7 @@ public class WeatherController {
 							 + " text = " + text[j]
 			);
 		}
-		
+			
 		return weather;
 	}
 }

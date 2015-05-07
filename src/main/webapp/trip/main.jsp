@@ -54,6 +54,7 @@
 <script type="text/javascript" src="local.js"></script>
 <script type="text/javascript" src="login.js"></script>
 <script type="text/javascript" src="weather.js"></script>
+<script type="text/javascript" src="weatherResult.js"></script>
 
 <title>main.jsp</title>
 </head>

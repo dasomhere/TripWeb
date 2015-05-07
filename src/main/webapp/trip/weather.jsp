@@ -3,13 +3,11 @@
 <%@include file="/WEB-INF/taglib.jspf" %>
 <section class="container">
 
-<h1>weather</h1>
+<h3>지역을 선택하세요.</h3>
 
 
-	<li class="list-group-item" data-ng-repeat="x in names" data-ng-click="weather(x.woeid)" style="text-align: center;">
+	<li class="list-group-item" data-ng-repeat="x in names" data-ng-click="weather(x.woeid, x.city)" style="text-align: center;">
 		{{x.city}}
 	</li>
-
-	
 
 </section>

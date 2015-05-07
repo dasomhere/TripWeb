@@ -2,6 +2,7 @@ package com.webapp.model;
 
 public class Weather {
 	String city;
+	String cityName;
 	double nowTemp;
 	int nowHumidity;
 	int nowWindSpeed;
@@ -14,7 +15,12 @@ public class Weather {
 	String[] text;
 	int woeid;
 	
-
+	public String getCityName() {
+		return cityName;
+	}
+	public void setCityName(String cityName) {
+		this.cityName = cityName;
+	}
 	public int getWoeid() {
 		return woeid;
 	}

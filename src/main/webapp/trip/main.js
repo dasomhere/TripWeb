@@ -14,6 +14,10 @@ myApp.config(function($routeProvider) {
 			templateUrl : "weather.jsp",
 			controller : "weatherController"
 	};
+	var weatherResult = {
+			templateUrl : "weatherResult.jsp",
+			controller : "weatherResultController"
+	};
 	var load = {
 			templateUrl : "load.jsp",
 			controller : "loadController"
@@ -30,6 +34,7 @@ myApp.config(function($routeProvider) {
 	$routeProvider.when('/', event);
 	$routeProvider.when('/local', local);
 	$routeProvider.when('/weather', weather);
+	$routeProvider.when('/weatherResult', weatherResult);
 	$routeProvider.when('/load', load);
 	$routeProvider.when('/login', login);
 	$routeProvider.when('/join', join);
@@ -42,7 +47,6 @@ myApp.controller('mainController', function($scope, $http) {
 		$http.get("/TripWeb/m/login/logout").success(function(loginResult) {
 			alert("loginResult = " + JSON.stringify(loginResult));
 			$scope.loginResult = loginResult;
-//			$scope.$parent.loginResult = loginResult;
 		}).error(function() {
 			alert("loginout error...");
 		});

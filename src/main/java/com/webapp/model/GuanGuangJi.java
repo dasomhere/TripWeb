@@ -2,7 +2,7 @@ package com.webapp.model;
 
 public class GuanGuangJi {
 	private String title;
-
+	private String firstIamge;
 	public GuanGuangJi(String title) {
 		this.title = title;
 	}

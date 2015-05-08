@@ -19,11 +19,10 @@ myApp.controller('localController', function($scope, $http) {
 	};
 	
 	$scope.type = function() {
-		alert("cityCode="+ $scope.selectedCity + "&sigunguCode="+ $scope.selectedCityGu + "&contentTypeid="+$scope.selectedType);
-		$http.get("/TripWeb/m/local/type?cityCode="+ $scope.selectedCity +"&sigunguCode=1"+ "&contentTypeId="+$scope.selectedType).success(function(types) {
+		alert("cityCode="+ $scope.selectedCity + "&sigunguCode="+ $scope.selectedCityGu + "&contentTypeId="+$scope.selectedType);
+		$http.get("/TripWeb/m/local/type?cityCode="+ $scope.selectedCity +"&sigunguCode="+$scope.selectedCityGu+"&contentTypeId="+$scope.selectedType).success(function(types) {
 			alert(JSON.stringify(types));
-			console.log(type);
-//			$scope.types = types;
+			$scope.types = types;
 			
 		}).error(function() {
 			alert("type error...");

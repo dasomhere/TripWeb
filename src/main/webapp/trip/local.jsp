@@ -22,14 +22,17 @@
 	<select data-ng-change="type()"
 			data-ng-model="selectedType">
 		<option value="12">관광지</option>
+		<option value="32">숙박</option>
+		<option value="39">음식점</option>
 	</select>
 
-<!-- <input type="button" data-ng-click="click(city)" data-ng-model="result" value="클릭"/> -->
-<!-- 	<div> -->
-<!-- 		<ul class="list-group"> -->
-<!-- 		 	<li class="list-group-item" data-ng-repeat="type in types" data-ng-click="click(city)" data-ng-model="result"> -->
-<!-- 		 		{{type}} -->
-<!-- 		 	</li> -->
-<!-- 		</ul>	 -->
-<!-- 	</div> -->
+	<hr>
+
+	<div>
+		<ul class="list-group">
+		 	<li class="list-group-item" data-ng-repeat="type in types">
+		 			{{type.title}}
+		 	</li>
+		</ul>	
+	</div>
 </div>

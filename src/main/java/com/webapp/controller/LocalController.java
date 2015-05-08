@@ -113,22 +113,22 @@ public class LocalController {
 	}
 	@RequestMapping(value="type", method=RequestMethod.GET)
 	@ResponseBody
-	public List<GuanGuangJi> guanGuang(Integer cityCode, Integer sigunguCode, Integer contentTypeid) throws IOException, ParseException{
+	public List<GuanGuangJi> guanGuang(Integer cityCode, Integer sigunguCode, Integer contentTypeId) throws IOException, ParseException{
 		log.info("###############");
 		log.info("local");
 		log.info("CityCode = " + cityCode);
 		log.info("areaCode = " + sigunguCode);
-		log.info("contentTypeId = " + contentTypeid);
+		log.info("contentTypeId = " + contentTypeId);
 		log.info("###############");
 		List<GuanGuangJi> list = new ArrayList<GuanGuangJi>();
 
-		String url = "http://api.visitkorea.or.kr/openapi/service/rest/KorService/areaBasedList?&areaCode="+cityCode + "&contentTypeId=12" + "sigunguCode="+ sigunguCode+"&numOfRows=100&pageNo=1&MobileOS=ETC&MobileApp=myxxx&_type=json&ServiceKey=";
+		String url = "http://api.visitkorea.or.kr/openapi/service/rest/KorService/areaBasedList?numOfRows=100&pageNo=1&MobileOS=ETC&MobileApp=myxxx&_type=json&ServiceKey=";
 		String key = "sA7tgy37XyQzBU2fPZpZw%2BGKNlR0BPdgP2RhAvNrw4ls2so%2F%2BgeLDAT8AHJO6CacIlHvKIfubhwPjiDXpy%2B7%2Fw%3D%3D";
-//		String type = "&areaCode="+cityCode + "&contentTypeId="+ contentTypeId + "sigunguCode="+ sigunguCode;
+		String type = "&areaCode="+ cityCode +"&contentTypeId="+contentTypeId+"&sigunguCode="+sigunguCode;
 //		log.info(type);
 
-		URL get = new URL(url+key);
-
+		URL get = new URL(url+key+type);
+		log.info(get);
 		InputStream in = get.openStream();
 
 		JSONParser parser = new JSONParser();
@@ -142,11 +142,11 @@ public class LocalController {
 		JSONObject items = (JSONObject) body.get("items");
 		JSONArray item = (JSONArray) items.get("item");
 		Iterator<JSONObject> iterator = item.iterator();
-		log.info("aosdfp");
+
 		while (iterator.hasNext()) {
 			JSONObject obj = (JSONObject)iterator.next();
+
 			String title = (String)obj.get("title");
-//			String addr2 = (String)obj.get("addr2");
 			
 			log.info(title);
 			list.add(new GuanGuangJi(title));

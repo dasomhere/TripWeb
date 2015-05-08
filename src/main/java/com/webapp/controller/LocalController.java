@@ -162,7 +162,7 @@ public class LocalController {
 		return list;
 	}
 	@ResponseBody
-	@RequestMapping(value="detail", method={RequestMethod.POST, RequestMethod.GET})
+	@RequestMapping(value="detail", method=RequestMethod.POST)
 	public List<DetailInfo> detail(@RequestBody DetailInfo detail) throws IOException, ParseException{
 		log.info("###############");
 		log.info("local");
@@ -195,11 +195,7 @@ public class LocalController {
 			
 			String title = (String)obj.get("title");
 			String firstimage2 = (String)obj.get("firstimage2");
-			Long contentId = (Long)obj.get("title");
 
-//			if(firstimage2 == null){
-//				firstimage2 = "http://placehold.it/150x100/808080/ffffff&text=No Image!";
-//			}
 			DetailInfo d = new DetailInfo();
 			d.setTitle(title);
 			log.info(d);
@@ -208,5 +204,6 @@ public class LocalController {
 		}
 		return list;
 	}
+	
 }
 

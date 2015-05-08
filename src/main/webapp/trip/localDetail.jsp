@@ -6,7 +6,7 @@
 <hr>
 <h1>지역 상세 정보 </h1>
 <hr>
-	<div>
-		{{details}}
+	<div data-ng-repeat="detail in details">
+		{{detail.title}}
 	</div>
 </div>

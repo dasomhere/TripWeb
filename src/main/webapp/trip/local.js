@@ -31,7 +31,9 @@ myApp.controller('localController', function($scope, $http) {
 	
 	$scope.contentid = function(contentid) {
 		alert(contentid);
-		$http.post("/TripWeb/m/local/detail", {contentid : contentid}).success(function(data){
+		$http.post("/TripWeb/m/local/detail", {contentid : contentid}).success(function(contentid){
+			alert(JSON.stringify(contentid));
+			$scope.$parent.contentid = contentid;
 			location.href="#localDetail";
 		}).error(function(url) {
 			alert("post error..."+ this.url);

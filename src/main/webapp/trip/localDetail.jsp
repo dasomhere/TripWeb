@@ -6,5 +6,5 @@
 <hr>
 <h1>Local Detail</h1>
 <hr>
-
+	
 </div>

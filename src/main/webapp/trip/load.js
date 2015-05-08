@@ -19,11 +19,20 @@ myApp.controller('loadController', function($scope, $http) {
 		var city = $("#city option:selected").val();
 		var category = $("#category option:selected").val();
 		alert(city + ", " + category);
-		$http.post("/TripWeb/m/load/search", {city : city, category : category}).success(function(result) {
-			$scope.result = result;
+		$http.post("/TripWeb/m/load/search", {city : city, category : category}).success(function(loadResult) {
+			$scope.loadResult = loadResult;
 		}).error(function() {
 			alert("search error...");
 		});
 	};
+	
+	$scope.detail = function(contentid, title) {
+		alert(contentid);
+		$http.post("/TripWeb/m/load/detail", {contentid : contentid, title : title}).success(function(detailInfo) {
+			$scope.detailInfo = detailInfo;
+		}).error(function() {
+			alert("LoadDetail error...");
+		});
+	}
 	
 });

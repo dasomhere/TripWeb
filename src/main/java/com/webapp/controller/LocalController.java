@@ -169,12 +169,12 @@ public class LocalController {
 		log.info("contentId = " + detail.getContentid());
 		log.info("###############");
 		List<DetailInfo> list = new ArrayList<DetailInfo>();
-
+		Integer contentid = detail.getContentid();
 		String url = "http://api.visitkorea.or.kr/openapi/service/rest/KorService/areaBasedList?defaultYN=Y&MobileOS=ETC&MobileApp=myxxx&_type=json&ServiceKey=";
 		String key = "sA7tgy37XyQzBU2fPZpZw%2BGKNlR0BPdgP2RhAvNrw4ls2so%2F%2BgeLDAT8AHJO6CacIlHvKIfubhwPjiDXpy%2B7%2Fw%3D%3D";
-		String details = "&contentId="+detail.getContentid();
+		String contentidresult = "&contentId="+contentid;
 
-		URL get = new URL(url+key+details);
+		URL get = new URL(url+key+contentidresult);
 		log.info(get);
 		InputStream in = get.openStream();
 

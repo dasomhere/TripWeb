@@ -6,7 +6,11 @@
 <hr>
 <h1>지역 상세 정보 </h1>
 <hr>
-	<div data-ng-repeat="detail in details">
-		{{detail.title}}
-	</div>
+	<div>
+	<ul class="list-group">
+	 	<li class="list-group-item" data-ng-repeat="l in loclDetail">
+			{{l.title}}	 			
+	 	</li>
+	</ul>	
+</div>
 </div>

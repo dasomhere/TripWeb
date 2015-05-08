@@ -2,11 +2,37 @@ package com.webapp.model;
 
 public class GuanGuangJi {
 	private String title;
-	private String firstIamge;
-	public GuanGuangJi(String title) {
+	private String firstimage2;
+	private Long contentid;
+	
+	public GuanGuangJi(String title, String firstimage2, Long contentid) {
 		this.title = title;
+		this.firstimage2 = firstimage2;
+		this.contentid = contentid;
 	}
 	
+	public String getFirstimage2() {
+		return firstimage2;
+	}
+	public void setFirstimage2(String firstimage2) {
+		this.firstimage2 = firstimage2;
+	}
+	public Long getContentid() {
+		return contentid;
+	}
+
+	public void setContentid(Long contentid) {
+		this.contentid = contentid;
+	}
+
+	public String getFirstimage() {
+		return firstimage2;
+	}
+
+	public void setFirstimage(String firstimage2) {
+		this.firstimage2 = firstimage2;
+	}
+
 	public String getTitle() {
 		return title;
 	}

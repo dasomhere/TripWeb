@@ -30,8 +30,12 @@
 
 	<div>
 		<ul class="list-group">
-		 	<li class="list-group-item" data-ng-repeat="type in types">
-		 			{{type.title}}
+		 	<li class="list-group-item" data-ng-repeat="type in types" data-ng-click=click(type.contentid)>
+		 			<table>
+		 			  <tr><td><img alt="" src="{{type.firstimage}}"/><td><tr>
+		 			  <tr><td>{{type.title}}</td></tr>
+		 			</table>
+		 			
 		 	</li>
 		</ul>	
 	</div>

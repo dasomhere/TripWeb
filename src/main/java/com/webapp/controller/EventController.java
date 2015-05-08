@@ -33,16 +33,17 @@ public class EventController {
 	
 	@RequestMapping(value="festival", method=RequestMethod.GET)
 	@ResponseBody
-	public List<Event> event() throws IOException, ParseException{
+	public List<Event> event(Long code) throws IOException, ParseException{
 		log.info("###############");
 		log.info("event");
 		log.info("###############");
 		
 		List<Event> list = new ArrayList<Event>();
 		
-		String url = "http://api.visitkorea.or.kr/openapi/service/rest/KorService/searchFestival?areaCode=1&cat1=A02&cat2=A0207&arrange=A&listYN=Y&pageNo=1&numOfRows=200&MobileOS=ETC&MobileApp=AppTesting&_type=json&ServiceKey=";
+		String url = "http://api.visitkorea.or.kr/openapi/service/rest/KorService/searchFestival?cat1=A02&cat2=A0207&arrange=A&listYN=Y&pageNo=1&numOfRows=200&MobileOS=ETC&MobileApp=AppTesting&_type=json&ServiceKey=";
 		String key = "sA7tgy37XyQzBU2fPZpZw%2BGKNlR0BPdgP2RhAvNrw4ls2so%2F%2BgeLDAT8AHJO6CacIlHvKIfubhwPjiDXpy%2B7%2Fw%3D%3D";
 		String eventStartMonth=null;
+		String areaCode = "&areaCode="+code;
 		
 		Date day = new Date();
 		
@@ -55,7 +56,7 @@ public class EventController {
 		}
 		
 		
-		URL get = new URL(url+key+eventStartMonth);
+		URL get = new URL(url+key+areaCode+eventStartMonth);
 		log.info(get);
 		InputStream in = get.openStream();
 
@@ -86,7 +87,7 @@ public class EventController {
 			log.info(addr1);
 			log.info(tel);
 			
-			list.add(new Event(title, firstimage, addr1, tel));
+			list.add(new Event(code, title, firstimage, addr1, tel));
 		}
 
 		

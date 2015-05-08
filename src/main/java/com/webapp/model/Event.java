@@ -2,17 +2,27 @@ package com.webapp.model;
 
 public class Event {
 	
+	private Long code;
 	private String title;
 	private String firstimage;
 	private String addr1;
 	private String tel;
 	
 	
-	public Event(String title, String firstimage, String addr1, String tel) {
+	public Event(Long code, String title, String firstimage, String addr1, String tel) {
+		this.code = code;
 		this.title = title;
 		this.firstimage = firstimage;
 		this.addr1 = addr1;
 		this.tel = tel;
+	}
+	
+	public Long getCode() {
+		return code;
+	}
+
+	public void setCode(Long code) {
+		this.code = code;
 	}
 	
 	public String getTitle() {

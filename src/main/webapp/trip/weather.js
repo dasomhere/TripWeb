@@ -5,7 +5,6 @@ myApp.controller('weatherController', function($scope, $http) {
 	
 	$http.get("weather.json").success(function(response) {
 		$scope.names = response.records;
-//		alert($scope.names[0].city);
 	});
 	
 	$scope.weather = function(woeid, city) {
@@ -13,21 +12,22 @@ myApp.controller('weatherController', function($scope, $http) {
 			$http.get("weatherLanguageChange.json").success(function(response) {
 				
 				$scope.days = response.days;
+				$scope.conditions = response.conditions;
 				
-//				alert($scope.days[0].day);
-//				alert(weather.day[0]);
-				
-				for(var i=0; i<5; i++) {
-					for(var j=0; j<7; j++) {
+				for(var i=0; i<weather.day.length; i++) {
+					for(var j=0; j<$scope.days.length; j++) {
 						if(weather.day[i] == $scope.days[j].day)
 							weather.day[i] = $scope.days[j].dayKR;
 					}
 				}
 				
-				$scope.conditions = response.conditions;
-				alert($scope.conditions[0].text);
+				for(var i=0; i<weather.code.length; i++) {
+					weather.text[i] = $scope.conditions[weather.code[i]].text;
+				}
 				
-				alert(JSON.stringify(weather));
+				weather.nowConditionText = $scope.conditions[weather.nowConditionCode].text;
+				
+//				alert(JSON.stringify(weather));
 				$scope.$parent.weather = weather;
 				location.href="#weatherResult";
 			}).error(function() {

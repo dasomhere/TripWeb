@@ -181,62 +181,48 @@ public class LoadController {
 	
 	@RequestMapping(value="detail", method=RequestMethod.POST)
 	@ResponseBody
-	public List<GuanGuangJi> detail(@RequestBody LoadDetailInfo detailInfo) throws IOException, ParseException{
+	public List<LoadDetailInfo> detail(@RequestBody DetailInfo detailInfo) throws IOException, ParseException{
 		log.info("###############");
-		log.info("search()..." + detailInfo.getContentid());
+		log.info("search()..." + detailInfo.getContentid() + " " +  detailInfo.getTitle());
 		log.info("###############");
 		
-		List<GuanGuangJi> list = new ArrayList<GuanGuangJi>();
+		List<LoadDetailInfo> list = new ArrayList<LoadDetailInfo>();
+		String title = detailInfo.getTitle();
 		
-//		String url = "http://api.visitkorea.or.kr/openapi/service/rest/KorService/areaBasedList?numOfRows=50&pageNo=1&MobileOS=AND&MobileApp=myxxx&_type=json&contentTypeId=25"
-//				   + "&areaCode=" + search.getCity()
-//				   + "&cat2=" + search.getCategory() + "&ServiceKey=";
-//		String key = "sA7tgy37XyQzBU2fPZpZw%2BGKNlR0BPdgP2RhAvNrw4ls2so%2F%2BgeLDAT8AHJO6CacIlHvKIfubhwPjiDXpy%2B7%2Fw%3D%3D";
-//		
-//		URL get = new URL(url+key);
-//		InputStream in = get.openStream();
-//
-//		JSONParser parser = new JSONParser();
-//		
-//		JSONObject jsonObject = (JSONObject) parser.parse(new InputStreamReader(in));
-//		
-//		JSONObject response = (JSONObject) jsonObject.get("response");
-//		
-//		JSONObject body = (JSONObject) response.get("body");
-//		JSONObject items = (JSONObject) body.get("items");
-//
-//		try {
-//			JSONArray item = (JSONArray) items.get("item");
-//			Iterator<JSONObject> iterator = item.iterator();
-//
-//			while (iterator.hasNext()) {
-//				JSONObject obj = (JSONObject)iterator.next();
-//
-//				String title = (String)obj.get("title");
-//				String firstimage = (String)obj.get("firstimage2");
-//				if(firstimage == null){
-//					firstimage = "http://placehold.it/150x100/808080/ffffff&text=No Image!";
-//				}
-//				Long contentid = (Long)obj.get("contentid");
-//				list.add(new GuanGuangJi(title, firstimage, contentid));
-//			}
-//		} catch(ClassCastException e) {
-//			JSONObject item = (JSONObject)items.get("item");
-//
-//			String title = (String)item.get("title");
-//			String firstimage = (String)item.get("firstimage2");
-//			if(firstimage == null){
-//				firstimage = "http://placehold.it/150x100/808080/ffffff&text=No Image!";
-//			}
-//			Long contentid = (Long)item.get("contentid");
-//			list.add(new GuanGuangJi(title, firstimage, contentid));
-//		}
+		String url = "http://api.visitkorea.or.kr/openapi/service/rest/KorService/detailInfo?numOfRows=50&pageNo=1&MobileOS=AND&MobileApp=myxxx&_type=json"
+				   + "&contentTypeId=25"
+				   + "&contentId=" + detailInfo.getContentid()
+				   + "&ServiceKey=";
+		String key = "sA7tgy37XyQzBU2fPZpZw%2BGKNlR0BPdgP2RhAvNrw4ls2so%2F%2BgeLDAT8AHJO6CacIlHvKIfubhwPjiDXpy%2B7%2Fw%3D%3D";
 		
-		
+		URL get = new URL(url+key);
+		InputStream in = get.openStream();
 
+		JSONParser parser = new JSONParser();
+		
+		JSONObject jsonObject = (JSONObject) parser.parse(new InputStreamReader(in));
+		
+		JSONObject response = (JSONObject) jsonObject.get("response");
+		
+		JSONObject body = (JSONObject) response.get("body");
+		JSONObject items = (JSONObject) body.get("items");
+
+		
+		JSONArray item = (JSONArray) items.get("item");
+		Iterator<JSONObject> iterator = item.iterator();
+
+		while (iterator.hasNext()) {
+			JSONObject obj = (JSONObject)iterator.next();
+			Long subnum = (Long)obj.get("subnum");
+			String subname = (String)obj.get("subname");
+			String subdetailoverview = (String)obj.get("subdetailoverview");
+			String subdetailimg = (String)obj.get("subdetailimg");
+			if(subdetailimg == null){
+				subdetailimg = "http://placehold.it/150x100/808080/ffffff&text=No Image!";
+			}
+			list.add(new LoadDetailInfo(title, subnum, subname, subdetailoverview, subdetailimg));
+		}
 		return list;
 	}
-	
-	
 }
 

@@ -26,6 +26,10 @@ myApp.config(function($routeProvider) {
 			templateUrl : "load.jsp",
 			controller : "loadController"
 	};
+	var loadDetail = {
+			templateUrl : "loadDetail.jsp",
+			controller : "loadDetailController"
+	};
 	var login = {
 			templateUrl : "login.jsp",
 			controller : "loginController"
@@ -41,6 +45,7 @@ myApp.config(function($routeProvider) {
 	$routeProvider.when('/weather', weather);
 	$routeProvider.when('/weatherResult', weatherResult);
 	$routeProvider.when('/load', load);
+	$routeProvider.when('/loadDetail', loadDetail);
 	$routeProvider.when('/login', login);
 	$routeProvider.when('/join', join);
 	$routeProvider.otherwise({redirectTo:'/'});

@@ -28,8 +28,9 @@ myApp.controller('loadController', function($scope, $http) {
 	
 	$scope.detail = function(contentid, title) {
 		alert(contentid);
-		$http.post("/TripWeb/m/load/detail", {contentid : contentid, title : title}).success(function(detailInfo) {
-			$scope.detailInfo = detailInfo;
+		$http.post("/TripWeb/m/load/detail", {contentid : contentid, title : title}).success(function(loadDetail) {
+			$scope.$parent.loadDetail = loadDetail;
+			location.href="#loadDetail";
 		}).error(function() {
 			alert("LoadDetail error...");
 		});

@@ -9,7 +9,6 @@ myApp.controller('localController', function($scope, $http) {
 	});
 	
 	$scope.cityChange = function() {
-		alert("cityCahnage.... = " + $scope.selectedCity);
 		$http.get("/TripWeb/m/local/gus?cityCode=" + $scope.selectedCity).success(function(gus) {
 			console.log(gus);
 			$scope.gus = gus;
@@ -19,21 +18,26 @@ myApp.controller('localController', function($scope, $http) {
 	};
 	
 	$scope.type = function() {
-		alert("cityCode="+ $scope.selectedCity + "&sigunguCode="+ $scope.selectedCityGu + "&contentTypeId="+$scope.selectedType);
+//		alert("cityCode="+ $scope.selectedCity + "&sigunguCode="+ $scope.selectedCityGu + "&contentTypeId="+$scope.selectedType);
 		$http.get("/TripWeb/m/local/type?cityCode="+ $scope.selectedCity +"&sigunguCode="+$scope.selectedCityGu+"&contentTypeId="+$scope.selectedType).success(function(types) {
 //			alert(JSON.stringify(types));
 			$scope.types = types;
+			$scope.$parent.types = types;
 		
 		}).error(function() {
 			alert("type error...");
 		});
 	};
 	
-	$scope.click = function(types) {
-//		alert(JSON.stringify(types));
-		if(types==809490){
-			alert("ㅎㅎ");
-		}
+	$scope.contentid = function(contentid) {
+		alert(contentid);
+		$http.post("/TripWeb/m/local/detail", {contentid : contentid}).success(function(data){
+			alert(data);
+			
+			location.href="#localDetail";
+		}).error(function(url) {
+			alert("post error..."+ this.url);
+		});
 	};
 	
 });

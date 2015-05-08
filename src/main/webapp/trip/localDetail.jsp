@@ -4,7 +4,9 @@
 
 <div class="container">
 <hr>
-<h1>Local Detail</h1>
+<h1>지역 상세 정보 </h1>
 <hr>
-	
+	<div>
+		{{details}}
+	</div>
 </div>

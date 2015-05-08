@@ -161,47 +161,51 @@ public class LocalController {
 		log.info("전송성공");
 		return list;
 	}
-	
-	@RequestMapping(value="detail", method=RequestMethod.POST)
 	@ResponseBody
-	public List<DetailInfo> detail(@RequestBody DetailInfo detailInfo) throws IOException, ParseException{
+	@RequestMapping(value="detail", method={RequestMethod.POST, RequestMethod.GET})
+	public List<DetailInfo> detail(@RequestBody DetailInfo detail) throws IOException, ParseException{
 		log.info("###############");
 		log.info("local");
-		log.info("contentId = " + detailInfo.getContentid());
+		log.info("contentId = " + detail.getContentid());
 		log.info("###############");
 		List<DetailInfo> list = new ArrayList<DetailInfo>();
 
-//		String url = "http://api.visitkorea.or.kr/openapi/service/rest/KorService/areaBasedList?numOfRows=100&defaultYN=Y&pageNo=1&MobileOS=ETC&MobileApp=myxxx&_type=json&ServiceKey=";
-//		String key = "sA7tgy37XyQzBU2fPZpZw%2BGKNlR0BPdgP2RhAvNrw4ls2so%2F%2BgeLDAT8AHJO6CacIlHvKIfubhwPjiDXpy%2B7%2Fw%3D%3D";
-//		String detail = "&contentId="+detailInfo.getContentid();
-//		
-//		URL get = new URL(url+key+detail);
-//		log.info(get);
-//		InputStream in = get.openStream();
-//
-//		JSONParser parser = new JSONParser();
-//		
-//		JSONObject jsonObject = (JSONObject) parser.parse(new InputStreamReader(in));
-//		
-//		JSONObject response = (JSONObject) jsonObject.get("response");
-//		JSONObject header = (JSONObject) response.get("header");
-//		
-//		JSONObject body = (JSONObject) response.get("body");
-//		JSONObject items = (JSONObject) body.get("items");
-//		JSONArray item = (JSONArray) items.get("item");
-//		Iterator<JSONObject> iterator = item.iterator();
-//
-//		while (iterator.hasNext()) {
-//			JSONObject obj = (JSONObject)iterator.next();
-//			String title = (String)obj.get("title");
-//			String firstimage2 = (String)obj.get("firstimage2");
-//			Long contentId = (Long)obj.get("title");
-//
+		String url = "http://api.visitkorea.or.kr/openapi/service/rest/KorService/areaBasedList?defaultYN=Y&MobileOS=ETC&MobileApp=myxxx&_type=json&ServiceKey=";
+		String key = "sA7tgy37XyQzBU2fPZpZw%2BGKNlR0BPdgP2RhAvNrw4ls2so%2F%2BgeLDAT8AHJO6CacIlHvKIfubhwPjiDXpy%2B7%2Fw%3D%3D";
+		String details = "&contentId="+detail.getContentid();
+
+		URL get = new URL(url+key+details);
+		log.info(get);
+		InputStream in = get.openStream();
+
+		JSONParser parser = new JSONParser();
+		
+		JSONObject jsonObject = (JSONObject) parser.parse(new InputStreamReader(in));
+		
+		JSONObject response = (JSONObject) jsonObject.get("response");
+		JSONObject header = (JSONObject) response.get("header");
+		
+		JSONObject body = (JSONObject) response.get("body");
+		JSONObject items = (JSONObject) body.get("items");
+		JSONArray item = (JSONArray) items.get("item");
+		Iterator<JSONObject> iterator = item.iterator();
+
+		while (iterator.hasNext()) {
+			JSONObject obj = (JSONObject)iterator.next();
+			
+			String title = (String)obj.get("title");
+			String firstimage2 = (String)obj.get("firstimage2");
+			Long contentId = (Long)obj.get("title");
+
 //			if(firstimage2 == null){
 //				firstimage2 = "http://placehold.it/150x100/808080/ffffff&text=No Image!";
 //			}
-//			list.add(new DetailInfo(title, firstimage2, contentId));
-//		}
+			DetailInfo d = new DetailInfo();
+			d.setTitle(title);
+			log.info(d);
+//			d.setFirstimage2(firstimage2);
+			list.add(d);
+		}
 		return list;
 	}
 }

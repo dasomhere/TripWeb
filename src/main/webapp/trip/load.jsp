@@ -18,7 +18,7 @@
 <hr>
 <div>
 	<ul class="list-group">
-	 	<li class="list-group-item" data-ng-repeat="r in result" data-ng-click=click(r.contentid)>
+	 	<li class="list-group-item" data-ng-repeat="r in loadResult" data-ng-click="detail(r.contentid, r.title)">
 	 			<table>
 	 			  <tr><td><img src="{{r.firstimage}}" style="width: 150px; height: 100px"/><td><tr>
 	 			  <tr><td>{{r.title}}</td></tr>

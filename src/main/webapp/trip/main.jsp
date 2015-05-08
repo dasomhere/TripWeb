@@ -52,6 +52,7 @@
 <script type="text/javascript" src="join.js"></script>
 <script type="text/javascript" src="load.js"></script>
 <script type="text/javascript" src="local.js"></script>
+<script type="text/javascript" src="localDetail.js"></script>
 <script type="text/javascript" src="login.js"></script>
 <script type="text/javascript" src="weather.js"></script>
 <script type="text/javascript" src="weatherResult.js"></script>

@@ -75,80 +75,153 @@
 			"code": "10",
 			"text": "어는비"
 		},
-		
-
-    <string name="weather_11">소나기</string>
-
-    <string name="weather_12">소나기</string>
-
-    <string name="weather_13">소낙눈</string>
-
-    <string name="weather_14">약한 눈</string>
-
-    <string name="weather_15">강한 눈</string>
-
-    <string name="weather_16">눈</string>
-
-    <string name="weather_17">우박</string>
-
-    <string name="weather_18">진눈깨비</string>
-
-    <string name="weather_19">황사</string>
-
-    <string name="weather_20">짙은 안개</string>
-
-    <string name="weather_21">옅은 안개</string>
-
-    <string name="weather_22">연무</string>
-
-    <string name="weather_23">강풍</string>
-
-    <string name="weather_24">약풍</string>
-
-    <string name="weather_25">추움</string>
-
-    <string name="weather_26">흐림</string>
-
-    <string name="weather_27">대체로 흐림</string> <!-- Night -->
-
-    <string name="weather_28">대체로 흐림</string> <!-- Day -->
-
-    <string name="weather_29">일부 흐림</string> <!-- Night -->
-
-    <string name="weather_30">일부 흐림</string> <!-- Day -->
-
-    <string name="weather_31">흐린 후 갬</string> <!-- Night -->
-
-    <string name="weather_32">맑음</string>
-
-    <string name="weather_33">쾌청(밤)</string> <!-- Night -->
-
-    <string name="weather_34">쾌청(낮)</string> <!-- Day -->
-
-    <string name="weather_35">비 또는 우박</string>
-
-    <string name="weather_36">더움</string>
-
-    <string name="weather_37">국지성 뇌우</string>
-
-    <string name="weather_38">산발성 뇌우</string>
-
-    <string name="weather_39">산발성 뇌우</string>
-
-    <string name="weather_40">산발성 소나기</string>
-
-    <string name="weather_41">대설</string>
-
-    <string name="weather_42">산발성 눈보라</string>
-
-    <string name="weather_43">많은 눈</string>
-
-    <string name="weather_44">약간 흐림</string>
-
-    <string name="weather_45">뇌우 소나기</string>
-
-    <string name="weather_46">눈보라</string>
-
-    <string name="weather_47">국지성 뇌우 소나기</string>
+		{
+			"code": "11",
+			"text": "소나기"
+		},
+		{
+			"code": "12",
+			"text": "소나기"
+		},
+		{
+			"code": "13",
+			"text": "소낙 눈"
+		},
+		{
+			"code": "14",
+			"text": "약한 눈"
+		},
+		{
+			"code": "15",
+			"text": "강한 눈"
+		},
+		{
+			"code": "16",
+			"text": "눈"
+		},
+		{
+			"code": "17",
+			"text": "우박"
+		},
+		{
+			"code": "18",
+			"text": "진눈깨비"
+		},
+		{
+			"code": "19",
+			"text": "황사"
+		},
+		{
+			"code": "20",
+			"text": "짙은 안개"
+		},
+		{
+			"code": "21",
+			"text": "얕은 안개"
+		},
+		{
+			"code": "22",
+			"text": "연무"
+		},
+		{
+			"code": "23",
+			"text": "강풍"
+		},
+		{
+			"code": "24",
+			"text": "약풍"
+		},
+		{
+			"code": "25",
+			"text": "추움"
+		},
+		{
+			"code": "26",
+			"text": "흐림"
+		},
+		{
+			"code": "27",
+			"text": "대체로 흐림"
+		},
+		{
+			"code": "28",
+			"text": "대체로 흐림"
+		},
+		{
+			"code": "29",
+			"text": "일부 흐림"
+		},
+		{
+			"code": "30",
+			"text": "일부 흐림"
+		},
+		{
+			"code": "31",
+			"text": "흐린 후 갬"
+		},
+		{
+			"code": "32",
+			"text": "맑음"
+		},
+		{
+			"code": "33",
+			"text": "쾌청"
+		},
+		{
+			"code": "34",
+			"text": "쾌청"
+		},
+		{
+			"code": "35",
+			"text": "비 또는 우박"
+		},
+		{
+			"code": "36",
+			"text": "더움"
+		},
+		{
+			"code": "37",
+			"text": "국지성 뇌우"
+		},
+		{
+			"code": "38",
+			"text": "산발성 뇌우"
+		},
+		{
+			"code": "39",
+			"text": "산발성 뇌우"
+		},
+		{
+			"code": "40",
+			"text": "산발성 소나기"
+		},
+		{
+			"code": "41",
+			"text": "대설"
+		},
+		{
+			"code": "42",
+			"text": "산발성 눈보라"
+		},
+		{
+			"code": "43",
+			"text": "많은 눈"
+		},
+		{
+			"code": "44",
+			"text": "약간 흐림"
+		},
+		{
+			"code": "45",
+			"text": "뇌우 소나기"
+		},
+		{
+			"code": "46",
+			"text": "눈보라"
+		},
+		{
+			"code": "47",
+			"text": "국지성 뇌우 소나기"
+		}
 	]
 }

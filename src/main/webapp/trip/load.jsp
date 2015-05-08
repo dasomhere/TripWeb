@@ -3,7 +3,7 @@
 <%@include file="/WEB-INF/taglib.jspf" %>
 <section class="container">
 
-<h1>load</h1>
+<h3>지역, 코스를 선택하세요</h3>
 
 <select id=city>
 	<option data-ng-repeat="city in citys" value="{{city.code}}">{{city.name}}</option>

@@ -8,6 +8,7 @@ public class LocalDetailInfo {
 	private String overview;
 	private String zipcode;
 	
+
 	public LocalDetailInfo(String title, String firstimage2, String addr1, String addr2, String overview, String zipcode) {
 		this.title = title;
 		this.firstimage2 = firstimage2;

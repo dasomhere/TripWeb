@@ -6,6 +6,10 @@ myApp.config(function($routeProvider) {
 			templateUrl : "event.jsp",
 			controller : "eventController"
 	};
+	var food = {
+			templateUrl : "food.jsp",
+			controller : "foodController"
+	};
 	var local = {
 			templateUrl : "local.jsp",
 			controller : "localController"
@@ -13,6 +17,14 @@ myApp.config(function($routeProvider) {
 	var localDetail = {
 			templateUrl : "localDetail.jsp",
 			controller : "localDetailController"
+	};
+	var search = {
+			templateUrl : "search.jsp",
+			controller : "searchController"
+	};
+	var stay = {
+			templateUrl : "stay.jsp",
+			controller : "stayController"
 	};
 	var weather = {
 			templateUrl : "weather.jsp",
@@ -40,8 +52,11 @@ myApp.config(function($routeProvider) {
 	};
 	
 	$routeProvider.when('/', event);
+	$routeProvider.when('/food', food);
 	$routeProvider.when('/local', local);
 	$routeProvider.when('/localDetail', localDetail);
+	$routeProvider.when('/search', search);
+	$routeProvider.when('/stay', stay);
 	$routeProvider.when('/weather', weather);
 	$routeProvider.when('/weatherResult', weatherResult);
 	$routeProvider.when('/load', load);

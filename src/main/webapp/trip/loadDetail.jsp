@@ -3,7 +3,7 @@
 <%@include file="/WEB-INF/taglib.jspf" %>
 <section class="container">
 
-<h1>{{loadDetail[0].title}}</h1>
+<h3>{{loadDetail[0].title}}</h3>
 <div>
 	<ul class="list-group">
 	 	<li class="list-group-item" data-ng-repeat="l in loadDetail">

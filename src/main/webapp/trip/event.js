@@ -8,12 +8,12 @@ myApp.controller('eventController', function($scope, $http) {
 		$scope.citys = citys;
 	});
 	
-	$scope.cityChange = function() {
-		$http.get("/TripWeb/m/event/festival?code=" + $scope.selectedCity).success(function(events) {
+	$scope.search = function() {
+		var city = $("#city option:selected").val();
+		$http.post("/TripWeb/m/event/festival", {city : city}).success(function(events) {
 			console.log(events);
 			$scope.events = events;
 		}).error(function() {
-			alert("server error...");
 		});
 	};
 	

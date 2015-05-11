@@ -8,6 +8,8 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+import javax.naming.directory.SearchResult;
+
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.json.simple.JSONArray;
@@ -15,15 +17,19 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.webapp.model.City;
-import com.webapp.model.DetailInfo;
+import com.webapp.model.LoadSearch;
+import com.webapp.model.LocalCategory;
+import com.webapp.model.LocalDetailInfo;
 import com.webapp.model.GuanGuangJi;
 import com.webapp.model.Gus;
+import com.webapp.model.LocalSearch;
 
 
 @Controller
@@ -161,20 +167,24 @@ public class LocalController {
 		log.info("전송성공");
 		return list;
 	}
+	
+	@RequestMapping(value="search", method=RequestMethod.POST)
 	@ResponseBody
-	@RequestMapping(value="detail", method=RequestMethod.POST)
-	public List<DetailInfo> detail(@RequestBody DetailInfo detail) throws IOException, ParseException{
+	public List<GuanGuangJi> serch(@RequestBody LocalSearch result) throws IOException, ParseException{
 		log.info("###############");
 		log.info("local");
-		log.info("contentId = " + detail.getContentid());
+		log.info("CityCode = " + result.getCity());
+		log.info("areaCode = " + result.getGus());
+		log.info("contentTypeId = " + result.getContentid());
 		log.info("###############");
-		List<DetailInfo> list = new ArrayList<DetailInfo>();
-		Integer contentid = detail.getContentid();
-		String url = "http://api.visitkorea.or.kr/openapi/service/rest/KorService/areaBasedList?defaultYN=Y&MobileOS=ETC&MobileApp=myxxx&_type=json&ServiceKey=";
-		String key = "sA7tgy37XyQzBU2fPZpZw%2BGKNlR0BPdgP2RhAvNrw4ls2so%2F%2BgeLDAT8AHJO6CacIlHvKIfubhwPjiDXpy%2B7%2Fw%3D%3D";
-		String contentidresult = "&contentId="+contentid;
+		List<GuanGuangJi> list = new ArrayList<GuanGuangJi>();
 
-		URL get = new URL(url+key+contentidresult);
+		String url = "http://api.visitkorea.or.kr/openapi/service/rest/KorService/areaBasedList?numOfRows=100&pageNo=1&MobileOS=ETC&MobileApp=myxxx&_type=json&ServiceKey=";
+		String key = "sA7tgy37XyQzBU2fPZpZw%2BGKNlR0BPdgP2RhAvNrw4ls2so%2F%2BgeLDAT8AHJO6CacIlHvKIfubhwPjiDXpy%2B7%2Fw%3D%3D";
+		String type = "&areaCode="+ result.getCity() +"&contentTypeId="+result.getContentid()+"&sigunguCode="+result.getGus();
+		log.info(type);
+
+		URL get = new URL(url+key+type);
 		log.info(get);
 		InputStream in = get.openStream();
 
@@ -194,16 +204,67 @@ public class LocalController {
 			JSONObject obj = (JSONObject)iterator.next();
 			
 			String title = (String)obj.get("title");
-			String firstimage2 = (String)obj.get("firstimage2");
-
-			DetailInfo d = new DetailInfo();
-			d.setTitle(title);
-			log.info(d);
-//			d.setFirstimage2(firstimage2);
-			list.add(d);
+			String firstimage = (String)obj.get("firstimage2");
+			Long contentid = (Long)obj.get("contentid");
+			if(firstimage == null){
+				firstimage = "http://placehold.it/150x100/808080/ffffff&text=No Image!";
+			}
+			if(title == null){
+				title = null;
+			}
+//			
+			list.add(new GuanGuangJi(title, firstimage, contentid));
 		}
+		log.info("전송성공");
 		return list;
 	}
 	
+	
+	
+	@RequestMapping(value="detail", method=RequestMethod.POST)
+	@ResponseBody
+	public List<LocalDetailInfo> detail(@RequestBody LocalCategory detail) throws IOException, ParseException{
+		log.info("###############");
+		log.info("local");
+		log.info("contentId = " + detail.getContentid());
+		log.info("###############");
+		List<LocalDetailInfo> list = new ArrayList<LocalDetailInfo>();
+
+		String url = "http://api.visitkorea.or.kr/openapi/service/rest/KorService/detailCommon?MobileOS=ETC&MobileApp=myxxx&_type=json&ServiceKey=";
+		String key = "sA7tgy37XyQzBU2fPZpZw%2BGKNlR0BPdgP2RhAvNrw4ls2so%2F%2BgeLDAT8AHJO6CacIlHvKIfubhwPjiDXpy%2B7%2Fw%3D%3D";
+//		String details = "&contentId="+detail.getContentid() + "&defaultYN=Y";
+		String details = "&contentId=" + detail.getContentid() + "&defaultYN=Y" + "&firstImageYN=Y" + "&addrinfoYN=Y" +"&overviewYN=Y";
+		URL get = new URL(url+key+details);
+		log.info(get);
+		InputStream in = get.openStream();
+
+		JSONParser parser = new JSONParser();
+		
+		JSONObject jsonObject = (JSONObject) parser.parse(new InputStreamReader(in));
+		
+		JSONObject response = (JSONObject) jsonObject.get("response");
+		JSONObject header = (JSONObject) response.get("header");
+
+		JSONObject body = (JSONObject) response.get("body");
+		JSONObject items = (JSONObject) body.get("items");
+
+		JSONObject item = (JSONObject) items.get("item");
+
+		String title = (String)item.get("title");
+		String firstimage2 = (String)item.get("firstimage2");
+		String addr1 = (String)item.get("addr1");
+		String addr2 = (String)item.get("addr2");
+		String overview = (String)item.get("overview");
+		String zipcode = (String)item.get("zipcode");
+		if(firstimage2 == null){
+			firstimage2 = "http://placehold.it/150x100/808080/ffffff&text=No Image!";
+		}
+		log.info(title);
+		log.info(firstimage2);
+
+		list.add(new LocalDetailInfo(title,firstimage2,addr1,addr2,overview,zipcode));
+
+		return list;
+	}
 }
 

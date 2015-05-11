@@ -4,13 +4,26 @@
 
 <div class="container">
 <hr>
-<h1>지역 상세 정보 </h1>
+<h1>{{localDetail[0].title}} </h1>
 <hr>
-	<div>
 	<ul class="list-group">
-	 	<li class="list-group-item" data-ng-repeat="l in loclDetail">
-			{{l.title}}	 			
+	 	<li class="list-group-item" data-ng-repeat="local in localDetail">
+	 			<table>
+	 			  <tr><td><img alt="" src="{{local.firstimage2}}" style="width: 150px; height: 150px; border: 1px solid black; ">
+	 			  		  		  		  
+	 			  </tr>
+	 			  <tr><td>
+	 			  		주      소 : {{local.addr1}}
+	 			  		  		{{local.addr2}}
+	 			  </td></tr>
+	 			   <tr><td> 우편주소 : {{local.zipcode}}</td></tr>
+	 			   <tr>
+	 			  	<td><h3>개요</h3>
+	 			  		{{local.overview}}
+	 			  	</td>
+	 			  </tr>
+	 			</table>
+	 			
 	 	</li>
 	</ul>	
-</div>
 </div>

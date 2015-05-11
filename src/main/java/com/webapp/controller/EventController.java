@@ -16,6 +16,7 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -24,6 +25,7 @@ import com.webapp.model.City;
 import com.webapp.model.Event;
 import com.webapp.model.GuanGuangJi;
 import com.webapp.model.Gus;
+import com.webapp.model.LoadSearch;
 
 
 @Controller
@@ -31,11 +33,11 @@ import com.webapp.model.Gus;
 public class EventController {
 		static Log log = LogFactory.getLog(EventController.class);
 	
-	@RequestMapping(value="festival", method=RequestMethod.GET)
+	@RequestMapping(value="festival", method=RequestMethod.POST)
 	@ResponseBody
-	public List<Event> event(Long code) throws IOException, ParseException{
+	public List<Event> event(Long code, @RequestBody LoadSearch city) throws IOException, ParseException{
 		log.info("###############");
-		log.info("event");
+		log.info("event" + city.getCity());
 		log.info("###############");
 		
 		List<Event> list = new ArrayList<Event>();
@@ -43,7 +45,7 @@ public class EventController {
 		String url = "http://api.visitkorea.or.kr/openapi/service/rest/KorService/searchFestival?cat1=A02&cat2=A0207&arrange=A&listYN=Y&pageNo=1&numOfRows=200&MobileOS=ETC&MobileApp=AppTesting&_type=json&ServiceKey=";
 		String key = "sA7tgy37XyQzBU2fPZpZw%2BGKNlR0BPdgP2RhAvNrw4ls2so%2F%2BgeLDAT8AHJO6CacIlHvKIfubhwPjiDXpy%2B7%2Fw%3D%3D";
 		String eventStartMonth=null;
-		String areaCode = "&areaCode="+code;
+		String areaCode = "&areaCode="+city.getCity();
 		
 		Date day = new Date();
 		

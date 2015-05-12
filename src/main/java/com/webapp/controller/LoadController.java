@@ -37,7 +37,7 @@ import com.webapp.model.LoadDetailInfo;
 import com.webapp.model.LoadSearch;
 import com.webapp.model.Weather;
 import com.webapp.model.request.AreaBasedListRequestParameter;
-import com.webapp.model.request.CityRequestParameter;
+import com.webapp.model.request.AreaCodeRequestParameter;
 import com.webapp.model.request.CategoryCodeRequestParameter;
 import com.webapp.model.request.DetailInfoRequestParameter;
 import com.webapp.model.response.Items;
@@ -55,7 +55,7 @@ public class LoadController {
 		
 	@RequestMapping(value="city", method=RequestMethod.GET)
 	@ResponseBody
-	public ResponseMessage city(CityRequestParameter request) {
+	public ResponseMessage city(AreaCodeRequestParameter request) {
 		log.info("###############");
 		log.info("load");
 		log.info("###############");

@@ -1,39 +1,52 @@
 package com.webapp.controller;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.net.URL;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.Iterator;
-import java.util.List;
-
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+<<<<<<< HEAD
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
+=======
+import org.springframework.beans.factory.annotation.Autowired;
+>>>>>>> 9a3574bb1cbe56ee356a7ef5ccb806818e331468
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+<<<<<<< HEAD
 import com.webapp.model.City;
 import com.webapp.model.Event;
 import com.webapp.model.Eventmonth;
+=======
+import com.webapp.model.request.AreaCodeRequestParameter;
+import com.webapp.model.request.SearchFestivalRequestParameter;
+import com.webapp.model.response.ResponseMessage;
+import com.webapp.service.TourApiService;
+>>>>>>> 9a3574bb1cbe56ee356a7ef5ccb806818e331468
 
 
 @Controller
 @RequestMapping("/event")
 public class EventController {
+<<<<<<< HEAD
 		static Log log = LogFactory.getLog(EventController.class);
+=======
+	static Log log = LogFactory.getLog(EventController.class);
+	
+	@Autowired
+	TourApiService tour;
+>>>>>>> 9a3574bb1cbe56ee356a7ef5ccb806818e331468
 	
 	@RequestMapping(value="festival", method=RequestMethod.POST)
 	@ResponseBody
+<<<<<<< HEAD
 	public List<Event> event(@RequestBody Eventmonth city) throws IOException, ParseException{
+=======
+	public ResponseMessage city(AreaCodeRequestParameter request) {
+>>>>>>> 9a3574bb1cbe56ee356a7ef5ccb806818e331468
 		log.info("###############");
 		log.info("event" + city.getCitys() + "month" + city.getMonth());
 		log.info("###############");
@@ -103,6 +116,23 @@ public class EventController {
 		return list;
 	}
 	
+<<<<<<< HEAD
+=======
+	@RequestMapping(value="festival", method=RequestMethod.POST)
+	@ResponseBody
+	public ResponseMessage festival(@RequestBody SearchFestivalRequestParameter request) {
+		log.info("###############");
+		log.info("festival");
+		log.info("###############");
+	
+		return tour.getApi(request.getUrl());
+	}
+	
+	
+	
+	
+	
+>>>>>>> 9a3574bb1cbe56ee356a7ef5ccb806818e331468
 
 }
 

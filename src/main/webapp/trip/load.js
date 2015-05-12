@@ -2,6 +2,7 @@
 myApp.controller('loadController', function($scope, $http) {
 	$scope.$parent.pageClass = 'page-load';
 	$http.get("/TripWeb/m/load/city").success(function(citys) {
+		alert(citys);
 		console.log(citys);
 		$scope.citys = citys;
 	}).error(function() {

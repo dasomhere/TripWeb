@@ -33,7 +33,7 @@ import com.webapp.model.Weather;
 
 
 @Controller
-@RequestMapping("/load")
+@RequestMapping("/search")
 public class SearchController {
 		static Log log = LogFactory.getLog(SearchController.class);
 	

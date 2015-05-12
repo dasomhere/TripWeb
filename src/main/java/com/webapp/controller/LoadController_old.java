@@ -3,12 +3,10 @@ package com.webapp.controller;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
 
 import javax.xml.soap.Detail;
 
@@ -24,9 +22,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonSyntaxException;
 import com.webapp.model.City;
 import com.webapp.model.DetailInfo;
 import com.webapp.model.GuanGuangJi;
@@ -35,44 +30,50 @@ import com.webapp.model.LoadCategory;
 import com.webapp.model.LoadDetailInfo;
 import com.webapp.model.LoadSearch;
 import com.webapp.model.Weather;
-import com.webapp.model.request.CityRequestParameter;
-import com.webapp.model.response.Items;
-import com.webapp.model.response.ResponseMessage;
 
 
 @Controller
-@RequestMapping("/load")
-public class LoadController {
-		static Log log = LogFactory.getLog(LoadController.class);
+@RequestMapping("/loaddd")
+public class LoadController_old {
+		static Log log = LogFactory.getLog(LoadController_old.class);
 	
 	@RequestMapping(value="city", method=RequestMethod.GET)
 	@ResponseBody
-	public Map<Object, Object>[] city(CityRequestParameter request) {
+	public List<City> city() throws IOException, ParseException{
 		log.info("###############");
 		log.info("load");
 		log.info("###############");
 		
-		Gson g = new GsonBuilder().create();
-
-		InputStream in = null;
-		ResponseMessage msg= null;
-		Items items = null;
-		Map<Object, Object>[] item = null;
-		try {
-			URL u = new URL(request.getUrl());
-			in = u.openStream();
-			msg = g.fromJson(new InputStreamReader(in), ResponseMessage.class);
-			items = msg.getResponse().getBody().getItems();
-			item = msg.getResponse().getBody().getItems().getItem();
-		} catch (MalformedURLException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
-		} catch (JsonSyntaxException e) {
-			msg = new ResponseMessage();
-		}
+		List<City> list = new ArrayList<City>();
 		
-		return item;
+		String url = "http://api.visitkorea.or.kr/openapi/service/rest/KorService/areaCode?numOfRows=30&pageNo=1&MobileOS=AND&MobileApp=myxxx&_type=json&ServiceKey=";
+		String key = "sA7tgy37XyQzBU2fPZpZw%2BGKNlR0BPdgP2RhAvNrw4ls2so%2F%2BgeLDAT8AHJO6CacIlHvKIfubhwPjiDXpy%2B7%2Fw%3D%3D";
+		
+		URL get = new URL(url+key);
+		InputStream in = get.openStream();
+
+		JSONParser parser = new JSONParser();
+
+		JSONObject jsonObject = (JSONObject) parser.parse(new InputStreamReader(in));
+		
+		JSONObject response = (JSONObject) jsonObject.get("response");
+		
+		JSONObject body = (JSONObject) response.get("body");
+		JSONObject items = (JSONObject) body.get("items");
+		JSONArray item = (JSONArray) items.get("item");
+		
+		Iterator<JSONObject> iterator = item.iterator();
+		while (iterator.hasNext()) {
+			JSONObject obj = (JSONObject)iterator.next();
+			Long code = (Long)obj.get("code");
+			String name = (String)obj.get("name");
+			
+			log.info(code);
+			log.info(name);
+			list.add(new City(code, name));
+		}
+
+		return list;
 	}
 	
 	@RequestMapping(value="category", method=RequestMethod.GET)

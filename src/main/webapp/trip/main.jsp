@@ -76,7 +76,7 @@
 		<div class="navbar-mobile btn-group btn-group-justified" class="dropdown">
 			<a href="#event" class="btn btn-default">행사</a>
 			<a href="#local" class="btn btn-default">관광지</a>
-			<a href="#load" class="btn btn-default">코스</a>
+			<a href="#load" class="btn btn-default">추천 코스</a>
 			<a href="#weather" class="btn btn-default">날씨</a>
 		</div>
 		

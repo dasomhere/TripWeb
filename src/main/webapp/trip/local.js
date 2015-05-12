@@ -39,14 +39,20 @@ myApp.controller('localController', function($scope, $http) {
 	};
 	
 	$scope.contentid = function(contentid) {
-		$http.post("/TripWeb/m/local/detail", {contentid : contentid}).success(function(localDetail){
-			$scope.$parent.localDetail = localDetail;
-			location.href="#localDetail";
-		}).error(function(url) {
-			alert("post error..."+ this.url);
+		if($scope.selectedType == 12){
+			alert(contentid + ", " + $scope.selectedType);
+			$http.post("/TripWeb/m/local/detail", {contentid : contentid, contenttypeid : $scope.selectedType}).success(function(localDetail){
+				$scope.$parent.localDetail = localDetail;
+				location.href="#localDetail";
+			})
+			$http.post("/TripWeb/m/local/detailImage", {contentid : contentid, contenttypeid : $scope.selectedType}).success(function(localDetailImage){
+					$scope.$parent.localDetailImage = localDetailImage;
+					location.href="#localDetail";
+			}).error(function(url) {
+				alert("없는 이미짖입니다.");
 		});
 	};
-	
+	}
 });
 
 

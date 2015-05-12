@@ -29,13 +29,20 @@
 		<option value="39">음식점</option>
 	</select>
 	
+	<select data-ng-switch="selectedType">
+		<option data-ng-switch-when="32">한옥</option>
+		<option data-ng-switch-when="32">베니키아</option>
+		<option data-ng-switch-when="32">굿스테이</option>
+		<option data-ng-switch-default>선택사항 없음</option>
+	</select>
+	
 	<button data-ng-click="select()" class="btn btn-default" type="button">조회</button>
 
 	<hr>
 
 	<div>
 		<ul class="list-group">
-		 	<li class="list-group-item" data-ng-repeat="type in localResult" data-ng-click=contentid(type.contentid)>
+		 	<li class="list-group-item" data-ng-repeat="type in localResult" data-ng-click=contentid(type.contentid,type.contenttypeid)>
 		 			<table>
 		 			  <tr><td><img alt="" src="{{type.firstimage}}" style="width: 200px" height="150px"/><td><tr>
 		 			  <tr><td>{{type.title}}</td></tr>

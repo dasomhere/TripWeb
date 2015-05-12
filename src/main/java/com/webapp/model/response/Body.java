@@ -1,17 +1,16 @@
 package com.webapp.model.response;
 
-import java.util.Map;
 
 public class Body {
-	Items items;
+	Object items;
 	Long numOfRows;
 	Long pageNo;
 	Long totalCount;
 	
-	public Items getItems() {
+	public Object getItems() {
 		return items;
 	}
-	public void setItems(Items items) {
+	public void setItems(Object items) {
 		this.items = items;
 	}
 	public Long getNumOfRows() {

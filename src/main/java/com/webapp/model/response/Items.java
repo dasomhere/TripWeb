@@ -1,16 +1,19 @@
 package com.webapp.model.response;
 
+import java.util.HashMap;
 import java.util.Map;
 
 public class Items {
-	Map<Object, Object>[] item;
+	Map[] item = new HashMap[0];
 
-	public Map<Object, Object>[] getItem() {
+	public Map[] getItem() {
 		return item;
 	}
 
-	public void setItem(Map<Object, Object>[] item) {
+	public void setItem(Map[] item) {
 		this.item = item;
 	}
+	
+	
 
 }

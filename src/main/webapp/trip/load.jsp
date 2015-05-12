@@ -19,11 +19,13 @@
 <div>
 	<ul class="list-group">
 	 	<li class="list-group-item" data-ng-repeat="r in loadResult" data-ng-click="detail(r.contentid, r.title)">
-	 			<table>
-	 			  <tr><td><img src="{{r.firstimage}}" style="width: 150px; height: 100px"/><td><tr>
-	 			  <tr><td>{{r.title}}</td></tr>
-	 			</table>
-	 			
+ 			<table>
+ 			  <tr><td>
+ 			  	<img src="{{r.firstimage}}" style="width: 150px; height: 100px"/>
+ 			  	<img src="http://placehold.it/150x100/808080/ffffff&text=No Image!" style="width: 150px; height: 100px" ng-hide="r.firstimage != null"/>
+ 			  <td><tr>
+ 			  <tr><td>{{r.title}}</td></tr>
+ 			</table>
 	 	</li>
 	</ul>	
 </div>

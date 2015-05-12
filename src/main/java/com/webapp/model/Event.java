@@ -1,5 +1,7 @@
 package com.webapp.model;
 
+import java.util.Date;
+
 public class Event {
 	
 	private Long code;
@@ -7,22 +9,20 @@ public class Event {
 	private String firstimage;
 	private String addr1;
 	private String tel;
+	private Long eventstartdate;
+	private Long eventenddate;
 	
+	public Event(){
+		
+	}
 	
-	public Event(Long code, String title, String firstimage, String addr1, String tel) {
-		this.code = code;
+	public Event( String title, String firstimage, String addr1, String tel, Long eventstartdate, Long eventenddate) {
 		this.title = title;
 		this.firstimage = firstimage;
 		this.addr1 = addr1;
 		this.tel = tel;
-	}
-	
-	public Long getCode() {
-		return code;
-	}
-
-	public void setCode(Long code) {
-		this.code = code;
+		this.eventstartdate = eventstartdate;
+		this.eventenddate = eventenddate;
 	}
 	
 	public String getTitle() {
@@ -35,7 +35,7 @@ public class Event {
 	public String getFirstimage() {
 		return firstimage;
 	}
-	public void setFirstimage2(String firstimage) {
+	public void setFirstimage(String firstimage) {
 		this.firstimage = firstimage;
 	}
 	public String getAddr1() {
@@ -49,6 +49,22 @@ public class Event {
 	}
 	public void setTel(String tel) {
 		this.tel = tel;
+	}
+	
+	public Long getEventstartdate() {
+		return eventstartdate;
+	}
+
+	public void setEventstartdate(Long eventstartdate) {
+		this.eventstartdate = eventstartdate;
+	}
+
+	public Long getEventenddate() {
+		return eventenddate;
+	}
+
+	public void setEventenddate(Long eventenddate) {
+		this.eventenddate = eventenddate;
 	}
 
 }

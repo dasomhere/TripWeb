@@ -10,17 +10,15 @@ myApp.controller('eventController', function($scope, $http) {
 	
 	$scope.search = function() {
 		var city = $("#city option:selected").val();
-		$http.post("/TripWeb/m/event/festival", {city : city}).success(function(events) {
+		var month = $("#month option:selected").val();		
+		$http.post("/TripWeb/m/event/festival", {citys : city, month : month}).success(function(events) {
 			console.log(events);
 			$scope.events = events;
 		}).error(function() {
 		});
 	};
 	
-//	$http.get("/TripWeb/m/event/festival").success(function(events) {
-//		console.log(events);
-//		$scope.events=events;
-//	});
+
 	
 });
 

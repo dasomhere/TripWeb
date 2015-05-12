@@ -4,22 +4,21 @@ import java.net.URLEncoder;
 
 
 public class SearchFestivalRequestParameter extends RequestParameter {
-	String serviceUrl = "http://api.visitkorea.or.kr/openapi/service/rest/KorService/areaBasedList";
+	String serviceUrl = "http://api.visitkorea.or.kr/openapi/service/rest/KorService/searchFestival";
 	String areaCode = "";
-	String contentTypeId = "";
-	String sigunguCode = "";
-	String cat2 = "";
+	String month = "";
 	
 	public String getQueryString() {
 		String queryString="";
 		queryString += super.getQueryString();
+		queryString += "&cat1=A02&cat2=A0207&arrange=A&listYN=Y";
 		queryString += "&areaCode=" + areaCode;
-		queryString += "&contentTypeId=" + contentTypeId;
-		queryString += "&sigunguCode=" + sigunguCode;
-		queryString += "&cat2=" + cat2;
+		queryString += "&eventStartDate=" + "2015" + month + "1";
+		queryString += "&eventEndDate=" + "2015" + month + "31";
 		
 		return queryString;
 	}
+	
 	public String getUrl() {
 		
 		return serviceUrl + "?" + getQueryString();
@@ -31,24 +30,14 @@ public class SearchFestivalRequestParameter extends RequestParameter {
 	public void setAreaCode(String areaCode) {
 		this.areaCode = areaCode;
 	}
-	public String getContentTypeId() {
-		return contentTypeId;
+	public String getMonth() {
+		return month;
 	}
-	public void setContentTypeId(String contentTypeId) {
-		this.contentTypeId = contentTypeId;
+	public void setMonth(String month) {
+		this.month = month;
 	}
-	public String getSigunguCode() {
-		return sigunguCode;
-	}
-	public void setSigunguCode(String sigunguCode) {
-		this.sigunguCode = sigunguCode;
-	}
-	public String getCat2() {
-		return cat2;
-	}
-	public void setCat2(String cat2) {
-		this.cat2 = cat2;
-	}
+	
+	
 	
 
 }

@@ -3,9 +3,9 @@ myApp.controller('eventController', function($scope, $http) {
 	$scope.$parent.pageClass = 'page-event';
 //	alert("eventController xxx");
 	
-	$http.get("/TripWeb/m/local/city").success(function(citys) {
+	$http.get("/TripWeb/m/event/city").success(function(citys) {
 		console.log(citys);
-		$scope.citys = citys;
+		$scope.citys = citys.response.body.items.item;
 	});
 	
 	$scope.search = function() {

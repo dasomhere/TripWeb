@@ -8,16 +8,17 @@
 	<ul class="list-group">
 	 	<li class="list-group-item" data-ng-repeat="event in eventDetail">
 	 		<table>
-	 			  <tr><td>장소 : {{event.eventplace}}</td></tr>
-	 			  <tr><td>연령 : {{event.agelimit}}<td><tr>
-	 			  <tr><td>기간 : {{event.eventstartdate}} - {{event.eventenddate}}</td></tr>
-	 			  <tr><td>전화번호  : {{event.sponsor1tel}}</td></tr>
-	 			  <tr><td>행사 시간 : {{event.spendtimefestival}}</td></tr>
-	 			  <tr><td>홈페이지 : <a href="{{event.eventhomepage}}">{{event.eventhomepage}}</a></td></tr>
-	 			  <tr><td>예매 : {{event.bookingplace}}</td></tr>
-	 			  <tr><td>이용요금  : {{event.usetimefestival}}</td></tr>
-	 			  <tr><td>행사 프로그램 : {{event.program}}</td></tr>
-	 			  <tr><td>오시는 길 : {{event.placeinfo}}</td></tr>
+	 			  <tr><td><b>장소 : </b>{{event.eventplace}}</td></tr>
+	 			  <tr><td><b>연령 : </b>{{event.agelimit}}<td><tr>
+	 			  <tr><td><b>기간 : </b>{{event.eventstartdate}} - {{event.eventenddate}}</td></tr>
+	 			  <tr><td><b>전화번호 : </b>{{event.sponsor1tel}}</td></tr>
+	 			  <tr><td><b>행사 시간 : </b>{{event.spendtimefestival}}</td></tr>
+	 			  <tr><td><b>홈페이지 : </b><a href="{{event.eventhomepage}}">{{event.eventhomepage}}</a></td></tr>
+<!-- 	 			  <tr><td><b>예매 : 없다</b>없다</td></tr> {{event.bookingplace}}-->
+	 			  <tr><td data-ng-if="event.bookingplace == null"><b>예매 :</b>ㅇㅇ</td></tr> 
+	 			  <tr><td><b>이용요금 : </b>{{event.usetimefestival}}</td></tr>
+	 			  <tr><td><b>행사 프로그램 : </b>{{event.program}}</td></tr>
+	 			  <tr><td><b>오시는길 : </b>{{event.placeinfo}}</td></tr>
 	 			</table>
 	 			
 	 	</li>

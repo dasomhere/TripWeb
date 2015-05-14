@@ -64,6 +64,26 @@ public class SearchController {
 		return tour.getApi(request.getUrl());
 	}
 	
+	@RequestMapping(value="city", method=RequestMethod.GET)
+	@ResponseBody
+	public ResponseMessage city(AreaCodeRequestParameter request) {
+		log.info("###############");
+		log.info("search.city()...");
+		log.info("###############");
+		
+		return tour.getApi(request.getUrl());
+	}
+	
+	@RequestMapping(value="sigungu", method=RequestMethod.GET)
+	@ResponseBody
+	public ResponseMessage sigungu(AreaCodeRequestParameter request) {
+		log.info("###############");
+		log.info("search.sigungu()...");
+		log.info("###############");
+		
+		return tour.getApi(request.getUrl());
+	}
+	
 //	@RequestMapping(value="detail", method=RequestMethod.GET)
 //	@ResponseBody
 //	public ResponseMessage detail(DetailInfoRequestParameter request) {

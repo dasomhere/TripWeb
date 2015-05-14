@@ -49,6 +49,7 @@
 <link rel="stylesheet" href="style.css"/>
 <script type="text/javascript" src="main.js"></script>
 <script type="text/javascript" src="event.js"></script>
+<script type="text/javascript" src="eventDetail.js"></script>
 <script type="text/javascript" src="join.js"></script>
 <script type="text/javascript" src="load.js"></script>
 <script type="text/javascript" src="loadDetail.js"></script>

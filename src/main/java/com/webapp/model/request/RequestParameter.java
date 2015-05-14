@@ -8,8 +8,14 @@ public class RequestParameter {
 	String mobileOS = "AND";
 	String mobileApp = "EmpWeb";
 	String _type = "json";
+<<<<<<< HEAD
 //	String serviceKey = "sA7tgy37XyQzBU2fPZpZw%2BGKNlR0BPdgP2RhAvNrw4ls2so%2F%2BgeLDAT8AHJO6CacIlHvKIfubhwPjiDXpy%2B7%2Fw%3D%3D";
 	String serviceKey = "AaxqTg02PVW%2BZhaIkh4fVAIiknK6EU6ZkfT1lQEHEo2PRlldpzfhjoBwE63YKQGpiY4JdZCjCktTW2yatRX%2FgA%3D%3D";
+=======
+	String serviceKey = "AaxqTg02PVW%2BZhaIkh4fVAIiknK6EU6ZkfT1lQEHEo2PRlldpzfhjoBwE63YKQGpiY4JdZCjCktTW2yatRX%2FgA%3D%3D";
+//	String serviceKey = "sA7tgy37XyQzBU2fPZpZw%2BGKNlR0BPdgP2RhAvNrw4ls2so%2F%2BgeLDAT8AHJO6CacIlHvKIfubhwPjiDXpy%2B7%2Fw%3D%3D";
+
+>>>>>>> d832fef068d5f7dd152f98c7d390e5e4362edf8f
 	public String getQueryString() {
 		String queryString="";
 		queryString += "numOfRows=" + numOfRows;

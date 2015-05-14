@@ -14,18 +14,19 @@ myApp.controller('searchController', function($scope, $http) {
 			alert("search error...");
 		});
 		
-//		$http.post("/TripWeb/m/login/login", {id : id, password : password}).success(function(loginResult) {
-//			alert("loginResult = " + JSON.stringify(loginResult));
-//			$scope.loginResult = loginResult;
-//			if(loginResult.loginStatus == false) {
-//				$("#idcheck").html("아이디/비밀번호가 올바르지 않습니다.");
-//			} else {
-//				$scope.$parent.loginResult = loginResult;
-//				location.href="#event";
-//			}
-//		}).error(function() {
-//			alert("login error...");
-//		});
+		
+		
 	};
-	
+	$http.get("/TripWeb/m/search/city").success(function(citys) {
+		$scope.convertAreacode = function(areacode, sigungucode) {
+			alert(areacode + " " + sigungucode);
+//			$http.get("/TripWeb/m/search/sigungu?areaCode=" + areacode).success(function(sigungus) {
+//				for(var i=0; i<citys.response.body.items.item.length; i++) {
+//					if(areacode == citys.response.body.items.item[i].code)
+//						return citys.response.body.items.item[i].name;
+//				}
+//				
+//			});
+		}
+	});
 });

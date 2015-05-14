@@ -19,7 +19,18 @@ myApp.controller('eventController', function($scope, $http) {
 		});
 	};
 	
-
+	$scope.detail = function(contentid) {
+		$http.get("/TripWeb/m/event/detail?contentId=" + contentid + "&contentTypeId=15").success(function(eventDetail){
+			alert(eventDetail);
+			$scope.$parent.eventDetail = eventDetail.response.body.items.item;
+			alert(contentid);
+			location.href="#eventDetail";
+		}).error(function(url) {
+			alert("post error..."+ this.url);
+		});
+	};
+	
+	
 	
 });
 

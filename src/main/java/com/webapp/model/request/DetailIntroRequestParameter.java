@@ -13,6 +13,7 @@ public class DetailIntroRequestParameter extends RequestParameter {
 		queryString += super.getQueryString();
 		queryString += "&contentId=" + contentId;
 		queryString += "&contentTypeId=" + contentTypeId;
+		queryString += "&IntroYN=Y" ;
 		
 		return queryString;
 	}

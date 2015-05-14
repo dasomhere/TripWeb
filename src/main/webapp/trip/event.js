@@ -11,10 +11,11 @@ myApp.controller('eventController', function($scope, $http) {
 	$scope.search = function() {
 		var city = $("#city option:selected").val();
 		var month = $("#month option:selected").val();		
-		$http.post("/TripWeb/m/event/festival", {citys : city, month : month}).success(function(events) {
+		$http.get("/TripWeb/m/event/festival?areaCode=" + city + "&month=" + month).success(function(events) {
 			console.log(events);
-			$scope.events = events;
+			$scope.events = events.response.body.items.item;
 		}).error(function() {
+			alert("festival error...");
 		});
 	};
 	

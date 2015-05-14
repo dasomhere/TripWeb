@@ -3,8 +3,8 @@ package com.webapp.model.request;
 import java.net.URLEncoder;
 
 
-public class DetailInfoRequestParameter extends RequestParameter {
-	String serviceUrl = "http://api.visitkorea.or.kr/openapi/service/rest/KorService/detailInfo";
+public class ImageInfoRequestParameter extends RequestParameter {
+	String serviceUrl = "http://api.visitkorea.or.kr/openapi/service/rest/KorService/detailImage";
 	String contentId = "";
 	String contentTypeId = "";
 	
@@ -13,10 +13,11 @@ public class DetailInfoRequestParameter extends RequestParameter {
 		queryString += super.getQueryString();
 		queryString += "&contentId=" + contentId;
 		queryString += "&contentTypeId=" + contentTypeId;
+		queryString += "&imageYN=Y";
 		
 		return queryString;
 	}
-	public String getUrl() {	
+	public String getUrl() {
 		
 		return serviceUrl + "?" + getQueryString();
 	}

@@ -17,7 +17,7 @@ public class UserInfoService {
 	public void setDataSource(DataSource ds) {
 		dataSource = ds;
 	}
-
+	
 	public User getDeptInfo(String id, String pwd) {
 
 		User user = userdao.selectByUserid(id, pwd);

@@ -4,10 +4,16 @@ myApp.controller('searchController', function($scope, $http) {
 	
 	$scope.search = function() {
 		var keyword=$("#keyword").val();
+		alert(keyword);
 		if(keyword == '') {
 			return false;
 		}
-		alert(keyword);
+		$http.get("/TripWeb/m/search/search?keyword=" + keyword).success(function(searchResult) {
+			$scope.searchResult = searchResult.response.body.items.item;
+		}).error(function() {
+			alert("search error...");
+		});
+		
 //		$http.post("/TripWeb/m/login/login", {id : id, password : password}).success(function(loginResult) {
 //			alert("loginResult = " + JSON.stringify(loginResult));
 //			$scope.loginResult = loginResult;

@@ -3,7 +3,7 @@ package com.webapp.model.request;
 import java.net.URLEncoder;
 import java.util.Map;
 
-public class SearchRequestParameter extends RequestParameter {
+public class SearchKeywordRequestParameter extends RequestParameter {
 	String serviceUrl = "http://api.visitkorea.or.kr/openapi/service/rest/KorService/searchKeyword";
 	String keyword;
 	

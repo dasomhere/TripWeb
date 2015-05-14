@@ -33,9 +33,9 @@ public class EventController {
 		return tour.getApi(request.getUrl());
 	}
 	
-	@RequestMapping(value="festival", method=RequestMethod.POST)
+	@RequestMapping(value="festival", method=RequestMethod.GET)
 	@ResponseBody
-	public ResponseMessage festival(@RequestBody SearchFestivalRequestParameter request) {
+	public ResponseMessage festival(SearchFestivalRequestParameter request) {
 		log.info("###############");
 		log.info("festival");
 		log.info("###############");

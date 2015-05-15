@@ -33,6 +33,7 @@ import com.webapp.model.request.CategoryCodeRequestParameter;
 import com.webapp.model.request.DetailCommonRequestParameter;
 import com.webapp.model.request.DetailInfoRequestParameter;
 import com.webapp.model.request.DetailIntroRequestParameter;
+import com.webapp.model.request.HanOkInfoRequestParameter;
 import com.webapp.model.request.ImageInfoRequestParameter;
 import com.webapp.model.response.ResponseMessage;
 import com.webapp.service.TourApiService;
@@ -105,7 +106,15 @@ public class LocalController {
 		
 		return tour.getApi(request.getUrl());
 	}
-	
+	@RequestMapping(value="hanokinfo", method=RequestMethod.GET)
+	@ResponseBody
+	public ResponseMessage hanokinfo(HanOkInfoRequestParameter request) {
+		log.info("###############");
+		log.info("local hanokinfo");
+		log.info("###############");
+		
+		return tour.getApi(request.getUrl());
+	}
 	
 	
 //	@RequestMapping(value="detail", method=RequestMethod.POST)

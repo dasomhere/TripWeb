@@ -17,17 +17,14 @@
 		<option data-ng-repeat="sigunguCode in gus" value="{{sigunguCode.code}}">{{sigunguCode.name}}</option>
 	</select>
 	
-	<select id=contentTypeId>
+	<select id="contentTypeId" data-ng-click="stay()">
 		<option value="12">관광지</option>
 		<option value="32">숙박</option>
 		<option value="39">음식점</option>
 	</select>
 	
-	<select data-ng-switch="contentTypeId">
-		<option data-ng-switch-when="32">한옥</option>
-		<option data-ng-switch-when="32">베니키아</option>
-		<option data-ng-switch-when="32">굿스테이</option>
-		<option data-ng-switch-default>선택사항 없음</option>
+	<select id="select">
+
 	</select>
 	
 	<button data-ng-click="search()" class="btn btn-default" type="button">조회</button>
@@ -36,7 +33,7 @@
 
 	<div>
 		<ul class="list-group">
-		 	<li class="list-group-item" data-ng-repeat="type in localResult" data-ng-click=contentid(type.contentid,type.contenttypeid)>
+		 	<li class="list-group-item" data-ng-repeat="type in localResult" data-ng-click=contentid(type.contentid,type.contenttypeid,type.areaCode,type.sigunguCode)>
 		 			<table>
 		 			  <tr><td><img alt="" src="{{type.firstimage}}" style="width: 200px" height="150px"/>
 		 			  	<img src="http://placehold.it/150x100/808080/ffffff&text=No Image!" style="width: 150px; height: 100px" data-ng-hide="type.firstimage != null"/>

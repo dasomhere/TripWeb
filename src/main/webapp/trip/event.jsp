@@ -27,14 +27,29 @@
 		
 <button data-ng-click="search()">검색</button>	
 	<div>
-		 <li class="list-group-item" data-ng-repeat="event in events" data-ng-click=detail(event.contentid) style="text-align: center;">
-		 		<h3>{{event.title}}</h3> <br>
+		 <li class="list-group-item" data-ng-repeat="event in events.items.item" data-ng-click = "detail(event.contentid, event.title)" style="text-align: center;">
 		 		<img alt=""	src="{{event.firstimage}}" style="width: 200px; height: 250px"/> <br>
-		 		<img src="http://placehold.it/150x100/808080/ffffff&text=No Image!" style="width: 150px; height: 100px" ng-hide="event.firstimage != null"/>
-				<h4>{{event.addr1}}</h4> <br>
+		 		<img src="http://placehold.it/150x100/808080/ffffff&text=No Image!" style="width: 200px; height: 250px" ng-hide="event.firstimage != null"/>
+				<h4>{{event.title}}</h4> <br>
 		 			
 		</li>	
 	</div>
 		
+	</div>
+	
+	<div align="center">
+	<pagination total-items="events.totalCount" 
+				ng-model="currentPage"
+				items-per-page="itemsPerPage"
+				max-size="10" 
+				class="pagination-sm" 
+				first-text="&laquo;"
+				last-text="&raquo;"
+				boundary-links="true" 
+				direction-links="false"
+				rotate="false" num-pages="numPages"
+				ng-change="changePage()"
+				
+				></pagination>	
 	</div>
 </div>

@@ -19,6 +19,7 @@
 <c:url var="angularSanitize" value="/node_modules/angular-sanitize"/>
 <c:url var="angularAnimate" value="/node_modules/angular-animate"/>
 <c:url var="angularRoute" value="/node_modules/angular-route"/>
+<c:url var="angularBootstrap" value="/node_modules/angular-bootstrap/dist"/>
 
 <c:url var="font" value="/css/font.css"/>
 
@@ -32,6 +33,8 @@
 <script type="text/javascript" src="${angularSanitize}/angular-sanitize.min.js"></script>
 <script type="text/javascript" src="${angularAnimate}/angular-animate.min.js"></script>
 <script type="text/javascript" src="${angularRoute}/angular-route.min.js"></script>
+<script type="text/javascript" src="${angularBootstrap}/ui-bootstrap.min.js"></script>
+<script type="text/javascript" src="${angularBootstrap}/ui-bootstrap-tpls.min.js"></script>
 
 <link rel="stylesheet" type="text/css" href="${font}">
 

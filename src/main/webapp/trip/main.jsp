@@ -1,17 +1,11 @@
-<%@page import="java.io.InputStream"%>
-<%@page import="java.util.Scanner"%>
-<%@page import="java.net.URL"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@include file="/WEB-INF/taglib.jspf" %>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
-<html data-ng-app="myApp">
+<html data-ng-app="tourApp">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width; initial-scale=1.0">
-
-<%@include file="/WEB-INF/taglib.jspf" %>
 
 <c:url var="jquery" value="/node_modules/jquery/dist"/>
 <c:url var="bootstrap" value="/node_modules/bootstrap/dist"/>
@@ -29,7 +23,6 @@
 <script type="text/javascript" src="${bootstrap}/js/bootstrap.min.js"></script>
 
 <script type="text/javascript" src="${angular}/angular.min.js"></script>
-
 <script type="text/javascript" src="${angularSanitize}/angular-sanitize.min.js"></script>
 <script type="text/javascript" src="${angularAnimate}/angular-animate.min.js"></script>
 <script type="text/javascript" src="${angularRoute}/angular-route.min.js"></script>
@@ -91,6 +84,9 @@
 		</div>
 		
 	</div>
+	<!---------------------->
+	<!-- Angular Template -->
+	<!---------------------->
 	<div class="page {{ pageClass }}" data-ng-view
 									  data-ng-swipe-left="swipeLeft()"
 									  data-ng-swipe-right="swipeRight()"

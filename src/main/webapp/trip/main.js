@@ -1,4 +1,7 @@
-var myApp = angular.module('myApp', ["ngSanitize", "ngAnimate", "ngRoute", "ui.bootstrap"]);
+/*
+ * angular Application Module
+ */
+var myApp = angular.module('tourApp', ["ngSanitize", "ngAnimate", "ngRoute", "ui.bootstrap"]);
 
 myApp.config(function($routeProvider) {
 
@@ -65,7 +68,11 @@ myApp.config(function($routeProvider) {
 	$routeProvider.when('/join', join);
 	$routeProvider.otherwise({redirectTo:'/'});
 	
-	});
+});
+
+/*
+ * mainController
+ */
 myApp.controller('mainController', function($scope, $http) {
 
 	$scope.logout = function() {

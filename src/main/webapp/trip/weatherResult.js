@@ -13,27 +13,31 @@ myApp.controller('weatherResultController', function($scope, $http) {
 					return response.days[i].dayKR;
 			}
 		}
-		
-//		$http.get("weatherLanguageChange.json").success(function(response) {
-		
-//		$scope.days = response.days;
-//		$scope.conditions = response.conditions;
-//		
-//		for(var i=0; i<weather.day.length; i++) {
-//			for(var j=0; j<$scope.days.length; j++) {
-//				if(weather.day[i] == $scope.days[j].day)
-//					weather.day[i] = $scope.days[j].dayKR;
-//			}
-//		}
-//		
-//		for(var i=0; i<weather.code.length; i++) {
-//			weather.text[i] = $scope.conditions[weather.code[i]].text;
-//		}
-		
-//		weather.nowConditionText = $scope.conditions[weather.nowConditionCode].text;
-		
-//		alert(JSON.stringify(weather));
-		
+
 	});
+	$scope.weatherImageChange = function() {
+		var weatherCode = $scope.weather.item.condition.code;
+		console.log(weatherCode);
+		if(weatherCode < 3) {
+			return "weatherImages/맑음.jpg";
+		} else if ((weatherCode > 2 && weatherCode < 13 )||(weatherCode > 36 && weatherCode < 41)){
+			return "weatherImages/비.jpg";
+		} else if ((weatherCode > 12 && weatherCode < 19 )||(weatherCode > 40 && weatherCode < 44)|| weatherCode == 46) {
+			return "weatherImages/눈.jpg";
+		} else if (weatherCode == 19) {
+			return "weatherImages/황사.jpg";
+		} else if (weatherCode > 19 && weatherCode < 23) {
+			return "weatherImages/안개.jpg";
+		} else if (weatherCode > 22 && weatherCode < 26) {
+			return "weatherImages/바람.jpg";
+		} else if ((weatherCode > 25 && weatherCode < 32) || weatherCode == 44){
+			return "weatherImages/흐림.jpg";
+		} else if ((weatherCode > 31 && weatherCode < 35) || weatherCode == 36) {
+			return  "weatherImages/맑음.jpg";
+		} else {
+			return "weatherImages/맑음.jpg";
+		}
+	}
+	
 });
 

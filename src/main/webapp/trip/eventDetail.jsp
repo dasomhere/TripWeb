@@ -14,8 +14,7 @@
 	 			  <tr><td><b>전화번호 : </b>{{event.sponsor1tel}}</td></tr>
 	 			  <tr><td><b>행사 시간 : </b>{{event.spendtimefestival}}</td></tr>
 	 			  <tr><td><b>홈페이지 : </b><a href="{{event.eventhomepage}}">{{event.eventhomepage}}</a></td></tr>
-	 			  <tr><td data-ng-if="event.bookingplace == null"><b>예매 : 없다 </b></td></tr>
-	 			  <tr><td data-ng-if="event.bookingplace != null"><b>{{event.bookingplace}}</b></td></tr> 
+	 			  <tr><td><b>예매 : </b>{{event.bookingplace}}</td></tr> 
 	 			  <tr><td><b>이용요금 : </b>{{event.usetimefestival}}</td></tr>
 	 			  <tr><td><b>행사 프로그램 : </b>{{event.program}}</td></tr>
 	 			  <tr><td><b>오시는길 : </b>{{event.placeinfo}}</td></tr>

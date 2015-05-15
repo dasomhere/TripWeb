@@ -1,4 +1,7 @@
-var myApp = angular.module('myApp', ["ngSanitize", "ngAnimate", "ngRoute", "ui.bootstrap"]);
+/*
+ * angular Application Module
+ */
+var myApp = angular.module('tourApp', ["ngSanitize", "ngAnimate", "ngRoute", "ui.bootstrap"]);
 
 myApp.config(function($routeProvider) {
 
@@ -14,9 +17,14 @@ myApp.config(function($routeProvider) {
 			templateUrl : "local.jsp",
 			controller : "localController"
 	};
+	
 	var localDetail = {
 			templateUrl : "localDetail.jsp",
 			controller : "localDetailController"
+	};
+	var stayDetail = {
+			templateUrl : "stayDetail.jsp",
+			controller : "stayDetailController"
 	};
 	var search = {
 			templateUrl : "search.jsp",
@@ -55,6 +63,7 @@ myApp.config(function($routeProvider) {
 	$routeProvider.when('/eventDetail', eventDetail);
 	$routeProvider.when('/local', local);
 	$routeProvider.when('/localDetail', localDetail);
+	$routeProvider.when('/stayDetail', stayDetail);
 	$routeProvider.when('/search', search);
 	$routeProvider.when('/searchDetail', searchDetail);
 	$routeProvider.when('/weather', weather);
@@ -65,7 +74,11 @@ myApp.config(function($routeProvider) {
 	$routeProvider.when('/join', join);
 	$routeProvider.otherwise({redirectTo:'/'});
 	
-	});
+});
+
+/*
+ * mainController
+ */
 myApp.controller('mainController', function($scope, $http) {
 
 	$scope.logout = function() {

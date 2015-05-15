@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.webapp.model.request.AreaCodeRequestParameter;
+import com.webapp.model.request.DetailIntroRequestParameter;
 import com.webapp.model.request.SearchFestivalRequestParameter;
 import com.webapp.model.response.ResponseMessage;
 import com.webapp.service.TourApiService;
@@ -43,5 +44,14 @@ public class EventController {
 		return tour.getApi(request.getUrl());
 	}
 	
+	@RequestMapping(value="detail", method=RequestMethod.GET)
+	@ResponseBody
+	public ResponseMessage detail(DetailIntroRequestParameter request) {
+		log.info("###############");
+		log.info("detail" +request.getUrl());
+		log.info("###############");
+	
+		return tour.getApi(request.getUrl());
+	}
 }
 

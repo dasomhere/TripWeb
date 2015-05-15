@@ -6,6 +6,10 @@ myApp.config(function($routeProvider) {
 			templateUrl : "event.jsp",
 			controller : "eventController"
 	};
+	var eventDetail = {
+			templateUrl : "eventDetail.jsp",
+			controller : "eventDetailController"
+	};
 	var local = {
 			templateUrl : "local.jsp",
 			controller : "localController"
@@ -48,6 +52,7 @@ myApp.config(function($routeProvider) {
 	};
 	
 	$routeProvider.when('/', event);
+	$routeProvider.when('/eventDetail', eventDetail);
 	$routeProvider.when('/local', local);
 	$routeProvider.when('/localDetail', localDetail);
 	$routeProvider.when('/search', search);

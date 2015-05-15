@@ -9,6 +9,7 @@ public class AreaBasedListRequestParameter extends RequestParameter {
 	String contentTypeId = "";
 	String sigunguCode = "";
 	String cat2 = "";
+	String hanOk = "";
 	
 	public String getQueryString() {
 		String queryString="";
@@ -17,9 +18,11 @@ public class AreaBasedListRequestParameter extends RequestParameter {
 		queryString += "&contentTypeId=" + contentTypeId;
 		queryString += "&sigunguCode=" + sigunguCode;
 		queryString += "&cat2=" + cat2;
+		queryString += "&hanOk="+hanOk;
 		
 		return queryString;
 	}
+
 	public String getUrl() {
 		
 		return serviceUrl + "?" + getQueryString();
@@ -37,6 +40,14 @@ public class AreaBasedListRequestParameter extends RequestParameter {
 	public void setContentTypeId(String contentTypeId) {
 		this.contentTypeId = contentTypeId;
 	}
+	public String getHanOk() {
+		return hanOk;
+	}
+
+	public void setHanOk(String hanOk) {
+		this.hanOk = hanOk;
+	}
+
 	public String getSigunguCode() {
 		return sigunguCode;
 	}

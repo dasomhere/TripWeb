@@ -11,6 +11,9 @@ myApp.controller('localDetailController', function($scope, $http) {
 			
 			
 		});
+		$http.get("/TripWeb/m/local/imageIintro?contentId="+$scope.$parent.contentid +"&contentTypeId="+$scope.$parent.contenttypeid).success(function(imageInfoDetail){
+			$scope.$parent.imageInfoDetail = imageInfoDetail.response.body.items.item;
+		});
 		
 		$http.get("/TripWeb/m/local/detailintro?contentId="+$scope.$parent.contentid+"&contentTypeId="+$scope.$parent.contenttypeid).success(function(localIntroDetail){
 			$scope.localIntroDetail = localIntroDetail.response.body.items.item;
@@ -18,7 +21,6 @@ myApp.controller('localDetailController', function($scope, $http) {
 			alert("detailIntro  error...");
 		});
 	}
-	
 });
 
 

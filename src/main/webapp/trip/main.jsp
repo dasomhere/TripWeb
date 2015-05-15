@@ -13,26 +13,25 @@
 
 <%@include file="/WEB-INF/taglib.jspf" %>
 
-<link rel="stylesheet" href="/TripWeb/bootstrap-3.3.4/css/bootstrap.min.css"/>
-<link rel="stylesheet"  href="/TripWeb/lightslider/css/lightslider.css"/>
+<c:url var="jquery" value="/node_modules/jquery/dist"/>
+<c:url var="bootstrap" value="/node_modules/bootstrap/dist"/>
+<c:url var="angular" value="/node_modules/angular"/>
+<c:url var="angularSanitize" value="/node_modules/angular-sanitize"/>
+<c:url var="angularAnimate" value="/node_modules/angular-animate"/>
+<c:url var="angularRoute" value="/node_modules/angular-route"/>
 
-<c:url var="jquery" value="/jquery/"/>
-<c:url var="bootstrap" value="/bootstrap-3.3.4/"/>
-<c:url var="angular" value="/angular-1.3.15/"/>
 <c:url var="font" value="/css/font.css"/>
-<c:url var="lightgallery" value="/light-gallery/"/>
 
-<script type="text/javascript" src="${jquery}/jquery-2.1.3.min.js"></script>
+<link rel="stylesheet" href="${bootstrap}/css/bootstrap.min.css"/>
 
+<script type="text/javascript" src="${jquery}/jquery.min.js"></script>
 <script type="text/javascript" src="${bootstrap}/js/bootstrap.min.js"></script>
 
 <script type="text/javascript" src="${angular}/angular.min.js"></script>
-<script type="text/javascript" src="${angular}/angular-sanitize.min.js"></script>
-<script type="text/javascript" src="${angular}/angular-animate.min.js"></script>
-<script type="text/javascript" src="${angular}/angular-route.min.js"></script>
 
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-<script src="/TripWeb/lightslider/js/lightslider.js"></script>
+<script type="text/javascript" src="${angularSanitize}/angular-sanitize.min.js"></script>
+<script type="text/javascript" src="${angularAnimate}/angular-animate.min.js"></script>
+<script type="text/javascript" src="${angularRoute}/angular-route.min.js"></script>
 
 <link rel="stylesheet" type="text/css" href="${font}">
 

@@ -3,20 +3,18 @@ myApp.controller('searchController', function($scope, $http) {
 	$scope.$parent.pageClass = 'page-load';
 	
 	$scope.currentPage = 1;
-	$scope.itemsPerPage = 20;
+	$scope.itemsPerPage = 10;
 	
 	$scope.changePage = function() {
 		console.log("page = " + $scope.currentPage);
 		
 		var keyword=$("#keyword").val();
-		alert(keyword);
 		if(keyword == '') {
 			return false;
 		}
 		
 		$http.get("/TripWeb/m/search/search?keyword=" + keyword + "&numOfRows=" + $scope.itemsPerPage + "&pageNo=" + $scope.currentPage).success(function(searchResult) {
-			$scope.searchResult = searchResult.response.body.items.item;
-			$scope.searchResult = searchResult.response;
+			$scope.searchResult = searchResult.response.body;
 		}).error(function() {
 			alert("search error...");
 		});
@@ -25,13 +23,11 @@ myApp.controller('searchController', function($scope, $http) {
 	
 	$scope.search = function() {
 		var keyword=$("#keyword").val();
-		alert(keyword);
 		if(keyword == '') {
 			return false;
 		}
 		$http.get("/TripWeb/m/search/search?keyword=" + keyword + "&numOfRows=" + $scope.itemsPerPage + "&pageNo=" + $scope.currentPage).success(function(searchResult) {
-			$scope.searchResult = searchResult.response.body.items.item;
-			$scope.searchResult = searchResult.response;
+			$scope.searchResult = searchResult.response.body;
 		}).error(function() {
 			alert("search error...");
 		});

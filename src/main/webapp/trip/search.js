@@ -14,12 +14,18 @@ myApp.controller('searchController', function($scope, $http) {
 			alert("search error...");
 		});
 		
-		
-		
 	};
-	$http.get("/TripWeb/m/search/city").success(function(citys) {
-		$scope.convertAreacode = function(areacode, sigungucode) {
-			alert(areacode + " " + sigungucode);
+	
+	$scope.detail = function() {
+		location.href="#searchDetail";
+	};
+	
+	
+	
+	
+//	$http.get("/TripWeb/m/search/city").success(function(citys) {
+//		$scope.convertAreacode = function(areacode, sigungucode) {
+//			alert(areacode + " " + sigungucode);
 //			$http.get("/TripWeb/m/search/sigungu?areaCode=" + areacode).success(function(sigungus) {
 //				for(var i=0; i<citys.response.body.items.item.length; i++) {
 //					if(areacode == citys.response.body.items.item[i].code)
@@ -27,6 +33,6 @@ myApp.controller('searchController', function($scope, $http) {
 //				}
 //				
 //			});
-		}
-	});
+//		}
+//	});
 });

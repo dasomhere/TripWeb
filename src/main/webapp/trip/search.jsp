@@ -20,7 +20,7 @@
 
 <div>	
 	<ul class="list-group">
-	 	<li class="list-group-item" data-ng-repeat="r in searchResult" data-ng-click="detail(r.contentid, r.title)">
+	 	<li class="list-group-item" data-ng-repeat="r in searchResult" data-ng-click="detail()">
  			<table>
  			  <tr>
  			  	<td>{{r.title}}</td>
@@ -30,9 +30,6 @@
 	 			  	<img src="{{r.firstimage}}" style="width: 150px; height: 100px"/>
 	 			  	<img src="http://placehold.it/150x100/808080/ffffff&text=No Image!" style="width: 150px; height: 100px" ng-hide="r.firstimage != null"/>
  			  	</td>
- 			  </tr>
- 			  <tr>
- 			  	<td>[{{convertAreacode(r.areacode, r.sigungucode)}}]</td>
  			  </tr>
  			 
  			</table>

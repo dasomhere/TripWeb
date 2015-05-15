@@ -18,6 +18,10 @@ myApp.config(function($routeProvider) {
 			templateUrl : "search.jsp",
 			controller : "searchController"
 	};
+	var searchDetail = {
+			templateUrl : "searchDetail.jsp",
+			controller : "searchDetailController"
+	};
 	var weather = {
 			templateUrl : "weather.jsp",
 			controller : "weatherController"
@@ -47,6 +51,7 @@ myApp.config(function($routeProvider) {
 	$routeProvider.when('/local', local);
 	$routeProvider.when('/localDetail', localDetail);
 	$routeProvider.when('/search', search);
+	$routeProvider.when('/searchDetail', searchDetail);
 	$routeProvider.when('/weather', weather);
 	$routeProvider.when('/weatherResult', weatherResult);
 	$routeProvider.when('/load', load);

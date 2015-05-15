@@ -11,7 +11,7 @@
 	<h1>{{localCommonDetail[0].title}}</h1>
 <!-- imageInfoDetail -->
 <!-- 	<div id="myCarousel" class="carousel slide" data-ride="carousel"> -->
-<!-- 		<!-- Indicators -->
+<!-- 		<!-- Indicators--> -->
 <!-- 		<ol class="carousel-indicators"> -->
 <!-- 			<li data-target="#myCarousel" data-slide-to="0" class="active"></li> -->
 <!-- 			<li data-target="#myCarousel" data-slide-to="{{$index+1}}" data-ng-repeat="img in imageInfoDetail"> -->
@@ -19,7 +19,7 @@
 		
 <!-- 		</ol> -->
 
-<!-- 		<!-- Wrapper for slides -->
+<!-- 		<!-- Wrapper for slides --> -->
 <!-- 		<div class="carousel-inner" role="listbox"> -->
 <!-- 			<div class="item active" data-ng-repeat="common in localCommonDetail" id="image"> -->
 <!-- 				<img src="{{common.firstimage2}}" width="460" height="345"> -->

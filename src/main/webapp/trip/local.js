@@ -50,18 +50,13 @@ myApp.controller('localController', function($scope, $http) {
 	};
 	
 	$scope.contentid = function(contentid,contenttypeid) {
-				if(contenttypeid==12){
-					$http.get("/TripWeb/m/local/detailcommon?contentId="+contentid +"&contentTypeId="+contenttypeid).success(function(localCommonDetail){
-						$scope.$parent.localCommonDetail = localCommonDetail.response.body.items.item;
-						location.href="#localDetail";
-					});
-					$http.get("/TripWeb/m/local/detailintro?contentId="+contentid+"&contentTypeId="+contenttypeid).success(function(localIntroDetail){
-						$scope.$parent.localIntroDetail = localIntroDetail.response.body.items.item;
-						location.href="#localDetail";
-					}).error(function() {
-						alert("detailIntro  error...");
-					});
-			}
+		console.log("contentid = " + contentid);
+		$scope.$parent.contentid = contentid;
+		$scope.$parent.contenttypeid = contenttypeid;
+		
+		location.href="#localDetail";
+		
+
 		};
 	});
 //					$http.get("/TripWeb/m/local/imageIintro?contentId="+contentid +"&contentTypeId="+contenttypeid).success(function(imageInfoDetail){

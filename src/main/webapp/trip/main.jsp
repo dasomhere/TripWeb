@@ -14,11 +14,13 @@
 <%@include file="/WEB-INF/taglib.jspf" %>
 
 <link rel="stylesheet" href="/TripWeb/bootstrap-3.3.4/css/bootstrap.min.css"/>
+<link rel="stylesheet"  href="/TripWeb/lightslider/css/lightslider.css"/>
 
 <c:url var="jquery" value="/jquery/"/>
 <c:url var="bootstrap" value="/bootstrap-3.3.4/"/>
 <c:url var="angular" value="/angular-1.3.15/"/>
 <c:url var="font" value="/css/font.css"/>
+<c:url var="lightgallery" value="/light-gallery/"/>
 
 <script type="text/javascript" src="${jquery}/jquery-2.1.3.min.js"></script>
 
@@ -28,6 +30,9 @@
 <script type="text/javascript" src="${angular}/angular-sanitize.min.js"></script>
 <script type="text/javascript" src="${angular}/angular-animate.min.js"></script>
 <script type="text/javascript" src="${angular}/angular-route.min.js"></script>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="/TripWeb/lightslider/js/lightslider.js"></script>
 
 <link rel="stylesheet" type="text/css" href="${font}">
 
@@ -44,11 +49,13 @@
     .navbar>.container-fluid .navbar-brand-centered {
         margin-left: -80px;
     }
+
 </style>
 
 <link rel="stylesheet" href="style.css"/>
 <script type="text/javascript" src="main.js"></script>
 <script type="text/javascript" src="event.js"></script>
+<script type="text/javascript" src="eventDetail.js"></script>
 <script type="text/javascript" src="join.js"></script>
 <script type="text/javascript" src="load.js"></script>
 <script type="text/javascript" src="loadDetail.js"></script>
@@ -56,6 +63,7 @@
 <script type="text/javascript" src="localDetail.js"></script>
 <script type="text/javascript" src="login.js"></script>
 <script type="text/javascript" src="search.js"></script>
+<script type="text/javascript" src="searchDetail.js"></script>
 <script type="text/javascript" src="weather.js"></script>
 <script type="text/javascript" src="weatherResult.js"></script>
 

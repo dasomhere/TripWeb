@@ -1,53 +1,63 @@
 
 myApp.controller('localController', function($scope, $http) {
 	$scope.$parent.pageClass = 'page-local';
-	alert("localController");
 	
-	var city= null;
 	$http.get("/TripWeb/m/local/city").success(function(citys) {
 		console.log(citys);
-		$scope.citys = citys;
+		$scope.citys = citys.response.body.items.item;
+	}).error(function() {
+		alert("local.city error...");
+	});;
+	
+	$http.get("/TripWeb/m/local/gus?areaCode=1").success(function(gus) {
+		$scope.gus = gus.response.body.items.item;
+	}).error(function() {
+		alert("server error...");
 	});
 	
 	$scope.cityChange = function() {
-		var city = $scope.citys;
-		$http.get("/TripWeb/m/local/gus?cityCode=" + $scope.selectedCity).success(function(gus) {
-			$scope.gus = gus;
+		var city = $("#city option:selected").val();
+		$http.get("/TripWeb/m/local/gus?areaCode=" + city).success(function(gus) {
+			$scope.gus = gus.response.body.items.item;
 		}).error(function() {
 			alert("server error...");
 		});
 	};
 	
-	$scope.type = function() {
-		alert("cityCode="+ $scope.selectedCity + "&sigunguCode="+ $scope.selectedCityGu + "&contentTypeId="+$scope.selectedType);
-		$http.get("/TripWeb/m/local/type?cityCode="+ $scope.selectedCity +"&sigunguCode="+$scope.selectedCityGu+"&contentTypeId="+$scope.selectedType).success(function(types) {
-//			alert(JSON.stringify(types));
-			$scope.types = types;
-			$scope.$parent.types = types;
+	$scope.search = function() {
+		var city = $("#city option:selected").val();
+		var sigunguCode = $("#sigunguCode option:selected").val();
+		var contentTypeId = $("#contentTypeId option:selected").val();
+		console.log(city + ", "+ sigunguCode +", "+ contentTypeId);
 		
+		$http.get("/TripWeb/m/load/search?areaCode=" + city + "&sigunguCode=" + sigunguCode + "&contentTypeId="+contentTypeId).success(function(localResult) {
+			$scope.localResult = localResult.response.body.items.item;
 		}).error(function() {
-			alert("type error...");
+			alert("search error...");
 		});
 	};
 	
-	$scope.select = function() {
-		$http.post("/TripWeb/m/local/search",{city : $scope.selectedCity, gus : $scope.selectedCityGu, contentid : $scope.selectedType}).success(function(localResult){
-			$scope.localResult = localResult;
-		}).error(function() {
-			alert("serch error");
-		});
+	$scope.contentid = function(contentid,contenttypeid) {
+			$http.get("/TripWeb/m/local/detailcommon?contentId="+contentid +"&contentTypeId="+contenttypeid).success(function(localCommonDetail){
+				$scope.$parent.localCommonDetail = localCommonDetail.response.body.items.item;
+				location.href="#localDetail";
+			});
+			$http.get("/TripWeb/m/local/imageIintro?contentId="+contentid +"&contentTypeId="+contenttypeid).success(function(imageInfoDetail){
+				$scope.$parent.imageInfoDetail = imageInfoDetail.response.body.items.item;
+				location.href="#localDetail";
+			});
+			$http.get("/TripWeb/m/local/detailintro?contentId="+contentid+"&contentTypeId="+contenttypeid).success(function(localIntroDetail){
+				$scope.$parent.localIntroDetail = localIntroDetail.response.body.items.item;
+				location.href="#localDetail";
+			}).error(function() {
+				alert("detailIntro  error...");
+			});
+			
 	};
-	
-	$scope.contentid = function(contentid) {
-		$http.post("/TripWeb/m/local/detail", {contentid : contentid}).success(function(localDetail){
-			$scope.$parent.localDetail = localDetail;
-			location.href="#localDetail";
-		}).error(function(url) {
-			alert("post error..."+ this.url);
-		});
-	};
-	
 });
+
+	
+
 
 
 

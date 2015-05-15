@@ -14,6 +14,7 @@ public class AreaCodeRequestParameter extends RequestParameter {
 		
 		return queryString;
 	}
+	
 	public String getUrl() {
 		
 		return serviceUrl + "?" + getQueryString();

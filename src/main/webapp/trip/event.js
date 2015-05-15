@@ -3,9 +3,9 @@ myApp.controller('eventController', function($scope, $http) {
 	$scope.$parent.pageClass = 'page-event';
 //	alert("eventController xxx");
 	
-	$http.get("/TripWeb/m/local/city").success(function(citys) {
+	$http.get("/TripWeb/m/event/city").success(function(citys) {
 		console.log(citys);
-		$scope.citys = citys;
+		$scope.citys = citys.response.body.items.item;
 	});
 	
 	$scope.search = function() {
@@ -19,7 +19,18 @@ myApp.controller('eventController', function($scope, $http) {
 		});
 	};
 	
-
+	$scope.detail = function(contentid) {
+		$http.get("/TripWeb/m/event/detail?contentId=" + contentid + "&contentTypeId=15").success(function(eventDetail){
+			alert(eventDetail);
+			$scope.$parent.eventDetail = eventDetail.response.body.items.item;
+			alert(contentid);
+			location.href="#eventDetail";
+		}).error(function(url) {
+			alert("post error..."+ this.url);
+		});
+	};
+	
+	
 	
 });
 

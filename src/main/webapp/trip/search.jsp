@@ -16,27 +16,11 @@
 		</div>
 	</form>
 </div>
-	<hr>
+<hr>
 
 <div>
-<hr>
-<div>
-currentPage = {{currentPage}}<br>
-itemsPerPage ={{itemsPerPage}}<br>
-</div>
-<pagination total-items="searchResult.body.totalCount" 
-			ng-model="currentPage"
-			items-per-page="itemsPerPage"
-			max-size="10" 
-			class="pagination-sm" 
-			boundary-links="true" 
-			rotate="false" num-pages="numPages"
-			ng-change="changePage()"
-			
-			></pagination>	
-<hr>
 	<ul class="list-group">
-	 	<li class="list-group-item" data-ng-repeat="r in searchResult.body.items.item" data-ng-click="detail()">
+	 	<li class="list-group-item" data-ng-repeat="r in searchResult.items.item" data-ng-click="detail()">
  			<table>
  			  <tr>
  			  	<td>{{r.title}}</td>
@@ -53,4 +37,19 @@ itemsPerPage ={{itemsPerPage}}<br>
 	</ul>
 </div>
 
+<div align="center">
+	<pagination total-items="searchResult.totalCount" 
+				ng-model="currentPage"
+				items-per-page="itemsPerPage"
+				max-size="5" 
+				class="pagination-sm" 
+				first-text="&laquo;"
+				last-text="&raquo;"
+				boundary-links="true" 
+				direction-links="false"
+				rotate="false" num-pages="numPages"
+				ng-change="changePage()"
+				
+				></pagination>	
+	</div>
 </section>

@@ -2,18 +2,15 @@ package com.webapp.controller;
 
 
 import javax.servlet.http.HttpSession;
-import javax.sql.DataSource;
-
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Controller;
-import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.context.support.WebApplicationContextUtils;
 
 import com.webapp.model.LoginResult;
 import com.webapp.model.User;
@@ -22,11 +19,9 @@ import com.webapp.service.UserInfoService;
 @Controller
 @RequestMapping("/login")
 public class LoginController {
-		static Log log = LogFactory.getLog(LoginController.class);
+	static Log log = LogFactory.getLog(LoginController.class);
 
-	@Autowired
-	DataSource ds;
-	UserInfoService service;
+	ApplicationContext factory;
 	
 	@ResponseBody
 	@RequestMapping(value="/login", method=RequestMethod.POST)
@@ -37,23 +32,21 @@ public class LoginController {
 		log.info("password=" + user.getPassword());
 		log.info("###########################");
 		
-		User u = service.getDeptInfo(user.getId(), user.getPassword());
+		factory = WebApplicationContextUtils.getWebApplicationContext(session.getServletContext());
 		
-		log.info(u);
+		UserInfoService info = factory.getBean(UserInfoService.class);
 		
+		User us = info.getUserInfo(user.getId(), user.getPassword());
 		
-		JdbcTemplate template = new JdbcTemplate(ds);
-//		String sql = "select count(*) from member where id=? and password=?";
-//		int n = template.queryForInt(sql, new Object[]{user.getId(), user.getPassword()});
 		LoginResult loginResult = new LoginResult();
-//		if(n == 1) {
-//			session.setAttribute("user", user);
-//			loginResult.setStatus(true);
-//			loginResult.setLoginStatus(true);
-//		} else {
-//			loginResult.setStatus(false);
-//		}
-//		loginResult.setUser(user);
+		if(us.getId().equals(user.getId()) && us.getPassword().equals(user.getPassword())) {
+			session.setAttribute("user", user);
+			loginResult.setStatus(true);
+			loginResult.setLoginStatus(true);
+		} else {
+			loginResult.setStatus(false);
+		}
+		loginResult.setUser(user);
 		return loginResult;
 		
 	}

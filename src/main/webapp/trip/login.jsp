@@ -24,7 +24,7 @@
 		</div>
 		<hr>
 		<div align="center">
-			<button type="button" class="btn btn-default">아이디/비밀번호 찾기</button>
+			<a href="#" class="btn btn-default" >아이디/비밀번호 찾기</a>
 			<a href="#join" class="btn btn-default">회원가입</a>
 		</div>
 	</form>

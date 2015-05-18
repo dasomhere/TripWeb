@@ -10,11 +10,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.webapp.model.request.AreaBasedListRequestParameter;
 import com.webapp.model.request.AreaCodeRequestParameter;
-import com.webapp.model.request.BenikiaStayInfoRequestParameter;
 import com.webapp.model.request.DetailCommonRequestParameter;
 import com.webapp.model.request.DetailIntroRequestParameter;
-import com.webapp.model.request.GoodStayInfoRequestParameter;
-import com.webapp.model.request.HanOkInfoRequestParameter;
 import com.webapp.model.request.ImageInfoRequestParameter;
 import com.webapp.model.request.SearchStayDifferentRequestParameter;
 import com.webapp.model.request.SearchStayRequestParameter;

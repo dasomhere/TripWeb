@@ -5,10 +5,11 @@
 <head>
 	<style type="text/css">
 		section {
-			background-image: url('weatherImages/맑음.jpg');
+			background-image: url({{weatherImageChange()}});
 			background-size: cover;
 		}
 	</style>
+
 </head>
 
 <section class="container">

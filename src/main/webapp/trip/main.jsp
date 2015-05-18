@@ -54,6 +54,7 @@
 <script type="text/javascript" src="join.js"></script>
 <script type="text/javascript" src="load.js"></script>
 <script type="text/javascript" src="loadDetail.js"></script>
+<script type="text/javascript" src="stayDetail.js"></script>
 <script type="text/javascript" src="local.js"></script>
 <script type="text/javascript" src="localDetail.js"></script>
 <script type="text/javascript" src="login.js"></script>

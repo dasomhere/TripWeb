@@ -3,7 +3,7 @@ package com.webapp.model.request;
 import java.net.URLEncoder;
 
 
-public class SearchHanOkRequestParameter extends RequestParameter {
+public class SearchStayRequestParameter extends RequestParameter {
 	String serviceUrl = "http://api.visitkorea.or.kr/openapi/service/rest/KorService/searchStay";
 	String areaCode = "";
 	String contentTypeId = "";

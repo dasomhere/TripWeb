@@ -4,7 +4,7 @@
 
 <!-- local.jsp -->
 
-<div class="container">
+<section class="container">
 <hr>
 <h1>관광정보 </h1>
 <hr>
@@ -46,18 +46,19 @@
 		 	</li>
 		</ul>	
 	</div>
-	
-<!-- 	<div align="center"> -->
-<!-- 		<pagination total-items="searchResult.totalCount"  -->
-<!-- 					ng-model="currentPage" -->
-<!-- 					items-per-page="itemsPerPage" -->
-<!-- 					max-size="5"  -->
-<!-- 					class="pagination-sm"  -->
-<!-- 					first-text="&laquo;" -->
-<!-- 					last-text="&raquo;" -->
-<!-- 					boundary-links="true" -->
-<!-- 					direction-links="false" -->
-<!-- 					rotate="false" num-pages="numPages" -->
-<!-- 					ng-change="changePage()"></pagination>	 -->
-<!-- 	</div> -->
-</div>
+	<div align="center">
+	<pagination total-items="localResult.totalCount" 
+				ng-model="currentPage"
+				items-per-page="itemsPerPage"
+				max-size="5" 
+				class="pagination-sm" 
+				first-text="&laquo;"
+				last-text="&raquo;"
+				boundary-links="true" 
+				direction-links="false"
+				rotate="false" num-pages="numPages"
+				ng-change="changePage()"
+				
+				></pagination>	
+	</div>
+</section>

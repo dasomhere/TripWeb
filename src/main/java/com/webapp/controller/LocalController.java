@@ -33,9 +33,9 @@ import com.webapp.model.request.CategoryCodeRequestParameter;
 import com.webapp.model.request.DetailCommonRequestParameter;
 import com.webapp.model.request.DetailInfoRequestParameter;
 import com.webapp.model.request.DetailIntroRequestParameter;
-import com.webapp.model.request.HanOkInfoRequestParameter;
+import com.webapp.model.request.StayInfoRequestParameter;
 import com.webapp.model.request.ImageInfoRequestParameter;
-import com.webapp.model.request.SearchHanOkRequestParameter;
+import com.webapp.model.request.SearchStayRequestParameter;
 import com.webapp.model.response.ResponseMessage;
 import com.webapp.service.TourApiService;
 
@@ -79,7 +79,7 @@ public class LocalController {
 	}
 	@RequestMapping(value="searchhanok", method=RequestMethod.GET)
 	@ResponseBody
-	public ResponseMessage searchHanOk(SearchHanOkRequestParameter request) {
+	public ResponseMessage searchHanOk(SearchStayRequestParameter request) {
 		log.info("###############");
 		log.info("searchhanOk()..." + request.getAreaCode() + " " + request.getSigungucode()+ " " + request.getContentTypeId()+" " + request.getHanOk());
 		log.info("###############");
@@ -116,13 +116,23 @@ public class LocalController {
 		
 		return tour.getApi(request.getUrl());
 	}
-	@RequestMapping(value="hanokinfo", method=RequestMethod.GET)
+	
+	@RequestMapping(value="stayinfo", method=RequestMethod.GET)
 	@ResponseBody
-	public ResponseMessage hanokinfo(HanOkInfoRequestParameter request) {
+	public ResponseMessage hanokinfo(StayInfoRequestParameter request) {
 		log.info("###############");
-		log.info("local hanokinfo");
+		log.info("stay change");
 		log.info("###############");
 		
 		return tour.getApi(request.getUrl());
 	}
+//	@RequestMapping(value="goodstayinfo", method=RequestMethod.GET)
+//	@ResponseBody
+//	public ResponseMessage goodStayinfo(goodStayInfoRequestParameter request) {
+//		log.info("###############");
+//		log.info("local goodstayinfo");
+//		log.info("###############");
+//		
+//		return tour.getApi(request.getUrl());
+//	}
 }

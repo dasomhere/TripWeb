@@ -36,7 +36,7 @@
 		 	<li class="list-group-item" data-ng-repeat="type in localResult.items.item">
 		 			<table>
 		 			  <tr><td>
-		 			  	<a href="#/localDetail/{{type.contentid}}/{{type.contenttypeid}}">
+		 			  	<a href="#/searchDetail/{{type.contentid}}/{{type.contenttypeid}}">
           	 			<img data-ng-src="{{type.firstimage}}" style="width: 200px" height="150px"/>
 		 			  	<img data-ng-src="http://placehold.it/150x100/808080/ffffff&text=No Image!" style="width: 150px; height: 100px" data-ng-hide="type.firstimage != null"/>
 		 			  	</a>
@@ -46,4 +46,18 @@
 		 	</li>
 		</ul>	
 	</div>
+	
+<!-- 	<div align="center"> -->
+<!-- 		<pagination total-items="searchResult.totalCount"  -->
+<!-- 					ng-model="currentPage" -->
+<!-- 					items-per-page="itemsPerPage" -->
+<!-- 					max-size="5"  -->
+<!-- 					class="pagination-sm"  -->
+<!-- 					first-text="&laquo;" -->
+<!-- 					last-text="&raquo;" -->
+<!-- 					boundary-links="true" -->
+<!-- 					direction-links="false" -->
+<!-- 					rotate="false" num-pages="numPages" -->
+<!-- 					ng-change="changePage()"></pagination>	 -->
+<!-- 	</div> -->
 </div>

@@ -15,34 +15,34 @@
 <div class="container">
 	<h1>{{localCommonDetail[0].title}}</h1>
 
-	<div id="myCarousel" class="carousel slide" data-ride="carousel">
+<!-- 	<div id="myCarousel" class="carousel slide" data-ride="carousel"> -->
 
-		<ol class="carousel-indicators">
-			<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-			<li data-target="#myCarousel" data-slide-to="{{$index+1}}"
-				data-ng-repeat="img in imageInfoDetail"></li>
-		</ol>
+<!-- 		<ol class="carousel-indicators"> -->
+<!-- 			<li data-target="#myCarousel" data-slide-to="0" class="active"></li> -->
+<!-- 			<li data-target="#myCarousel" data-slide-to="{{$index+1}}" -->
+<!-- 				data-ng-repeat="img in imageInfoDetail"></li> -->
+<!-- 		</ol> -->
 
-		<div class="carousel-inner" role="listbox">
+<!-- 		<div class="carousel-inner" role="listbox"> -->
 
-			<div class="item active" data-ng-repeat="common in localCommonDetail">
-				<img src="{{common.firstimage2}}" id="image">
-			</div>
+<!-- 			<div class="item active" data-ng-repeat="common in localCommonDetail"> -->
+<!-- 				<img src="{{common.firstimage2}}" id="image"> -->
+<!-- 			</div> -->
 
-			<div class="item" data-ng-repeat="img in imageInfoDetail">
-				<img src="{{img.originimgurl}}" id="image">
-			</div>
-		</div>
+<!-- 			<div class="item" data-ng-repeat="img in imageInfoDetail"> -->
+<!-- 				<img src="{{img.originimgurl}}" id="image"> -->
+<!-- 			</div> -->
+<!-- 		</div> -->
 
-		<a class="left carousel-control" href="#myCarousel" role="button"
-			data-slide="prev"> <span class="glyphicon glyphicon-chevron-left"
-			aria-hidden="true"></span> <span class="sr-only">Previous</span>
-		</a> <a class="right carousel-control" href="#myCarousel" role="button"
-			data-slide="next"> <span
-			class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-			<span class="sr-only">Next</span>
-		</a>
-	</div>
+<!-- 		<a class="left carousel-control" href="#myCarousel" role="button" -->
+<!-- 			data-slide="prev"> <span class="glyphicon glyphicon-chevron-left" -->
+<!-- 			aria-hidden="true"></span> <span class="sr-only">Previous</span> -->
+<!-- 		</a> <a class="right carousel-control" href="#myCarousel" role="button" -->
+<!-- 			data-slide="next"> <span -->
+<!-- 			class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span> -->
+<!-- 			<span class="sr-only">Next</span> -->
+<!-- 		</a> -->
+<!-- 	</div> -->
 
 	<ul class="list-group">
 		<li class="list-group-item"
@@ -57,6 +57,7 @@
 			</table>
 		</li>
 		<h3>기본정보</h3>
+		
 		<li class="list-group-item" data-ng-repeat="intro in localIntroDetail">유
 			모 차 사 용 여 부: {{intro.chkbabycarriage}}</li>
 		<li class="list-group-item" data-ng-repeat="intro in localIntroDetail">체크카드

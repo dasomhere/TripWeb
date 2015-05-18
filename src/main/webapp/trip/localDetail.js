@@ -1,7 +1,7 @@
 
 myApp.controller('localDetailController', function($scope, $http, $routeParams) {
 	$scope.$parent.pageClass = 'page-local';
-
+	
 	if($scope.$parent.contenttypeid==12){
 		$http.get("/TripWeb/m/local/detailcommon?contentId="+$routeParams.contentid +"&contentTypeId="+$routeParams.contenttypeid).success(function(localCommonDetail){
 			$scope.localCommonDetail = localCommonDetail.response.body.items.item;

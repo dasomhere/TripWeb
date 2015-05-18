@@ -38,7 +38,6 @@ myApp.controller('searchDetailController', function($scope, $http, $routeParams)
 	
 	$scope.initialize = function(x, y) {
 		
-		alert("xxx");
 	     // 입력된 좌표가 없으면 기본좌표를 역삼동으로 설정.
 	    if(x==0){ x=38.070021248208604; }
 	    if(y==0){ y=127.32001695388293; }
@@ -84,7 +83,7 @@ myApp.controller('searchDetailController', function($scope, $http, $routeParams)
 	    var loc = new google.maps.LatLng(y, x);
 
 	    globalMap.setCenter(loc);
-	    
+	    globalMap.setZoom(16);
 	}
 	
 });

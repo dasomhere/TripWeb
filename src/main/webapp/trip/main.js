@@ -17,6 +17,10 @@ myApp.config(function($routeProvider) {
 			templateUrl : "map.jsp",
 			controller : "mapController"
 	};
+	var maplocation = {
+			templateUrl : "maplocation.jsp",
+			controller : "maplocationController"
+	};
 	var search = {
 			templateUrl : "search.jsp",
 			controller : "searchController"
@@ -51,10 +55,15 @@ myApp.config(function($routeProvider) {
 			controller : "templateController"
 	};
 	
+	var home = {
+			templateUrl : "home.jsp"
+	};
+	
 	
 	$routeProvider.when('/', event);
 	$routeProvider.when('/local', local);
 	$routeProvider.when('/map', map);
+	$routeProvider.when('/maplocation', maplocation);
 	$routeProvider.when('/search', search);
 	$routeProvider.when('/searchDetail/:contentid/:contenttypeid', searchDetail);
 	$routeProvider.when('/weather', weather);
@@ -63,6 +72,7 @@ myApp.config(function($routeProvider) {
 	$routeProvider.when('/login', login);
 	$routeProvider.when('/join', join);
 	$routeProvider.when('/template', template);
+	$routeProvider.when('/home', home);
 	$routeProvider.otherwise({redirectTo:'/'});
 	
 });

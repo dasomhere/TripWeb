@@ -15,8 +15,8 @@ myApp.controller('eventController', function($scope, $http) {
 	console.log("monnthSelect="+monthSelect);
 	for(var i = 1; i <= 12; i++){
 		if(monthSelect == i){
-			console.log("monthSelect="+monthSelect +", i="+i);
-			$("#month option:eq("+i+")").attr("selected", "selected");
+			var j = i-1;
+			$("#month option:eq("+j+")").attr("selected", "selected");
 		}
 	}
 	
@@ -61,7 +61,7 @@ myApp.controller('eventController', function($scope, $http) {
 		$scope.$parent.contenttypeid = contenttypeid;
 		console.log("contetnttypeid ## 15 =" + contenttypeid);
 		
-		location.href="#eventDetail";
+
 	};
 });
 

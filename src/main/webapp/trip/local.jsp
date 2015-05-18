@@ -12,27 +12,24 @@
 <h1>관광정보 </h1>
 <hr>
 <form data-ng-submit="search()">
-	<select id="city" class="select">
-		<option data-ng-repeat="city in citys" value="{{city.code}}" data-ng-click="cityChange()" data-ng-selected="city.code==1">{{city.name}}</option>
-	</select>
-	
-	<select id="sigunguCode" class="select">
-		<option data-ng-repeat="sigunguCode in gus" value="{{sigunguCode.code}}">{{sigunguCode.name}}</option>
-	</select>
-	
-	<select id="contentTypeId" data-ng-click="stay()" class="select">
-		<option value="12">관광지</option>
-		<option value="32">숙박</option>
-		<option value="39">음식점</option>
-		<option value="28">레포츠</option>
-		<option value="38">쇼핑</option>
-		<option value="">문화시설</option>
-	</select>
-	
-	<select id="select" class="select">
-		<option value="#">선택사항 없음</option>
-	</select>
-	
+		<select id="city" class="select">
+			<option data-ng-repeat="city in citys" value="{{city.code}}" data-ng-click="cityChange()" data-ng-selected="city.code==1">{{city.name}}</option>
+		</select>
+		
+		<select id="sigunguCode" class="select">
+			<option data-ng-repeat="sigunguCode in gus" value="{{sigunguCode.code}}">{{sigunguCode.name}}</option>
+		</select>
+		
+		<select id="contentTypeId" class="select">
+			<option data-ng-repeat="typeId in contents" value="{{typeId.code}}" data-ng-click="stays(typeId.code)">{{typeId.name}}</option>
+		</select>
+		<c:set var="flag" value="true"></c:set>
+		<c:if var="" test="contents[0].code==12">
+			
+		</c:if>
+		<select id="demo" data-ng-show="${flag}">
+			<option>xxx</option>
+		</select>
 	<button class="btn btn-default" type="submit">조회</button>
 </form>
 	<hr>
@@ -47,9 +44,6 @@
           	 						<img data-ng-src="{{type.firstimage}}" style="width: 200px" height="150px"/>
 		 			  				<img data-ng-src="http://placehold.it/150x100/808080/ffffff&text=No Image!" style="width: 150px; height: 100px" data-ng-hide="type.firstimage != null"/>
 		 			  			</a>
-		 				</div>
-		 				<div class="col-sm-8">
-									 					
 		 				</div>
 		 			</div>
 		 	</li>

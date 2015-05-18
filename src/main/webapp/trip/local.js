@@ -29,17 +29,26 @@ myApp.controller('localController', function($scope, $http) {
 			alert("server error...");
 		});
 	};
-
-	$scope.stay = function() {
-		var stay = $("#contentTypeId option:selected").val();
-		if(stay==32){
-			$('#select').html("<option value='hanOk' class=form-control>한옥</option>");
-			$('#select').append("<option value='benikia'class=form-control>베니키아</option>");
-			$('#select').append("<option value='goodStay' class=form-control>굿스테이</option>");
-		}else{
-			$('#select').html("<option value='#' class=form-control>선택사항 없음</option>");
+	
+	$scope.stays = function(data) {
+		if(data=="32"){
+			alert("숙박");
 		}
 	};
+//	$scope.stay = function() {
+//		alert("ggg");
+//		var output= " ";
+//		
+//		output += "<select>";
+//		
+//		output += "</select>";
+//			$('#select').html("<option value='hanOk' class=form-control>한옥</option>");
+//			$('#select').append("<option value='benikia'class=form-control>베니키아</option>");
+//			$('#select').append("<option value='goodStay' class=form-control>굿스테이</option>");
+//		}else{
+//			$('#select').html("<option value='#' class=form-control>선택사항 없음</option>");
+//		}
+//	};
 	
 	$scope.changePage = function() {
 		console.log("page = " + $scope.currentPage);
@@ -88,4 +97,22 @@ myApp.controller('localController', function($scope, $http) {
 			});
 		}
 	};
+	
+	$scope.contents = [
+	                   {code: '12', name: '관광지'},
+	                   {code: '14', name: '문화시설'},
+	                   {code: '15', name: '축제공연행사'},
+	                   {code: '25', name: '여행코스'},
+	                   {code: '28', name: '레포츠'},
+	                   {code: '32', name: '숙박'},
+	                   {code: '38', name: '쇼핑'},
+	                   {code: '39', name: '음식점'}
+	];
+	
+	$scope.stay =[
+	              { value : 'hanOk', name :'한옥'},
+	              { value : 'benikia', name :'베니키아'},
+	              { value : 'goodStay', name :'굿스테이'},
+	             ];
+	
 });

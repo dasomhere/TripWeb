@@ -48,10 +48,6 @@
     .navbar>.container-fluid .navbar-brand-centered {
         margin-left: -80px;
     }
-    #footer {
- 	 height: 60px;
- 	 background-color: #f5f5f5;
-	}
 
 </style>
 
@@ -63,6 +59,7 @@
 <script type="text/javascript" src="local.js"></script>
 <script type="text/javascript" src="login.js"></script>
 <script type="text/javascript" src="map.js"></script>
+<script type="text/javascript" src="maplocation.js"></script>
 <script type="text/javascript" src="search.js"></script>
 <script type="text/javascript" src="searchDetail.js"></script>
 <script type="text/javascript" src="weather.js"></script>
@@ -75,8 +72,9 @@
 </head>
 
 <body data-ng-controller="mainController">
+
 	<div class="container">
-		<div align="center"><a href="#event">TourWeb</a>
+		<div align="center"><a href="#home"><img src="mainImage/제목.png" style="width: 80%; height: 80%;"></a>
         	<div class="pull-right">
         		<a style="margin-right: 10px;" href="#search"><span class="glyphicon glyphicon-search"></span></a>
 				<a href="#login" class="btn btn-default" data-ng-if="loginResult.loginStatus==null || loginResult.loginStatus==false">로그인</a>
@@ -92,14 +90,13 @@
 			<a href="#weather" class="btn btn-info" ng-model="radioModel" btn-radio="'날씨'" uncheckable>날씨</a>
 		</div>
 	</div>
-	
-	
+
 	<div class="page {{ pageClass }}" data-ng-view
 									  data-ng-swipe-left="swipeLeft()"
 									  data-ng-swipe-right="swipeRight()"
 									  >
 	<!-- default page = home -->
 	</div>
-	
+		
 </body>
 </html>

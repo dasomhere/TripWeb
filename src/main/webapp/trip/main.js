@@ -59,19 +59,31 @@ myApp.config(function($routeProvider) {
 			controller : "joinController"
 	};
 	
+	var template = {
+			templateUrl : "template.jsp",
+			controller : "templateController"
+	};
+	
+	var templateDetail = {
+			templateUrl : "templateDetail.jsp",
+			controller : "templateDetailController"
+	};
+	
 	$routeProvider.when('/', event);
-	$routeProvider.when('/eventDetail', eventDetail);
+	$routeProvider.when('/eventDetail/:contentid/:contenttypeid', eventDetail);
 	$routeProvider.when('/local', local);
-	$routeProvider.when('/localDetail', localDetail);
+	$routeProvider.when('/localDetail/:contentid/:contenttypeid', localDetail);
 	$routeProvider.when('/stayDetail', stayDetail);
 	$routeProvider.when('/search', search);
-	$routeProvider.when('/searchDetail', searchDetail);
+	$routeProvider.when('/searchDetail/:contentid/:contenttypeid', searchDetail);
 	$routeProvider.when('/weather', weather);
 	$routeProvider.when('/weatherResult', weatherResult);
 	$routeProvider.when('/load', load);
 	$routeProvider.when('/loadDetail', loadDetail);
 	$routeProvider.when('/login', login);
 	$routeProvider.when('/join', join);
+	$routeProvider.when('/template', search);
+	$routeProvider.when('/templateDetail/:contentid', templateDetail);
 	$routeProvider.otherwise({redirectTo:'/'});
 	
 });

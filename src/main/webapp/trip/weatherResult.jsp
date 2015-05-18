@@ -5,15 +5,30 @@
 <head>
 	<style type="text/css">
 		section {
-			background-image: url('weatherImages/맑음.jpg');
+ 			background-image: url({{weatherImageChange()}});
 			background-size: cover;
+			height: 600px;
 		}
 	</style>
+
 </head>
 
 <section class="container">
 
 <h1>{{cityName}}</h1>
+
+
+<!-- <div style="width: 100%;" align="center"> -->
+<!-- 	<div class="container-fluid"> -->
+<!-- 		<div class="col-sm-6"> -->
+<!-- 		<img src="http://l.yimg.com/a/i/us/we/52/{{weather.item.condition.code}}.gif" style="width: 130px; height: 130px"> -->
+<!-- 		</div> -->
+<!-- 		<div class="col-sm-6" align="letf">온도 : {{(weather.item.condition.temp-32)/1.8 | number:1}}℃</div> -->
+<!-- 		<div class="col-sm-6" align="letf">습도 : {{weather.atmosphere.humidity}}%</div> -->
+<!-- 		<div class="col-sm-6">현재 : {{convertConditionCode(weather.item.condition.code)}}</div> -->
+<!-- 		<div class="col-sm-6">바람 : {{weather.wind.speed}}m/h</div> -->
+<!-- 	</div> -->
+<!-- </div> -->
 
 <table style="width: 100%;">
 	<tr>
@@ -30,20 +45,23 @@
 		<td>바람 : {{weather.wind.speed}}m/h</td>
 	</tr>
 	
+	
 	<tr><td colspan="2" style="padding-top: 10px">
-	<table style="width: 100%;">
+	
+	<br>
+	
+	<table style="width: 100%;" >
 		<tr>
-			<td align="center"><img src="http://l.yimg.com/a/i/us/we/52/{{weather.item.forecast[0].code}}.gif"  style="width: 80px; height: 80px"></td>
+			<td align="center"><img src="http://l.yimg.com/a/i/us/we/52/{{weather.item.forecast[0].code}}.gif"  style="width: 60px; height: 60px"></td>
 			<td>오늘({{convertDay(weather.item.forecast[0].day)}})</td>
-<!-- 			<td>오늘({{weather.item.forecast[0].day}})</td> -->
-			<td><font color="blue">▼최저기온 : {{(weather.item.forecast[0].low-32)/1.8 | number:1}}℃</font>&nbsp;&nbsp;&nbsp;<font color="red">▲최고기온 : {{(weather.item.forecast[0].high-32)/1.8 | number:1}}</font><br>
+			<td><font color="blue">▼ 최저 {{(weather.item.forecast[0].low-32)/1.8 | number:1}}℃</font>&nbsp;&nbsp;&nbsp;<font color="red">▲ 최고 {{(weather.item.forecast[0].high-32)/1.8 | number:1}}℃</font><br>
 			{{convertConditionCode(weather.item.forecast[0].code)}}</td>
 		</tr>
 		<c:forEach var="i" begin="1" end="4">
 			<tr>
-				<td align="center"><img src="http://l.yimg.com/a/i/us/we/52/{{weather.item.forecast[${i}].code}}.gif"  style="width: 80px; height: 80px"></td>
+				<td align="center"><img src="http://l.yimg.com/a/i/us/we/52/{{weather.item.forecast[${i}].code}}.gif"  style="width: 60px; height: 60px"></td>
 				<td>{{convertDay(weather.item.forecast[${i}].day)}}요일</td>
-				<td><font color="blue">▼최저기온 : {{(weather.item.forecast[${i}].low-32)/1.8 | number:1}}℃</font>&nbsp;&nbsp;&nbsp;<font color="red">▲최고기온 : {{(weather.item.forecast[${i}].high-32)/1.8 | number:1}}</font><br>
+				<td><font color="blue">▼최저 {{(weather.item.forecast[${i}].low-32)/1.8 | number:1}}℃</font>&nbsp;&nbsp;&nbsp;<font color="red">▲최고 {{(weather.item.forecast[${i}].high-32)/1.8 | number:1}}℃</font><br>
 				{{convertConditionCode(weather.item.forecast[${i}].code)}}</td>
 			</tr>
 		</c:forEach>

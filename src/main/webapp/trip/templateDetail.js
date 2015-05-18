@@ -1,7 +1,6 @@
 
-myApp.controller('searchDetailController', function($scope, $http, $routeParams) {
+myApp.controller('templateDetailController', function($scope, $http, $routeParams) {
 	$scope.$parent.pageClass = 'page-load';
-	
 	
 	
 	$http.get("/TripWeb/m/search/detailImage?contentId=" + $routeParams.contentid).success(function(searchDetailImage) {

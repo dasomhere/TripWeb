@@ -54,6 +54,7 @@
 <script type="text/javascript" src="join.js"></script>
 <script type="text/javascript" src="load.js"></script>
 <script type="text/javascript" src="loadDetail.js"></script>
+<script type="text/javascript" src="stayDetail.js"></script>
 <script type="text/javascript" src="local.js"></script>
 <script type="text/javascript" src="localDetail.js"></script>
 <script type="text/javascript" src="login.js"></script>
@@ -61,6 +62,8 @@
 <script type="text/javascript" src="searchDetail.js"></script>
 <script type="text/javascript" src="weather.js"></script>
 <script type="text/javascript" src="weatherResult.js"></script>
+<script type="text/javascript" src="template.js"></script>
+<script type="text/javascript" src="templateDetail.js"></script>
 
 <title>main.jsp</title>
 
@@ -82,7 +85,6 @@
 			<a href="#load" class="btn btn-default">추천 코스</a>
 			<a href="#weather" class="btn btn-default">날씨</a>
 		</div>
-		
 	</div>
 	<!---------------------->
 	<!-- Angular Template -->

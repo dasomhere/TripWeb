@@ -8,26 +8,42 @@ myApp.controller('eventController', function($scope, $http) {
 		$scope.citys = citys.response.body.items.item;
 	});
 	
+	$scope.currentPage = 1;
+	$scope.itemsPerPage = 5;
+	
+	$scope.changePage = function() {
+		console.log("page = " + $scope.currentPage);
+		
+		var city = $("#city option:selected").val();
+		var month = $("#month option:selected").val();		
+		$http.get("/TripWeb/m/event/festival?areaCode=" + city + "&month=" + month + "&numOfRows=" +$scope.itemsPerPage + "&pageNo=" + $scope.currentPage).success(function(events) {
+			console.log(events);
+			$scope.events = events.response.body;
+		}).error(function() {
+			alert("festival error...");
+		});
+		
+	};
+	
 	$scope.search = function() {
 		var city = $("#city option:selected").val();
 		var month = $("#month option:selected").val();		
-		$http.get("/TripWeb/m/event/festival?areaCode=" + city + "&month=" + month).success(function(events) {
+		$http.get("/TripWeb/m/event/festival?areaCode=" + city + "&month=" + month + "&numOfRows=" +$scope.itemsPerPage + "&pageNo=" + $scope.currentPage).success(function(events) {
 			console.log(events);
-			$scope.events = events.response.body.items.item;
+			$scope.events = events.response.body;
 		}).error(function() {
 			alert("festival error...");
 		});
 	};
 	
-	$scope.detail = function(contentid) {
-		$http.get("/TripWeb/m/event/detail?contentId=" + contentid + "&contentTypeId=15").success(function(eventDetail){
-			alert(eventDetail);
-			$scope.$parent.eventDetail = eventDetail.response.body.items.item;
-			alert(contentid);
-			location.href="#eventDetail";
-		}).error(function(url) {
-			alert("post error..."+ this.url);
-		});
+	$scope.detail = function(contentid, title, contenttypeid) {
+		alert(contentid + " " +  title);
+		$scope.$parent.eventTitle = title;
+		$scope.$parent.contentid = contentid;
+		$scope.$parent.contenttypeid = contenttypeid;
+		console.log("contetnttypeid ## 15 =" + contenttypeid);
+		
+		location.href="#eventDetail";
 	};
 	
 	

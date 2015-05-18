@@ -1,6 +1,7 @@
-.settings
+.settings/
 .classpath
 .project
-target
+target/
 src/main/webapp/node_modules
 
+src/main/java/com/webapp/model/request/Global.java

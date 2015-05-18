@@ -1,5 +1,5 @@
 
-myApp.controller('searchController', function($scope, $http) {
+myApp.controller('templateController', function($scope, $http) {
 	$scope.$parent.pageClass = 'page-load';
 	
 	$scope.currentPage = 1;

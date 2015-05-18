@@ -5,8 +5,8 @@
 
 <h3>지역을 선택하세요.</h3>
 
-	<li class="list-group-item" data-ng-repeat="x in names" data-ng-click="weatherSearch(x.woeid, x.city)" style="text-align: center;">
-		{{x.city}}
-	</li>
-
+	<div class="list-group" style="text-align: center;">
+		<a class="list-group-item" data-ng-repeat="x in names" href="#/weatherResult/{{x.woeid}}/{{x.city}}">{{x.city}}</a>
+	</div>
+	
 </section>

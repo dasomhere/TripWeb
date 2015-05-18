@@ -1,8 +1,10 @@
 
-myApp.controller('weatherResultController', function($scope, $http) {
+myApp.controller('weatherResultController', function($scope, $http, $routeParams) {
 	$scope.$parent.pageClass = 'page-event';
 	
-	$http.get("/TripWeb/m/weather/weather?woeid=" + $scope.$parent.woeid).success(function(weather) {
+	$scope.city = $routeParams.city;
+	
+	$http.get("/TripWeb/m/weather/weather?woeid=" + $routeParams.woeid).success(function(weather) {
 			$scope.weather = weather.query.results.channel;
 		}).error(function() {
 			alert("weather error...");

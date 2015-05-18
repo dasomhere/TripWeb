@@ -74,12 +74,12 @@
 <body data-ng-controller="mainController">
 
 	<div class="container">
-		<div align="center"><a href="#home"><img src="mainImage/제목.png" style="width: 80%; height: 80%;"></a>
-        	<div class="pull-right">
-        		<a style="margin-right: 10px;" href="#search" ng-model="radioModel" btn-radio="'키워드검색'" uncheckable><span class="glyphicon glyphicon-search"></span></a>
-				<a href="#login" class="btn btn-default" data-ng-if="loginResult.loginStatus==null || loginResult.loginStatus==false">로그인</a>
-				<a data-ng-click="logout()" class="btn btn-default" data-ng-if="loginResult.loginStatus==true">로그아웃</a>
-			</div>
+		<div align="center" style="background-image:url('mainImage/윗배경.png'); background-size:cover; background-repeat:no-repeat;"><a href="#home"><img src="mainImage/제목.png" style="width: 80%; height: 80%;"></a>
+<!--         	<div class="pull-right"> -->
+<!--         		<a style="margin-right: 10px;" href="#search" ng-model="radioModel" btn-radio="'키워드검색'" uncheckable><span class="glyphicon glyphicon-search"></span></a> -->
+<!-- 				<a href="#login" class="btn btn-default" data-ng-if="loginResult.loginStatus==null || loginResult.loginStatus==false">로그인</a> -->
+<!-- 				<a data-ng-click="logout()" class="btn btn-default" data-ng-if="loginResult.loginStatus==true">로그아웃</a> -->
+<!-- 			</div> -->
 		</div>
 		
 		<div class="navbar-mobile btn-group btn-group-justified" class="dropdown">

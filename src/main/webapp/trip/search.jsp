@@ -1,27 +1,33 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@include file="/WEB-INF/taglib.jspf" %>
+
+<style>
+select, input {
+	height: 30px;
+	width: 100%;
+}
+</style>
+
 <section class="container">
-
-<h3>키워드를 입력하세요.</h3>
-
-<div>
-	<form data-ng-submit="search()">
-		<div align="center">
-		<table>
-			<tr>
-				<td style="padding-right: 10px;">
-					<select id=content>
-						<option data-ng-repeat="content in contents" value="{{content.code}}">{{content.name}}</option>
-					</select>
-				</td>
-				<td><input type="text" name="keyword" id="keyword"/></td>
-				<td style="padding-left: 10px;"><button type="submit" class="btn btn-default">검색</button></td>
-			</tr>
-		</table>
+<hr>
+<form data-ng-submit="search()">
+	<div class="row" style="text-align: center;">
+		<div class="col-sm-2 col-sm-offset-2">
+			<b>관광타입</b><br>
+			<select id=content>
+				<option data-ng-repeat="content in contents" value="{{content.code}}">{{content.name}}</option>
+			</select>
 		</div>
-	</form>
-</div>
+		<div class="col-sm-4">
+			<b>키워드</b><br>
+			<input type="text" name="keyword" id="keyword" placeholder="키워드를 입력하세요"/>
+		</div>
+		<div class="col-sm-2" style="text-align:left; height: 50px; position: relative;">
+			<button class="btn btn-default" type="submit" style="position: absolute; width: 50%; bottom:0px;">검색</button>
+		</div>
+	</div>
+</form>
 <hr>
 
 <div class="row" data-ng-repeat="(idx, result) in searchResult.items.item" ng-if="idx % 3 == 0">

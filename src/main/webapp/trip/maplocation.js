@@ -30,6 +30,7 @@ myApp.controller('maplocationController', function($scope, $http) {
 	}
 	
 	$scope.search = function() {
+		$scope.currentPage = 1;
 		var contentTypeId = $("#content option:selected").val();
 		var radius = $("#radius option:selected").val();
 		console.log($scope.marker.position.A + "," + $scope.marker.position.F)

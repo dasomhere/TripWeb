@@ -45,6 +45,7 @@ myApp.controller('eventController', function($scope, $http) {
 			location.href="#eventDetail";
 		});
 		$http.get("/TripWeb/m/event/detailImage?contentId="+contentid +"&contentTypeId="+contenttypeid).success(function(imageDetail){
+			alert(imageDtail);
 			$scope.$parent.imageDetail = imageDetail.response.body.items.item;
 			location.href="#eventDetail";
 		}).error(function(url) {

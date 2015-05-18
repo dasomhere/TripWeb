@@ -11,9 +11,9 @@
 			
 			<li class="list-group-item"
 				data-ng-repeat="image in imageDetail">
-				<table>
-					<tr><td><img alt="" src="{{image.originimgurl}}"></td></tr>
-				</table>
+				
+					<img alt="" src="{{image.originimgurl}}">
+				
 			</li>
 			
 			<li class="list-group-item"

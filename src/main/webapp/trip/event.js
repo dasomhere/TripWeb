@@ -39,18 +39,11 @@ myApp.controller('eventController', function($scope, $http) {
 	$scope.detail = function(contentid, title, contenttypeid) {
 		alert(contentid + " " +  title);
 		$scope.$parent.eventTitle = title;
-		$http.get("/TripWeb/m/event/detail?contentId=" + contentid + "&contentTypeId=15").success(function(eventDetail){
-			$scope.$parent.eventDetail = eventDetail.response.body.items.item;
-			alert(contentid);
-			location.href="#eventDetail";
-		});
-		$http.get("/TripWeb/m/event/detailImage?contentId="+contentid +"&contentTypeId="+contenttypeid).success(function(imageDetail){
-			alert(imageDtail);
-			$scope.$parent.imageDetail = imageDetail.response.body.items.item;
-			location.href="#eventDetail";
-		}).error(function(url) {
-			alert("post error..."+ this.url);
-		});
+		$scope.$parent.contentid = contentid;
+		$scope.$parent.contenttypeid = contenttypeid;
+		console.log("contetnttypeid ## 15 =" + contenttypeid);
+		
+		location.href="#eventDetail";
 	};
 	
 	

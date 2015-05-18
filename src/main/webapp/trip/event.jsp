@@ -27,7 +27,7 @@
 		
 <button data-ng-click="search()">검색</button>	
 	<div>
-		 <li class="list-group-item" data-ng-repeat="event in events.items.item" data-ng-click = "detail(event.contentid, event.title)" style="text-align: center;">
+		 <li class="list-group-item" data-ng-repeat="event in events.items.item" data-ng-click = "detail(event.contentid, event.title, event.contenttypeid)" style="text-align: center;">
 		 		<img alt=""	ng-src="{{event.firstimage}}" style="width: 200px; height: 250px"/> <br>
 		 		<img src="http://placehold.it/150x100/808080/ffffff&text=No Image!" style="width: 200px; height: 250px" ng-hide="event.firstimage != null"/>
 				<h4>{{event.title}}</h4> <br>

@@ -2,6 +2,12 @@
 myApp.controller('weatherResultController', function($scope, $http) {
 	$scope.$parent.pageClass = 'page-event';
 	
+	$http.get("/TripWeb/m/weather/weather?woeid=" + $scope.$parent.woeid).success(function(weather) {
+			$scope.weather = weather.query.results.channel;
+		}).error(function() {
+			alert("weather error...");
+		});
+	
 	$http.get("weatherLanguageChange.json").success(function(response) {
 		$scope.convertConditionCode = function(code) {
 			return response.conditions[code].text;
@@ -15,6 +21,7 @@ myApp.controller('weatherResultController', function($scope, $http) {
 		}
 
 	});
+	
 	$scope.weatherImageChange = function() {
 		var weatherCode = $scope.weather.item.condition.code;
 		console.log(weatherCode);

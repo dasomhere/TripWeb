@@ -62,6 +62,8 @@
 <script type="text/javascript" src="searchDetail.js"></script>
 <script type="text/javascript" src="weather.js"></script>
 <script type="text/javascript" src="weatherResult.js"></script>
+<script type="text/javascript" src="template.js"></script>
+<script type="text/javascript" src="templateDetail.js"></script>
 
 <title>main.jsp</title>
 

@@ -82,7 +82,7 @@ myApp.config(function($routeProvider) {
 	$routeProvider.when('/loadDetail', loadDetail);
 	$routeProvider.when('/login', login);
 	$routeProvider.when('/join', join);
-	$routeProvider.when('/template', search);
+	$routeProvider.when('/template', template);
 	$routeProvider.when('/templateDetail/:contentid', templateDetail);
 	$routeProvider.otherwise({redirectTo:'/'});
 	

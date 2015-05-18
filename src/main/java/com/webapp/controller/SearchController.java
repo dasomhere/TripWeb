@@ -39,6 +39,8 @@ import com.webapp.model.Weather;
 import com.webapp.model.request.AreaBasedListRequestParameter;
 import com.webapp.model.request.AreaCodeRequestParameter;
 import com.webapp.model.request.CategoryCodeRequestParameter;
+import com.webapp.model.request.DetailCommonRequestParameter;
+import com.webapp.model.request.DetailImageRequestParameter;
 import com.webapp.model.request.DetailInfoRequestParameter;
 import com.webapp.model.request.SearchKeywordRequestParameter;
 import com.webapp.model.response.Items;
@@ -64,34 +66,24 @@ public class SearchController {
 		return tour.getApi(request.getUrl());
 	}
 	
-//	@RequestMapping(value="city", method=RequestMethod.GET)
-//	@ResponseBody
-//	public ResponseMessage city(AreaCodeRequestParameter request) {
-//		log.info("###############");
-//		log.info("search.city()...");
-//		log.info("###############");
-//		
-//		return tour.getApi(request.getUrl());
-//	}
-//	
-//	@RequestMapping(value="sigungu", method=RequestMethod.GET)
-//	@ResponseBody
-//	public ResponseMessage sigungu(AreaCodeRequestParameter request) {
-//		log.info("###############");
-//		log.info("search.sigungu()...");
-//		log.info("###############");
-//		
-//		return tour.getApi(request.getUrl());
-//	}
+	@RequestMapping(value="detailImage", method=RequestMethod.GET)
+	@ResponseBody
+	public ResponseMessage detailImage(DetailImageRequestParameter request) {
+		log.info("###############");
+		log.info("detail()..." + request.getContentId());
+		log.info("###############");
+		
+		return tour.getApi(request.getUrl());
+	}
 	
-//	@RequestMapping(value="detail", method=RequestMethod.GET)
-//	@ResponseBody
-//	public ResponseMessage detail(DetailInfoRequestParameter request) {
-//		log.info("###############");
-//		log.info("detail()..." + request.getContentId());
-//		log.info("###############");
-//		
-//		return tour.getApi(request.getUrl());
-//	}
+	@RequestMapping(value="detailCommon", method=RequestMethod.GET)
+	@ResponseBody
+	public ResponseMessage detailCommon(DetailCommonRequestParameter request) {
+		log.info("###############");
+		log.info("detail()..." + request.getContentId());
+		log.info("###############");
+		
+		return tour.getApi(request.getUrl());
+	}
 }
 

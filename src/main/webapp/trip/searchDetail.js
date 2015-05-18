@@ -1,23 +1,19 @@
 
-myApp.controller('searchDetailController', function($scope, $http) {
+myApp.controller('searchDetailController', function($scope, $http, $routeParams) {
 	$scope.$parent.pageClass = 'page-load';
 	
-	$(document).ready(function() {
-		$("#content-slider").lightSlider({
-            loop:true,
-            keyPress:true
-        });
-        $('#image-gallery').lightSlider({
-            gallery:true,
-            item:1,
-            thumbItem:9,
-            slideMargin: 0,
-            speed:500,
-//            auto:true,
-//            loop:true,
-            onSliderLoad: function() {
-                $('#image-gallery').removeClass('cS-hidden');
-            }  
-        });
+	
+	
+	$http.get("/TripWeb/m/search/detailImage?contentId=" + $routeParams.contentid).success(function(searchDetailImage) {
+		$scope.searchDetailImage = searchDetailImage.response.body.items.item;
+	}).error(function() {
+		alert("searchDetailImage error...");
 	});
+	
+	$http.get("/TripWeb/m/search/detailCommon?contentId=" + $routeParams.contentid).success(function(searchDetailCommon) {
+		$scope.searchDetailCommon = searchDetailCommon.response.body.items.item;
+	}).error(function() {
+		alert("searchDetailCommon error...");
+	});
+	
 });

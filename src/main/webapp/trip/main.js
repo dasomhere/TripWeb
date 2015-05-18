@@ -65,7 +65,7 @@ myApp.config(function($routeProvider) {
 	$routeProvider.when('/localDetail', localDetail);
 	$routeProvider.when('/stayDetail', stayDetail);
 	$routeProvider.when('/search', search);
-	$routeProvider.when('/searchDetail', searchDetail);
+	$routeProvider.when('/searchDetail/:contentid', searchDetail);
 	$routeProvider.when('/weather', weather);
 	$routeProvider.when('/weatherResult', weatherResult);
 	$routeProvider.when('/load', load);

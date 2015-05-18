@@ -110,9 +110,10 @@
 		data-ng-repeat="event in searchDetailInfo">
 		<li>
 			<h4>{{event.infoname}}</h4>
-		<li data-ng-bind-html="event.infotext">{{event.infotext}} <br>
 		</li>
+		<li style="list-style: none;" data-ng-bind-html="event.infotext">{{event.infotext}} <br>
 		</li>
+		
 
 	</ul>
 	<ul data-ng-if="searchDetailIntro[0].contenttypeid == 32 ">

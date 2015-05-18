@@ -109,16 +109,16 @@ function setMark(x, y){
     .navbar>.container-fluid .navbar-brand-centered {
         margin-left: -80px;
     }
- html { height: 100% }
-  body { height: 100%; margin: 0px; padding: 0px; font-size: 9pt; }
+/*  html { height: 100% } */
+/*   body { height: 100%; margin: 0px; padding: 0px; font-size: 9pt; } */
 
-    div { float:left; }
+/*     div { float:left; } */
 
-    #map_canvas { width: 800px; height: 500px }
+/*     #map_canvas { width: 800px; height: 500px } */
 
-    #control {  }
+/*     #control {  } */
 
-    input { font-size: 9pt; }
+/*     input { font-size: 9pt; } */
 </style>
 
 <link rel="stylesheet" href="style.css"/>
@@ -127,15 +127,35 @@ function setMark(x, y){
 
 </head>
 
-<body onload="initialize(0,0)">
-  <div id="map_canvas"></div>
+<body class="container" onload="initialize(0,0)">
+<!--   <div id="map_canvas"></div> -->
 
-    <div id="control">
-        <dl>
-            <dd>
-                <input type="button" value="맵 중앙에 마크찍기" onClick="setMark();">
-                </dd>
-                </dl>
-    </div>
+<!--     <div id="control"> -->
+<!--         <dl> -->
+<!--             <dd> -->
+<!--                 <input type="button" value="맵 중앙에 마크찍기" onClick="setMark();"> -->
+<!--                 </dd> -->
+<!--                 </dl> -->
+<!--     </div> -->
+    
+   <div class="row">
+		<div class="col-xs-6">
+			 <div id="map_canvas" style="width: 100%; height: 300px;"></div>
+			 <div id="control">
+		         <input type="button" value="맵 중앙에 마크찍기" onClick="setMark()">
+			 </div>
+		
+		</div>
+	
+		<div class="col-xs-6">
+			<ul>
+				<li>우편번호 : </li>
+				<li>전화명 :</li>
+				<li>전화번호 :</li>
+				<li>홈페이지 :</li>
+				<li>주소 : </li>
+			</ul>
+		</div>
+	</div>
 </body> 
 </html>

@@ -28,6 +28,7 @@
 <script type="text/javascript" src="${angularRoute}/angular-route.min.js"></script>
 <script type="text/javascript" src="${angularBootstrap}/ui-bootstrap.min.js"></script>
 <script type="text/javascript" src="${angularBootstrap}/ui-bootstrap-tpls.min.js"></script>
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false&region=KR"></script>
 
 <link rel="stylesheet" type="text/css" href="${font}">
 

@@ -17,17 +17,29 @@
 	</div>
 	<hr>
 	<tabset justified="true"> <tab heading="개요"> <span
-		data-ng-bind-html="searchDetailCommon[0].overview"></span></tab> <tab
-		heading="기본정보">
-	<ul>
-		<li>우편번호 : {{searchDetailCommon[0].zipcode}}</li>
-		<li>전화명 : {{searchDetailCommon[0].telname}}</li>
-		<li>전화번호 : {{searchDetailCommon[0].tel}}</li>
-		<li>홈페이지 : <span
-			data-ng-bind-html="searchDetailCommon[0].homepage"></span></li>
-		<li>주소 : {{searchDetailCommon[0].addr1}}</li>
-	</ul>
-	</tab> <tab heading="이용안내">
+		data-ng-bind-html="searchDetailCommon[0].overview"></span></tab> 
+	<tab heading="기본정보" ng-click="initialize(searchDetailCommon[0].mapx, searchDetailCommon[0].mapy)">
+		<div class="row">
+			<div class="col-xs-6">
+			 <div id="map_canvas" style="width: 100%; height: 300px;"></div>
+			 <div id="control">
+		         <input type="button" value="최기화면으로" ng-click="setCenter(searchDetailCommon[0].mapx, searchDetailCommon[0].mapy)">
+			 </div>
+			</div>
+			<div class="col-xs-6">
+				<ul>
+					<li>우편번호 : {{searchDetailCommon[0].zipcode}}</li>
+					<li>전화명 : {{searchDetailCommon[0].telname}}</li>
+					<li>전화번호 : {{searchDetailCommon[0].tel}}</li>
+					<li>홈페이지 : <span
+						data-ng-bind-html="searchDetailCommon[0].homepage"></span></li>
+					<li>주소 : {{searchDetailCommon[0].addr1}}</li>
+				</ul>
+			</div>
+		</div>
+	</tab> 
+	
+	<tab heading="이용안내">
 	<ul data-ng-if="searchDetailIntro[0].contenttypeid == 12 ">
 		<li data-ng-repeat="intro in searchDetailIntro">유 모 차 사 용 여 부:
 			{{intro.chkbabycarriage}}</li>

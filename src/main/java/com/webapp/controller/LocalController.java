@@ -62,7 +62,7 @@ public class LocalController {
 	@ResponseBody
 	public ResponseMessage gus(AreaCodeRequestParameter request) {
 		log.info("###############");
-		log.info("gus");
+		log.info("gus" + request.getAreaCode());
 		log.info("###############");
 		
 		return tour.getApi(request.getUrl());
@@ -117,15 +117,15 @@ public class LocalController {
 		return tour.getApi(request.getUrl());
 	}
 	
-	@RequestMapping(value="stayinfo", method=RequestMethod.GET)
-	@ResponseBody
-	public ResponseMessage hanokinfo(StayInfoRequestParameter request) {
-		log.info("###############");
-		log.info("stay change");
-		log.info("###############");
-		
-		return tour.getApi(request.getUrl());
-	}
+//	@RequestMapping(value="stayinfo", method=RequestMethod.GET)
+//	@ResponseBody
+//	public ResponseMessage hanokinfo(StayInfoRequestParameter request) {
+//		log.info("###############");
+//		log.info("stay change");
+//		log.info("###############");
+//		
+//		return tour.getApi(request.getUrl());
+//	}
 //	@RequestMapping(value="goodstayinfo", method=RequestMethod.GET)
 //	@ResponseBody
 //	public ResponseMessage goodStayinfo(goodStayInfoRequestParameter request) {

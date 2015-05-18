@@ -16,4 +16,16 @@ myApp.controller('searchDetailController', function($scope, $http, $routeParams)
 		alert("searchDetailCommon error...");
 	});
 	
+	$http.get("/TripWeb/m/search/detailIntro?contentId=" + $routeParams.contentid + "&contentTypeId=" + $routeParams.contenttypeid).success(function(searchDetailIntro) {
+		$scope.searchDetailIntro = searchDetailIntro.response.body.items.item;
+	}).error(function() {
+		alert("searchDetailIntro error...");
+	});
+	
+	$http.get("/TripWeb/m/search/detailInfo?contentId=" + $routeParams.contentid + "&contentTypeId=" + $routeParams.contenttypeid).success(function(searchDetailInfo) {
+		$scope.searchDetailInfo = searchDetailInfo.response.body.items.item;
+	}).error(function() {
+		alert("searchDetailInfo error...");
+	});
+	
 });

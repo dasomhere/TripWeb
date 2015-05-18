@@ -28,7 +28,12 @@
     		<li>주소 : {{searchDetailCommon[0].addr1}}</li>
     	</ul>
     </tab>
-    <tab heading="이용안내">Long Labeled Justified content</tab>
+    <tab heading="이용안내">
+    	<ul data-ng-if="searchDetailIntro[0].contenttypeid == 15 ">
+    		<li>15입니다</li>
+    	</ul>
+    </tab>
+    	
     <tab heading="상세정보">ㅇㅇ</tab>
 </tabset>
 

@@ -27,7 +27,7 @@
  			  </tr>
  			  <tr>
  			  	<td>
- 			  		<a href="#/searchDetail/{{r.contentid}}">
+ 			  		<a href="#/searchDetail/{{r.contentid}}/{{r.contenttypeid}}">
 	 			  	<img ng-src="{{r.firstimage}}" style="width: 150px; height: 100px"/>
 	 			  	<img ng-src="http://placehold.it/150x100/808080/ffffff&text=No Image!" style="width: 150px; height: 100px" ng-hide="r.firstimage != null"/>
 	 			 	</a>

@@ -18,8 +18,8 @@ myApp.controller('localController', function($scope, $http) {
 	
 	$scope.cityChange = function() {
 		var city = $("#city option:selected").val();
-		$http.get("/TripWeb/m/local/gus?areaCode=" + city).success(function(gus) {
-			$scope.gus = gus.response.body;
+		$http.get("/TripWeb/m/local/gus?areaCode="+city).success(function(gus) {
+			$scope.gus = gus.response.body.items.item;
 		}).error(function() {
 			alert("server error...");
 		});
@@ -49,7 +49,7 @@ myApp.controller('localController', function($scope, $http) {
 		
 		if(stay=='#'){
 			$http.get("/TripWeb/m/load/search?areaCode=" + city + "&sigunguCode=" + sigunguCode + "&contentTypeId="+contentTypeId + "&numOfRows=" +$scope.itemsPerPage + "&pageNo=" + $scope.currentPage).success(function(localResult) {
-				console.log("/TripWeb/m/load/search?areaCode=" + city + "&sigunguCode=" + sigunguCode + "&contentTypeId="+contentTypeId + "&numOfRows=" +$scope.itemsPerPage + "&pageNo=" + $scope.currentPage);
+			console.log("/TripWeb/m/load/search?areaCode=" + city + "&sigunguCode=" + sigunguCode + "&contentTypeId="+contentTypeId + "&numOfRows=" +$scope.itemsPerPage + "&pageNo=" + $scope.currentPage);
 				
 				$scope.localResult = localResult.response.body;
 			}).error(function() {
@@ -62,7 +62,7 @@ myApp.controller('localController', function($scope, $http) {
 				alert('hanOk error');
 			});
 		}
-		
+
 	};
 	
 	

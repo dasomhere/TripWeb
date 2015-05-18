@@ -12,19 +12,19 @@ myApp.controller('eventController', function($scope, $http) {
 	}else {
 		monthSelect = monthSelect;
 	}
-	
-	for(var i = 1; i < 13; i++){
-		if(monthSelect == i)
-			$("#month option:eq(i)").attr("selected", "selected");
-	} 
+	console.log("monnthSelect="+monthSelect);
+	for(var i = 1; i <= 12; i++){
+		if(monthSelect == i){
+			console.log("monthSelect="+monthSelect +", i="+i);
+			$("#month option:eq("+i+")").attr("selected", "selected");
+		}
+	}
 	
 	$http.get("/TripWeb/m/event/festival?areaCode=1" + "&month="+ monthSelect + "&numOfRows=" +$scope.itemsPerPage + "&pageNo=" + $scope.currentPage).success(function(events) {
-		console.log(events);
 		$scope.events = events.response.body;
 	});
 	
 	$http.get("/TripWeb/m/event/city").success(function(citys) {
-		console.log(citys);
 		$scope.citys = citys.response.body.items.item;
 	});
 	

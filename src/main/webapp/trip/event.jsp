@@ -14,8 +14,8 @@
 	</select>
 	
 	<select id = "month">
-	<c:set var="zero" value="0"></c:set>
-<c:forEach var = "i" begin="1" end="12">
+		<c:set var="zero" value="0"></c:set>
+		<c:forEach var = "i" begin="1" end="12">
 			<c:if test="${i < 11}">
 				<option value="${zero}${i}">${i}월</option>
 			</c:if>

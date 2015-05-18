@@ -4,17 +4,7 @@
 
 <!-- local.jsp -->
 <style>
-	.select{
-		height : 28px;
- 		border: 1px solid #ccc;
-		font-size: 13px;
-		margin-right: 5px;
-		background: url(new_arrow.png) no-repeat right white;;
-		-webkit-appearance: none;
-		text-align: center;
-		text-shadow: 5px;
-		padding: 0px;
-	}
+
 </style>
 
 <section class="container">
@@ -36,6 +26,7 @@
 		<option value="39">음식점</option>
 		<option value="28">레포츠</option>
 		<option value="38">쇼핑</option>
+		<option value="">문화시설</option>
 	</select>
 	
 	<select id="select" class="select">
@@ -58,10 +49,7 @@
 		 			  			</a>
 		 				</div>
 		 				<div class="col-sm-8">
-							<br>
-		 						<span>{{type.contentid}}</span>
-<!-- 		 						{{common.overview}} -->
-		 					
+									 					
 		 				</div>
 		 			</div>
 		 	</li>

@@ -87,11 +87,26 @@ myApp.controller('localController', function($scope, $http) {
 		var contentTypeId = $("#contentTypeId option:selected").val();
 		var stay = $("#select option:selected").val();
 		if(contentTypeId=='32') {
-			$http.get("/TripWeb/m/local/searchhanok?areaCode=" + city + "&sigungucode=" + sigunguCode + "&contentTypeId="+contentTypeId+"&"+stay+"=1" + "&numOfRows=" +$scope.itemsPerPage + "&pageNo=" + $scope.currentPage).success(function(hanokResult) {
-				$scope.localResult = hanokResult.response.body;
-			}).error(function() {
-				alert('hanOk error');
-			});
+			if(stay=="hanOk"){
+				$http.get("/TripWeb/m/local/searchhanok?areaCode=" + city + "&sigungucode=" + sigunguCode + "&contentTypeId="+contentTypeId+"&"+stay+"=1" + "&numOfRows=" +$scope.itemsPerPage + "&pageNo=" + $scope.currentPage).success(function(hanokResult) {
+					$scope.localResult = hanokResult.response.body;
+				}).error(function() {
+					alert('hanOk error');
+				});
+			}else if(stay=="goodStay"){
+				$http.get("/TripWeb/m/local/searchgoodstay?areaCode=" + city + "&sigungucode=" + sigunguCode + "&contentTypeId="+contentTypeId+"&"+stay+"=1" + "&numOfRows=" +$scope.itemsPerPage + "&pageNo=" + $scope.currentPage).success(function(hanokResult) {
+					$scope.localResult = hanokResult.response.body;
+				}).error(function() {
+					alert('hanOk error');
+				});
+			}else{
+				$http.get("/TripWeb/m/local/searchbenikia?areaCode=" + city + "&sigungucode=" + sigunguCode + "&contentTypeId="+contentTypeId+"&"+stay+"=1" + "&numOfRows=" +$scope.itemsPerPage + "&pageNo=" + $scope.currentPage).success(function(hanokResult) {
+					$scope.localResult = hanokResult.response.body;
+				}).error(function() {
+					alert('hanOk error');
+				});
+			}
+		
 		}else{
 			$http.get("/TripWeb/m/load/search?areaCode=" + city + "&sigunguCode=" + sigunguCode + "&contentTypeId="+contentTypeId+ "&numOfRows=" +$scope.itemsPerPage + "&pageNo=" + $scope.currentPage).success(function(localResult) {
 				$scope.localResult = localResult.response.body;

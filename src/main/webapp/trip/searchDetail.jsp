@@ -4,28 +4,34 @@
 
 <section class="container">
 
-<h3>SearchDetail</h3>
+<h3>{{searchDetailCommon[0].title}}</h3>
 <hr>
+  <div align="center">
+    <carousel>
+      <slide>
+        <img ng-src="{{searchDetailCommon[0].firstimage}}" style="margin:auto; width: auto; min-height: 200px; max-height: 400px;">
+      </slide>
+      <slide data-ng-repeat="s in searchDetailImage">
+        <img ng-src="{{s.originimgurl}}" style="margin:auto; width: auto; min-height: 200px; max-height: 400px;">
+      </slide>
+    </carousel>
+  </div>
+<hr>
+<tabset justified="true">
+    <tab heading="개요"><span data-ng-bind-html="searchDetailCommon[0].overview"></span></tab>
+    <tab heading="기본정보">
+    	<ul>
+    		<li>우편번호 : {{searchDetailCommon[0].zipcode}}</li>
+    		<li>전화명 : {{searchDetailCommon[0].telname}}</li>
+    		<li>전화번호 : {{searchDetailCommon[0].tel}}</li>
+    		<li>홈페이지 : <span data-ng-bind-html="searchDetailCommon[0].homepage"></span></li>
+    		<li>주소 : {{searchDetailCommon[0].addr1}}</li>
+    	</ul>
+    </tab>
+    <tab heading="이용안내">Long Labeled Justified content</tab>
+    <tab heading="상세정보">ㅇㅇ</tab>
+</tabset>
 
-<div class="lSSlideOuter">
-      <div class="item">            
-          <div class="clearfix" style="max-width:474px;">
-              <ul id="image-gallery" class="gallery list-unstyled cS-hidden">
-                  <li data-thumb="http://tong.visitkorea.or.kr/cms/resource/16/1956116_image2_1.jpg"> 
-                      <img src="http://tong.visitkorea.or.kr/cms/resource/16/1956116_image2_1.jpg" />
-                       </li>
-                  <li data-thumb="http://tong.visitkorea.or.kr/cms/resource/16/1956116_image2_1.jpg"> 
-                      <img src="http://tong.visitkorea.or.kr/cms/resource/16/1956116_image2_1.jpg" />
-                       </li>
-                  <li data-thumb="http://tong.visitkorea.or.kr/cms/resource/16/1956116_image2_1.jpg"> 
-                      <img src="http://tong.visitkorea.or.kr/cms/resource/16/1956116_image2_1.jpg" />
-                       </li>
-                  <li data-thumb="http://tong.visitkorea.or.kr/cms/resource/16/1956116_image2_1.jpg"> 
-                      <img src="http://tong.visitkorea.or.kr/cms/resource/16/1956116_image2_1.jpg" />
-                       </li>
-              </ul>
-          </div>
-      </div>
-</div>
+
 
 </section>

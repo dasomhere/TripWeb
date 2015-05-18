@@ -33,9 +33,9 @@
 
 	<div>
 		<ul class="list-group">
-		 	<li class="list-group-item" data-ng-repeat="type in localResult" data-ng-click=contentid(type.contentid,type.contenttypeid,type.areaCode,type.sigunguCode)>
+		 	<li class="list-group-item" data-ng-repeat="type in localResult" data-ng-click="contentid(type.contentid,type.contenttypeid,type.areaCode,type.sigunguCode)">
 		 			<table>
-		 			  <tr><td><img alt="" src="{{type.firstimage}}" style="width: 200px" height="150px"/>
+		 			  <tr><td><img alt="" data-ng-src="{{type.firstimage}}" style="width: 200px" height="150px"/>
 		 			  	<img src="http://placehold.it/150x100/808080/ffffff&text=No Image!" style="width: 150px; height: 100px" data-ng-hide="type.firstimage != null"/>
 		 			  <td><tr>
 		 			  <tr><td>{{type.title}}</td></tr>

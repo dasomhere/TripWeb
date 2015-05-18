@@ -3,10 +3,18 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <div class="container"> 
-	<h1>{{eventTitle}}</h1>
+	<h3>{{eventTitle}}</h3>
 	<hr>
+		
 
 	 	<ul class="list-group">
+			
+			<li class="list-group-item"
+				data-ng-repeat="image in imageDetail">
+				
+					<img alt="" src="{{image.originimgurl}}">
+				
+			</li>
 			
 			<li class="list-group-item"
 				data-ng-repeat="event in eventDetail"><b>장     소 :</b>

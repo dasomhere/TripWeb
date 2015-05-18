@@ -28,6 +28,7 @@
 <script type="text/javascript" src="${angularRoute}/angular-route.min.js"></script>
 <script type="text/javascript" src="${angularBootstrap}/ui-bootstrap.min.js"></script>
 <script type="text/javascript" src="${angularBootstrap}/ui-bootstrap-tpls.min.js"></script>
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false&region=KR"></script>
 
 <link rel="stylesheet" type="text/css" href="${font}">
 
@@ -68,7 +69,7 @@
 <title>main.jsp</title>
 
 </head>
-	
+
 <body data-ng-controller="mainController">
 	<div class="container">
 		<div align="center"><a href="#event">TourWeb</a>
@@ -80,15 +81,13 @@
 		</div>
 		
 		<div class="navbar-mobile btn-group btn-group-justified" class="dropdown">
-			<a href="#event" class="btn btn-default">행사</a>
-			<a href="#local" class="btn btn-default">관광지</a>
-			<a href="#load" class="btn btn-default">추천 코스</a>
-			<a href="#weather" class="btn btn-default">날씨</a>
+			<a href="#event" class="btn btn-info" ng-model="radioModel" btn-radio="'행사'" uncheckable>행사</a>
+			<a href="#local" class="btn btn-info" ng-model="radioModel" btn-radio="'관광지'" uncheckable>관광지</a>
+			<a href="#load" class="btn btn-info" ng-model="radioModel" btn-radio="'추천 코스'" uncheckable>추천 코스</a>
+			<a href="#weather" class="btn btn-info" ng-model="radioModel" btn-radio="'날씨'" uncheckable>날씨</a>
 		</div>
 	</div>
-	<!---------------------->
-	<!-- Angular Template -->
-	<!---------------------->
+
 	<div class="page {{ pageClass }}" data-ng-view
 									  data-ng-swipe-left="swipeLeft()"
 									  data-ng-swipe-right="swipeRight()"

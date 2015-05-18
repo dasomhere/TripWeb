@@ -8,7 +8,7 @@
 	기본정보를 모두 입력해 주세요.
 	<hr>
 	<div align="center">
-		<form action="join" method="post" onsubmit='return checkForm()' name="loginForm">
+		<form data-ng-submit=insertId() name="loginForm">
 			<table>
 				<tr>
 					<td align="right" style="width: 70px;">이름 :&nbsp;</td>
@@ -43,7 +43,7 @@
 			</table>
 			<hr>
 			<div align="center">
-				<input class="btn btn-info btn-lg" type="submit" value="회원가입"/>
+				<input class="btn btn-info btn-lg" type="submit" value="회원가입" data-ng-disabled="dis"/>
 			</div>
 		</form>
 	</div>

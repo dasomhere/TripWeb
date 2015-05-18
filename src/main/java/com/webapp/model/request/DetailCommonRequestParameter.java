@@ -10,7 +10,7 @@ public class DetailCommonRequestParameter extends RequestParameter {
 	public String getQueryString() {
 		String queryString="";
 		queryString += super.getQueryString();
-		queryString += "&defaultYN=Y" + "&firstImageYN=Y" + "&addrinfoYN=Y" + "&overviewYN=Y";
+		queryString += "&defaultYN=Y" + "&firstImageYN=Y" + "&addrinfoYN=Y" + "&overviewYN=Y" + "&mapinfoYN=Y";
 		queryString += "&contentId=" + contentId;
 		
 		return queryString;

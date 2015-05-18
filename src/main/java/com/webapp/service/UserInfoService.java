@@ -18,10 +18,18 @@ public class UserInfoService {
 		dataSource = ds;
 	}
 	
-	public User getDeptInfo(String id, String pwd) {
-
-		User user = userdao.selectByUserid(id, pwd);
-
+	public User getUserid(String id){
+		User user = userdao.selectByUserid(id);
+		return user;
+	}
+	
+	public User getUserInfo(String id, String password) {
+		User user = userdao.selectByUseridpwd(id, password);
+		return user;
+	}
+	
+	public User setUserInfo(String name, String id, String password, String email){
+		User user = userdao.insertByUserid(name, id, password, email);
 		return user;
 	}
 }

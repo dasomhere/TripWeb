@@ -23,13 +23,11 @@
 		<select id="contentTypeId" class="select">
 			<option data-ng-repeat="typeId in contents" value="{{typeId.code}}" data-ng-click="stays(typeId.code)">{{typeId.name}}</option>
 		</select>
-		<c:set var="flag" value="true"></c:set>
-		<c:if var="" test="contents[0].code==12">
-			
-		</c:if>
-		<select id="demo" data-ng-show="${flag}">
-			<option>xxx</option>
+		
+		<select id="select" data-ng-if="flags[0].flag">
+			<option data-ng-repeat="stay in stayss" value="{{stay.value}}">{{stay.name}}</option>
 		</select>
+		
 	<button class="btn btn-default" type="submit">조회</button>
 </form>
 	<hr>

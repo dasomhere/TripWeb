@@ -7,7 +7,6 @@ public class StayInfoRequestParameter extends RequestParameter {
 	String serviceUrl = "http://api.visitkorea.or.kr/openapi/service/rest/KorService/searchStay";
 	String areaCode = "";
 	String sigunguCode = "";
-	String hanOk = "";
 	String contentId = "";
 	String contentTypeId = "";
 	
@@ -19,7 +18,6 @@ public class StayInfoRequestParameter extends RequestParameter {
 		queryString += "&sigungucode=" + sigunguCode;
 		queryString += "&contentId=" + contentId;
 		queryString += "&contentTypeId=" + contentTypeId;
-		queryString += "&hanOk="+hanOk;
 		queryString += "&listYN=Y";
 		
 		return queryString;
@@ -54,14 +52,4 @@ public class StayInfoRequestParameter extends RequestParameter {
 	public void setSigunguCode(String sigunguCode) {
 		this.sigunguCode = sigunguCode;
 	}
-	public String getHanOk() {
-		return hanOk;
-	}
-	public void setHanOk(String hanOk) {
-		this.hanOk = hanOk;
-	}
-	
-	
-	
-
 }

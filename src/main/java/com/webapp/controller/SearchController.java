@@ -42,6 +42,7 @@ import com.webapp.model.request.CategoryCodeRequestParameter;
 import com.webapp.model.request.DetailCommonRequestParameter;
 import com.webapp.model.request.DetailImageRequestParameter;
 import com.webapp.model.request.DetailInfoRequestParameter;
+import com.webapp.model.request.DetailIntroRequestParameter;
 import com.webapp.model.request.SearchKeywordRequestParameter;
 import com.webapp.model.response.Items;
 import com.webapp.model.response.ResponseMessage;
@@ -85,5 +86,26 @@ public class SearchController {
 		
 		return tour.getApi(request.getUrl());
 	}
+	
+	@RequestMapping(value="detailIntro", method=RequestMethod.GET)
+	@ResponseBody
+	public ResponseMessage detailIntro(DetailIntroRequestParameter request) {
+		log.info("###############");
+		log.info("detail" +request.getUrl());
+		log.info("###############");
+	
+		return tour.getApi(request.getUrl());
+	}
+	
+	@RequestMapping(value="detailInfo", method=RequestMethod.GET)
+	@ResponseBody
+	public ResponseMessage detailInfo(DetailInfoRequestParameter request) {
+		log.info("###############");
+		log.info("detail" +request.getUrl());
+		log.info("###############");
+	
+		return tour.getApi(request.getUrl());
+	}
+	
 }
 

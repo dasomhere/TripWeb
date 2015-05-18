@@ -3,7 +3,7 @@ package com.webapp.model.request;
 import java.net.URLEncoder;
 
 
-public class HanOkInfoRequestParameter extends RequestParameter {
+public class StayInfoRequestParameter extends RequestParameter {
 	String serviceUrl = "http://api.visitkorea.or.kr/openapi/service/rest/KorService/searchStay";
 	String areaCode = "";
 	String sigunguCode = "";
@@ -16,10 +16,10 @@ public class HanOkInfoRequestParameter extends RequestParameter {
 		String queryString="";
 		queryString += super.getQueryString();
 		queryString += "&areaCode=" + areaCode;
-		queryString += "&sigunguCode=" + sigunguCode;
+		queryString += "&sigungucode=" + sigunguCode;
 		queryString += "&contentId=" + contentId;
 		queryString += "&contentTypeId=" + contentTypeId;
-		queryString += "&hanOk=1";
+		queryString += "&hanOk="+hanOk;
 		queryString += "&listYN=Y";
 		
 		return queryString;
@@ -40,6 +40,25 @@ public class HanOkInfoRequestParameter extends RequestParameter {
 	}
 	public void setContentTypeId(String contentTypeId) {
 		this.contentTypeId = contentTypeId;
+		
+	}
+	public String getAreaCode() {
+		return areaCode;
+	}
+	public void setAreaCode(String areaCode) {
+		this.areaCode = areaCode;
+	}
+	public String getSigunguCode() {
+		return sigunguCode;
+	}
+	public void setSigunguCode(String sigunguCode) {
+		this.sigunguCode = sigunguCode;
+	}
+	public String getHanOk() {
+		return hanOk;
+	}
+	public void setHanOk(String hanOk) {
+		this.hanOk = hanOk;
 	}
 	
 	

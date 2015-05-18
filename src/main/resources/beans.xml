@@ -12,7 +12,7 @@
 
 	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource"
 	  p:driverClassName="oracle.jdbc.OracleDriver"
-	  p:url="jdbc:oracle:thin:@localhost:1521:xe"
+	  p:url="jdbc:oracle:thin:@localhost:xe"
 	  p:username="scott"
 	  p:password="tiger"/>
 
@@ -30,9 +30,9 @@
 		<property name="mapperInterface" value="com.webapp.dao.UserDao" />
 	</bean>
 
-	<bean id="myUserDao" class="com.webapp.dao.impl.MyUserDao">
-		<property name="dataSource" ref="dataSource" />
-	</bean>
+<!-- 	<bean id="myUserDao" class="com.webapp.dao.impl.MyUserDao"> -->
+<!-- 		<property name="dataSource" ref="dataSource" /> -->
+<!-- 	</bean> -->
 
 	<bean id="deptInfoService" class="com.webapp.service.UserInfoService">
 		<property name="dataSource" ref="dataSource" />

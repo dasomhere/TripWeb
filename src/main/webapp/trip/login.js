@@ -15,7 +15,7 @@ myApp.controller('loginController', function($scope, $http) {
 			return false;
 		}
 		$http.post("/TripWeb/m/login/login", {id : id, password : password}).success(function(loginResult) {
-			alert("loginResult = " + JSON.stringify(loginResult));
+//			alert("loginResult = " + JSON.stringify(loginResult));
 			$scope.loginResult = loginResult;
 			if(loginResult.loginStatus == false) {
 				$("#idcheck").html("아이디/비밀번호가 올바르지 않습니다.");
@@ -24,7 +24,7 @@ myApp.controller('loginController', function($scope, $http) {
 				location.href="#event";
 			}
 		}).error(function() {
-			alert("login error...");
+			alert("아이디 혹은 비밀번호가 틀립니다.");
 		});
 	};
 	$scope.logincheck = function() {

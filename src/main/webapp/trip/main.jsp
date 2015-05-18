@@ -83,7 +83,6 @@
 			<a href="#load" class="btn btn-default">추천 코스</a>
 			<a href="#weather" class="btn btn-default">날씨</a>
 		</div>
-		
 	</div>
 
 	<div class="page {{ pageClass }}" data-ng-view

@@ -20,15 +20,17 @@
 
 <div>
 	<ul class="list-group">
-	 	<li class="list-group-item" data-ng-repeat="r in searchResult.items.item" data-ng-click="detail()">
+	 	<li class="list-group-item" data-ng-repeat="r in searchResult.items.item">
  			<table>
  			  <tr>
  			  	<td>{{r.title}}</td>
  			  </tr>
  			  <tr>
  			  	<td>
-	 			  	<img src="{{r.firstimage}}" style="width: 150px; height: 100px"/>
-	 			  	<img src="http://placehold.it/150x100/808080/ffffff&text=No Image!" style="width: 150px; height: 100px" ng-hide="r.firstimage != null"/>
+ 			  		<a href="#/searchDetail/{{r.contentid}}">
+	 			  	<img ng-src="{{r.firstimage}}" style="width: 150px; height: 100px"/>
+	 			  	<img ng-src="http://placehold.it/150x100/808080/ffffff&text=No Image!" style="width: 150px; height: 100px" ng-hide="r.firstimage != null"/>
+	 			 	</a>
  			  	</td>
  			  </tr>
  			 

@@ -34,9 +34,24 @@ myApp.controller('searchController', function($scope, $http) {
 		
 	};
 	
-	$scope.detail = function() {
+	$scope.detail = function(contentId) {
+	
+		$scope.$parent.contentId = contentId;
 		location.href="#searchDetail";
+	
 	};
+	
+	
+	
+//	$scope.detail = function(contentId) {
+//		$http.get("/TripWeb/m/search/detail?contentId=" + contentId).success(function(searchDetail) {
+//			$scope.$parent.searchDetail = searchDetail.response.body;
+//		}).error(function() {
+//			alert("search error...");
+//		});
+//		location.href="#searchDetail";
+//		
+//	};
 	
 	
 	

@@ -5,7 +5,7 @@
 <div class="container">
 	<h1>행사</h1>
 	<div>
-	
+	<form data-ng-submit="search()">
 	<select id = "city">
 		<option data-ng-repeat="city in citys" value="{{city.code}}" data-ng-selected="city.code==1">{{city.name}}</option>
 	</select>
@@ -24,13 +24,16 @@
 		<option value="11">11월</option>
 		<option value="12">12월</option>
 	</select>
-		
-<button data-ng-click="search()">검색</button>	
+	
+<button type="submit" class="btn btn-default">조회</button>	
+</form>	
 	<div>
-		 <li class="list-group-item" data-ng-repeat="event in events.items.item" data-ng-click = "detail(event.contentid, event.title, event.contenttypeid)" style="text-align: center;">
-		 		<img alt=""	ng-src="{{event.firstimage}}" style="width: 200px; height: 250px"/> <br>
-		 		<img src="http://placehold.it/150x100/808080/ffffff&text=No Image!" style="width: 200px; height: 250px" ng-hide="event.firstimage != null"/>
+		 <li class="list-group-item" data-ng-repeat="event in events.items.item"  style="text-align: center;">
+		 		<a href="#/searchDetail/{{event.contentid}}/{{event.contenttypeid}}">
+		 		<img alt=""	data-ng-src="{{event.firstimage}}" style="width: 200px; height: 250px"/> <br>
+		 		<img src="http://placehold.it/150x100/808080/ffffff&text=No Image!" style="width: 200px; height: 250px" data-ng-hide="event.firstimage != null"/>
 				<h4>{{event.title}}</h4> <br>
+				</a>
 		 			
 		</li>	
 	</div>

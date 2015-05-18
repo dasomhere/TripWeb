@@ -3,14 +3,14 @@ package com.webapp.model.request;
 import java.net.URLEncoder;
 
 
-public class SearchStayRequestParameter extends RequestParameter {
+public class SearchStayDifferentRequestParameter extends RequestParameter {
 	String serviceUrl = "http://api.visitkorea.or.kr/openapi/service/rest/KorService/searchStay";
 	String areaCode = "";
 	String contentTypeId = "";
-	String sigungucode = "";
+	String sigunguCode = "";
 	String cat2 = "";
 	String hanOk= "";
-	String goodStay="";
+	String goodStay="";	
 	String benikia ="";
 	
 	public String getQueryString() {
@@ -18,7 +18,7 @@ public class SearchStayRequestParameter extends RequestParameter {
 		queryString += super.getQueryString();
 		queryString += "&areaCode="+ areaCode;
 		queryString += "&contentTypeId=" + contentTypeId;
-		queryString += "&sigungucode=" + sigungucode;
+		queryString += "&sigunguCode=" + sigunguCode;
 		queryString += "&hanOk="+ hanOk;
 		queryString += "&goodStay="+ goodStay;
 		queryString += "&benikia="+ benikia;
@@ -42,11 +42,12 @@ public class SearchStayRequestParameter extends RequestParameter {
 	public void setContentTypeId(String contentTypeId) {
 		this.contentTypeId = contentTypeId;
 	}
-	public String getSigungucode() {
-		return sigungucode;
+	
+	public String getSigunguCode() {
+		return sigunguCode;
 	}
-	public void setSigungucode(String sigungucode) {
-		this.sigungucode = sigungucode;
+	public void setSigunguCode(String sigunguCode) {
+		this.sigunguCode = sigunguCode;
 	}
 	public String getGoodStay() {
 		return goodStay;

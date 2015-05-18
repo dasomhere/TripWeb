@@ -8,7 +8,7 @@
 <hr>
 <h1>관광정보 </h1>
 <hr>
-
+<form data-ng-submit="search()">
 	<select id=city>
 		<option data-ng-repeat="city in citys" value="{{city.code}}" data-ng-click="cityChange()" data-ng-selected="city.code==1">{{city.name}}</option>
 	</select>
@@ -27,16 +27,19 @@
 		<option value="#">선택사항 없음</option>
 	</select>
 	
-	<button data-ng-click="search()" class="btn btn-default" type="button">조회</button>
-
+	<button class="btn btn-default" type="submit">조회</button>
+</form>
 	<hr>
 
 	<div>
 		<ul class="list-group">
-		 	<li class="list-group-item" data-ng-repeat="type in localResult" data-ng-click="contentid(type.contentid,type.contenttypeid,type.areaCode,type.sigunguCode)">
+		 	<li class="list-group-item" data-ng-repeat="type in localResult.items.item">
 		 			<table>
-		 			  <tr><td><img alt="" data-ng-src="{{type.firstimage}}" style="width: 200px" height="150px"/>
-		 			  	<img src="http://placehold.it/150x100/808080/ffffff&text=No Image!" style="width: 150px; height: 100px" data-ng-hide="type.firstimage != null"/>
+		 			  <tr><td>
+		 			  	<a href="#/localDetail/{{type.contentid}}/{{type.contenttypeid}}">
+          	 			<img data-ng-src="{{type.firstimage}}" style="width: 200px" height="150px"/>
+		 			  	<img data-ng-src="http://placehold.it/150x100/808080/ffffff&text=No Image!" style="width: 150px; height: 100px" data-ng-hide="type.firstimage != null"/>
+		 			  	</a>
 		 			  <td><tr>
 		 			  <tr><td>{{type.title}}</td></tr>
 		 			</table>

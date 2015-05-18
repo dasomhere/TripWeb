@@ -10,8 +10,6 @@ myApp.controller('stayDetailController', function($scope, $http) {
 	$http.get("/TripWeb/m/local/hanokinfo?contentId="+$scope.$parent.contentid +"&contentTypeId="+$scope.$parent.contenttypeid+"&areaCode="+$scope.$parent.city +"&sigunguCode="+$scope.$parent.sigunguCode+"&hanOk="+$scope.$parent.stay).success(function(hanOkInfo){
 		console.log(hanOkInfo);
 		$scope.hanOkInfo = hanOkInfo.response.body.items.item;
-		
-		
 	});
 });
 

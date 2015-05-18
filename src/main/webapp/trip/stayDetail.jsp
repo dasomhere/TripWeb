@@ -12,8 +12,7 @@
 
 		<ul class="list-group">
 			<li class="list-group-item" data-ng-repeat="hanOk in hanOkInfo">
-				{{hanOk.barbecue}}
-				{{hanOk.checkintime}}
+				{{hanOk.addr1}}
 			</li>
 		</ul>
 	</div>

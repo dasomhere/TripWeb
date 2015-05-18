@@ -68,7 +68,7 @@
 <title>main.jsp</title>
 
 </head>
-	
+
 <body data-ng-controller="mainController">
 	<div class="container">
 		<div align="center"><a href="#event">TourWeb</a>
@@ -80,10 +80,10 @@
 		</div>
 		
 		<div class="navbar-mobile btn-group btn-group-justified" class="dropdown">
-			<a href="#event" class="btn btn-default">행사</a>
-			<a href="#local" class="btn btn-default">관광지</a>
-			<a href="#load" class="btn btn-default">추천 코스</a>
-			<a href="#weather" class="btn btn-default">날씨</a>
+			<a href="#event" class="btn btn-info" ng-model="radioModel" btn-radio="'행사'" uncheckable>행사</a>
+			<a href="#local" class="btn btn-info" ng-model="radioModel" btn-radio="'관광지'" uncheckable>관광지</a>
+			<a href="#load" class="btn btn-info" ng-model="radioModel" btn-radio="'추천 코스'" uncheckable>추천 코스</a>
+			<a href="#weather" class="btn btn-info" ng-model="radioModel" btn-radio="'날씨'" uncheckable>날씨</a>
 		</div>
 	</div>
 	<!---------------------->

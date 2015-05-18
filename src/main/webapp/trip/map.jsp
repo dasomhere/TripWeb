@@ -2,27 +2,40 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<!-- local.jsp -->
+<style>
+select {
+	height: 30px;
+	width: 100%;
+}
+</style>
 
 <section class="container">
-<h3>지도검색 </h3>
 <hr>
 <form data-ng-submit="search()">
-	
-	<select id=city>
-		<option data-ng-repeat="city in citys" value="{{city.code}}" data-ng-click="cityChange()" data-ng-selected="city.code==1">{{city.name}}</option>
-	</select>
-	
-	<select id=sigunguCode>
-		<option value="">전체</option>
-		<option data-ng-repeat="sigunguCode in gus" value="{{sigunguCode.code}}">{{sigunguCode.name}}</option>
-	</select>
-	
-	<select id=content>
-		<option data-ng-repeat="content in contents" value="{{content.code}}">{{content.name}}</option>
-	</select>
-	
-	<button class="btn btn-default" type="submit">조회</button>
+	<div class="row" style="text-align: center;">
+		<div class="col-sm-2 col-sm-offset-2">
+			<b>도시</b><br>
+			<select id=city>
+				<option data-ng-repeat="city in citys" value="{{city.code}}" data-ng-click="cityChange()" data-ng-selected="city.code==1">{{city.name}}</option>
+			</select>
+		</div>
+		<div class="col-sm-2">
+			<b>시/군/구</b><br>
+			<select id=sigunguCode>
+				<option value="">전체</option>
+				<option data-ng-repeat="sigunguCode in gus" value="{{sigunguCode.code}}">{{sigunguCode.name}}</option>
+			</select>
+		</div>
+		<div class="col-sm-2">
+			<b>관광타입</b><br>
+			<select id=content>
+				<option data-ng-repeat="content in contents" value="{{content.code}}">{{content.name}}</option>
+			</select>
+		</div>
+		<div class="col-sm-2" style="text-align:left; height: 50px; position: relative;">
+			<button class="btn btn-default" type="submit" style="position: absolute; width: 50%; bottom:0px;">검색</button>
+		</div>
+	</div>
 </form>
 	<hr>
 	<div class="row">

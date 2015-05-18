@@ -10,9 +10,10 @@
 	 	<ul class="list-group">
 			
 			<li class="list-group-item"
-				data-ng-repeat="image in imageDetail">
+				data-ng-repeat="images in imageDetail">
 				
-					<img alt="" src="{{image.originimgurl}}">
+					<img alt="" ng-src="{{images.originimgurl}}" style="width: 250px; height: 200px"> <br>
+					<img src="http://placehold.it/150x100/808080/ffffff&text=No Image!" style="width: 200px; height: 250px" ng-hide="images.originimgurl != null"/>
 				
 			</li>
 			
@@ -58,7 +59,7 @@
 			<li class="list-group-item"
 				data-ng-repeat="event in eventDetail"
 				data-ng-if="event.bookingplace != ''"><b>예      매 : </b> 
-				{{event.bookingplace}}</li>
+				<span data-ng-bind-html="event.bookingplace"></span></li>
 				
 			<li class="list-group-item"
 				data-ng-repeat="event in eventDetail"
@@ -74,7 +75,7 @@
 			<li class="list-group-item"
 				data-ng-repeat="event in eventDetail"
 				data-ng-if="event.placeinfo != ''"><b>오 시 는 길 : </b> 
-				{{event.placeinfo}}
+				<span data-ng-bind-html="event.placeinfo"></span>
 			</li>
 		</ul>
 

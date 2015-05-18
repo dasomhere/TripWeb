@@ -30,10 +30,11 @@ myApp.controller('localController', function($scope, $http) {
 
 	$scope.stay = function() {
 		var stay = $("#contentTypeId option:selected").val();
-		if(stay==32)
-			$('#select').html("<option value='1'>한옥</option>");
-		else
-			$('#select').html("<option value='#'>선택할수 없습니다.</option>");
+		if(stay==32){
+			$('#select').html("<option value='2'>한옥</option>");
+		}else{
+			$('#select').html("<option value='#'>선택사항 없음</option>");
+		}
 	};
 	
 	$scope.search = function() {
@@ -42,11 +43,19 @@ myApp.controller('localController', function($scope, $http) {
 		var contentTypeId = $("#contentTypeId option:selected").val();
 		var stay = $("#select option:selected").val();
 		console.log(city + ", "+ sigunguCode +", "+ contentTypeId + ", "+stay);
-		$http.get("/TripWeb/m/load/search?areaCode=" + city + "&sigunguCode=" + sigunguCode + "&contentTypeId="+contentTypeId+"&hanOk="+stay).success(function(localResult) {
-			$scope.localResult = localResult.response.body.items.item;
-		}).error(function() {
-			alert("search error...");
-		});
+		if(stay=='#'){
+			$http.get("/TripWeb/m/load/search?areaCode=" + city + "&sigunguCode=" + sigunguCode + "&contentTypeId="+contentTypeId).success(function(localResult) {
+					$scope.localResult = localResult.response.body.items.item;
+			}).error(function() {
+				alert('city error');
+			});
+		} else {
+			$http.get("/TripWeb/m/local/searchhanok?areaCode=" + city + "&sigunguCode=" + sigunguCode + &contentTypeId="+contentTypeId+"&hanOk="+stay).success(function(hanokResult) {
+				$scope.localResult = hanokResult.response.body.items.item;
+			}).error(function() {
+				alert('hanOk error');
+			});
+		}
 	};
 	
 	$scope.contentid = function(contentid,contenttypeid) {
@@ -65,20 +74,8 @@ myApp.controller('localController', function($scope, $http) {
 				$scope.$parent.sigunguCode = sigunguCode;
 				$scope.$parent.contentTypeId = contentTypeId;
 				$scope.$parent.stay = stay;
-//				console.log("city = "+city +", sigunguCode" +sigunguCode +", contentTypeId= " +contentTypeId);
+				
 				location.href="#stayDetail";
 			}
 		};
 	});
-	
-
-
-				
-//				if(stay == 1){
-//					$http.get("/TripWeb/m/local/hanokinfo?contentId="+contentid +"&contentTypeId="+contenttypeid+"&areaCode="+city +"&sigunguCode="+sigunguCode+"&hanOk="+stay).success(function(hanOkInfo){
-//						$scope.$parent.hanOkInfo = hanOkInfo.response.body.items.item;
-//						location.href="#stayDetail";
-//					
-//				});
-//			}
-//		};

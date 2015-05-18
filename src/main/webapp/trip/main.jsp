@@ -85,9 +85,7 @@
 		</div>
 		
 	</div>
-	<!---------------------->
-	<!-- Angular Template -->
-	<!---------------------->
+
 	<div class="page {{ pageClass }}" data-ng-view
 									  data-ng-swipe-left="swipeLeft()"
 									  data-ng-swipe-right="swipeRight()"

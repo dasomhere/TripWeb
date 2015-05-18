@@ -35,6 +35,7 @@ import com.webapp.model.request.DetailInfoRequestParameter;
 import com.webapp.model.request.DetailIntroRequestParameter;
 import com.webapp.model.request.HanOkInfoRequestParameter;
 import com.webapp.model.request.ImageInfoRequestParameter;
+import com.webapp.model.request.SearchHanOkRequestParameter;
 import com.webapp.model.response.ResponseMessage;
 import com.webapp.service.TourApiService;
 
@@ -72,6 +73,15 @@ public class LocalController {
 	public ResponseMessage search(AreaBasedListRequestParameter request) {
 		log.info("###############");
 		log.info("search()..." + request.getAreaCode() + " " + request.getSigunguCode()+ " " + request.getContentTypeId());
+		log.info("###############");
+		
+		return tour.getApi(request.getUrl());
+	}
+	@RequestMapping(value="searchhanok", method=RequestMethod.GET)
+	@ResponseBody
+	public ResponseMessage searchHanOk(SearchHanOkRequestParameter request) {
+		log.info("###############");
+		log.info("searchhanOk()..." + request.getAreaCode() + " " + request.getSigungucode()+ " " + request.getContentTypeId()+" " + request.getHanOk());
 		log.info("###############");
 		
 		return tour.getApi(request.getUrl());
@@ -115,7 +125,6 @@ public class LocalController {
 		
 		return tour.getApi(request.getUrl());
 	}
-	
 	
 //	@RequestMapping(value="detail", method=RequestMethod.POST)
 //	@ResponseBody

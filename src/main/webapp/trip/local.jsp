@@ -24,7 +24,7 @@
 	</select>
 	
 	<select id="select">
-
+		<option value="#">선택사항 없음</option>
 	</select>
 	
 	<button data-ng-click="search()" class="btn btn-default" type="button">조회</button>

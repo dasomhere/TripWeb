@@ -11,8 +11,9 @@
 	<h1>숙박</h1>
 
 		<ul class="list-group">
-			<li class="list-group-item" data-ng-repeat="han in hanOkInfo">
-				
+			<li class="list-group-item" data-ng-repeat="hanOk in hanOkInfo">
+				{{hanOk.barbecue}}
+				{{hanOk.checkintime}}
 			</li>
 		</ul>
 	</div>

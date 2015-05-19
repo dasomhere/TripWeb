@@ -19,13 +19,10 @@
 	<hr>
 	<tabset justified="true"> 
 		 
-		<tab heading="기본정보" ng-click="initialize(searchDetailCommon[0].mapx, searchDetailCommon[0].mapy)">
+		<tab heading="기본정보">
 			<div class="row">
 				<div class="col-xs-6">
-					<div id="map_canvas" style="width: 100%; height: 300px;"></div>
-					<div id="control">
-						<input type="button" value="초기화면으로" ng-click="setCenter(searchDetailCommon[0].mapx, searchDetailCommon[0].mapy)">
-					</div>
+					
 				</div>
 				<div class="col-xs-6">
 					<ul>

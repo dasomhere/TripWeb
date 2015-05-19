@@ -26,6 +26,10 @@ myApp.config(function($routeProvider) {
 			templateUrl : "stayDetail.jsp",
 			controller : "stayDetailController"
 	};
+	var map = {
+			templateUrl : "map.jsp",
+			controller : "mapController"
+	};
 	var search = {
 			templateUrl : "search.jsp",
 			controller : "searchController"
@@ -74,6 +78,7 @@ myApp.config(function($routeProvider) {
 	$routeProvider.when('/local', local);
 	$routeProvider.when('/localDetail/:contentid/:contenttypeid', localDetail);
 	$routeProvider.when('/stayDetail', stayDetail);
+	$routeProvider.when('/map', map);
 	$routeProvider.when('/search', search);
 	$routeProvider.when('/searchDetail/:contentid/:contenttypeid', searchDetail);
 	$routeProvider.when('/weather', weather);

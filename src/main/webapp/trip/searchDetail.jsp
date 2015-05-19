@@ -28,11 +28,11 @@
 				</div>
 				<div class="col-sm-6">
 					<ul>
-						<li><b>우편번호 :</b> {{searchDetailCommon[0].zipcode}}</li>
-						<li><b>전화명 : </b> {{searchDetailCommon[0].telname}}</li>
-						<li><b>전화번호 : </b> {{searchDetailCommon[0].tel}}</li>
+						<li data-ng-hide="intro.zipcode == null"><b>우편번호 :</b> {{searchDetailCommon[0].zipcode}}</li>
+						<li data-ng-hide="intro.telname == null"><b>전화명 : </b> {{searchDetailCommon[0].telname}}</li>
+						<li data-ng-hide="intro.tel == null"><b>전화번호 : </b> {{searchDetailCommon[0].tel}}</li>
 						<li data-ng-hide="intro.homepage == null"><b>홈페이지 :</b> <span data-ng-bind-html="searchDetailCommon[0].homepage"></span></li>
-						<li><b>주소 : </b>{{searchDetailCommon[0].addr1}}</li>
+						<li data-ng-hide="intro.addr1 == null"><b>주소 : </b>{{searchDetailCommon[0].addr1}}</li>
 					</ul>
 				</div>
 			</div>
@@ -275,39 +275,70 @@
 			
 		</ul>	
 		
-		</tab> <tab heading="상세정보">
-		<ul data-ng-if="searchDetailInfo[0].contenttypeid == 12 ">
-			<li></li>
+		</tab>
+		
+		<tab heading="상세정보"> 
+		<ul data-ng-if="searchDetailInfo[0].contenttypeid == 12 " data-ng-repeat="info in searchDetailInfo">
+			
+			<li> <h4>{{info.infoname}}</h4> </li>
+			<li style="list-style: none;" data-ng-bind-html="info.infotext">{{info.infotext}} <br>
+			</li>
+		</ul>
+		
+		<ul data-ng-if="searchDetailInfo[0].contenttypeid == 14 " data-ng-repeat="culture in searchDetailInfo">
+			
+			<li> <h4>{{culture.infoname}}</h4> </li>
+			<li style="list-style: none;" data-ng-bind-html="culture.infotext">{{culture.infotext}} <br>
+			</li>
 		</ul>
 		
 		<ul data-ng-if="searchDetailInfo[0].contenttypeid == 15 " data-ng-repeat="event in searchDetailInfo">
-			<li>
-				<h4>{{event.infoname}}</h4>
-			</li>
+			
+			<li> <h4>{{event.infoname}}</h4> </li>
 			<li style="list-style: none;" data-ng-bind-html="event.infotext">{{event.infotext}} <br>
+			</li>
+			
+		</ul>
+		
+		<ul data-ng-if="searchDetailInfo[0].contenttypeid == 25 " data-ng-repeat="course in searchDetailInfo">
+		
+	 			 <li>{{course.subnum}}.코스 : {{course.subname}}</li>
+	 			 <li style="list-style: none;" data-ng-hide="course.subdetailimg == null"><img src="{{course.subdetailimg}}" style="width: 150px; height: 100px"/></li>
+	 			 <li style="list-style: none;">{{course.subdetailoverview}}</li>
+	
+		</ul>
+		
+		<ul data-ng-if="searchDetailInfo[0].contenttypeid == 28 " data-ng-repeat="leports in searchDetailInfo">
+			
+			<li> <h4>{{leports.infoname}}</h4> </li>
+			<li style="list-style: none;" data-ng-bind-html="leports.infotext">{{leports.infotext}} <br>
 			</li>
 			
 		</ul>
 		
 		<ul data-ng-if="searchDetailInfo[0].contenttypeid == 32 " data-ng-repeat="stay in searchDetailInfo">
 		
-			<li data-ng-hide="stay.roomtitle == null"><b>객 실 명 칭 : </b> {{stay.roomtitle}}</li>
+			<li style="list-style: none;" data-ng-hide="stay.roomtitle == null"><h4><b>◆ 객 실 명 칭 : </b> {{stay.roomtitle}}</h4></li>
 			
-			<li data-ng-hide="stay.roomimg1 == null"><b>객 실 사 진 1 : </b> <img alt="" data-ng-src="{{stay.roomimg1}}"> </li>
+			<li style="list-style: none;" data-ng-hide="stay.roomimg1 == null"><img alt="" data-ng-src="{{stay.roomimg1}}"> </li>
 			
-			<li data-ng-hide="stay.roomimg2 == null"><b>객 실 사 진 2 : </b> <img alt="" data-ng-src="{{stay.roomimg2}}"> </li>
+			<li style="list-style: none;" data-ng-hide="stay.roomimg2 == null"><img alt="" data-ng-src="{{stay.roomimg2}}"> </li>
 			
-			<li data-ng-hide="stay.roomimg3 == null"><b>객 실 사 진 3 : </b> <img alt="" data-ng-src="{{stay.roomimg3}}"> </li>
+			<li style="list-style: none;" data-ng-hide="stay.roomimg3 == null"><img alt="" data-ng-src="{{stay.roomimg3}}"> </li>
 			
-			<li data-ng-hide="stay.roomimg4 == null"><b>객 실 사 진 4 : </b> <img alt="" data-ng-src="{{stay.roomimg4}}"> </li>
+			<li style="list-style: none;" data-ng-hide="stay.roomimg4 == null"><img alt="" data-ng-src="{{stay.roomimg4}}"> </li>
 			
-			<li data-ng-hide="stay.roomimg5 == null"><b>객 실 사 진 5 : </b> <img alt="" data-ng-src="{{stay.roomimg5}}"> </li>
+			<li style="list-style: none;" data-ng-hide="stay.roomimg5 == null"><img alt="" data-ng-src="{{stay.roomimg5}}"> </li>
 			
 			<li data-ng-hide="stay.roomcount == null"><b>객 실 수 : </b> {{stay.roomcount}}</li>
 			
 			<li data-ng-hide="stay.roomsize1 == null"><b>객 실 크 기(평) : </b> {{stay.roomsize1}}</li>
 			
+<<<<<<< HEAD
 			<li data-ng-hide="stay.roomsize2 == null"><b>객 실 크 기(미터) : </b> {{stay.roomsize2}}</li>
+=======
+			<li data-ng-hide="stay.roomsize2 == null"><b>객 실 크 기(미터) : </b> {{stay.roomsize12}}</li>
+>>>>>>> c34799d9082e1854c01ce00b4f014e049a781cbe
 			
 			<li data-ng-hide="stay.roombasecount == null"><b>기 준 인 원 : </b> {{stay.roombasecount}}</li>
 			
@@ -351,8 +382,20 @@
 			
 			<li data-ng-hide="stay.roomhairdryer == null"><b>드 라 이 기 : </b> {{stay.roomhairdryer}}</li>
 			
+			<hr>
+			
+		</ul>
+		
+		<ul data-ng-if="searchDetailInfo[0].contenttypeid == 39 " data-ng-repeat="food in searchDetailInfo">
+			
+			<li> <h4>{{food.infoname}}</h4> </li>
+			<li style="list-style: none;" data-ng-bind-html="food.infotext">{{food.infotext}} <br>
+			</li>
+			
 		</ul>
 	
-	</tab> </tabset>
+	</tab>
+	
+	</tabset>
 
 </section>

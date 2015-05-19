@@ -14,6 +14,7 @@
 <c:url var="angularAnimate" value="/node_modules/angular-animate"/>
 <c:url var="angularRoute" value="/node_modules/angular-route"/>
 <c:url var="angularBootstrap" value="/node_modules/angular-bootstrap/dist"/>
+<c:url var="ngmap" value="/node_modules/ngmap/build/scripts"/>
 
 <c:url var="font" value="/css/font.css"/>
 
@@ -28,7 +29,9 @@
 <script type="text/javascript" src="${angularRoute}/angular-route.min.js"></script>
 <script type="text/javascript" src="${angularBootstrap}/ui-bootstrap.min.js"></script>
 <script type="text/javascript" src="${angularBootstrap}/ui-bootstrap-tpls.min.js"></script>
-<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false&region=KR"></script>
+
+<script type="text/javascript" src="${ngmap}/ng-map.min.js"></script>
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?region=KR"></script>
 
 <link rel="stylesheet" type="text/css" href="${font}">
 
@@ -51,20 +54,17 @@
 <link rel="stylesheet" href="style.css"/>
 <script type="text/javascript" src="main.js"></script>
 <script type="text/javascript" src="event.js"></script>
-<script type="text/javascript" src="eventDetail.js"></script>
 <script type="text/javascript" src="join.js"></script>
 <script type="text/javascript" src="load.js"></script>
-<script type="text/javascript" src="loadDetail.js"></script>
-<script type="text/javascript" src="stayDetail.js"></script>
 <script type="text/javascript" src="local.js"></script>
-<script type="text/javascript" src="localDetail.js"></script>
 <script type="text/javascript" src="login.js"></script>
+<script type="text/javascript" src="map.js"></script>
 <script type="text/javascript" src="search.js"></script>
 <script type="text/javascript" src="searchDetail.js"></script>
 <script type="text/javascript" src="weather.js"></script>
 <script type="text/javascript" src="weatherResult.js"></script>
 <script type="text/javascript" src="template.js"></script>
-<script type="text/javascript" src="templateDetail.js"></script>
+
 
 <title>main.jsp</title>
 

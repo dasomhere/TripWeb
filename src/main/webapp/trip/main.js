@@ -9,22 +9,9 @@ myApp.config(function($routeProvider) {
 			templateUrl : "event.jsp",
 			controller : "eventController"
 	};
-	var eventDetail = {
-			templateUrl : "eventDetail.jsp",
-			controller : "eventDetailController"
-	};
 	var local = {
 			templateUrl : "local.jsp",
 			controller : "localController"
-	};
-	
-	var localDetail = {
-			templateUrl : "localDetail.jsp",
-			controller : "localDetailController"
-	};
-	var stayDetail = {
-			templateUrl : "stayDetail.jsp",
-			controller : "stayDetailController"
 	};
 	var map = {
 			templateUrl : "map.jsp",
@@ -50,10 +37,6 @@ myApp.config(function($routeProvider) {
 			templateUrl : "load.jsp",
 			controller : "loadController"
 	};
-	var loadDetail = {
-			templateUrl : "loadDetail.jsp",
-			controller : "loadDetailController"
-	};
 	var login = {
 			templateUrl : "login.jsp",
 			controller : "loginController"
@@ -68,27 +51,18 @@ myApp.config(function($routeProvider) {
 			controller : "templateController"
 	};
 	
-	var templateDetail = {
-			templateUrl : "templateDetail.jsp",
-			controller : "templateDetailController"
-	};
 	
 	$routeProvider.when('/', event);
-	$routeProvider.when('/eventDetail/:contentid/:contenttypeid', eventDetail);
 	$routeProvider.when('/local', local);
-	$routeProvider.when('/localDetail/:contentid/:contenttypeid', localDetail);
-	$routeProvider.when('/stayDetail', stayDetail);
 	$routeProvider.when('/map', map);
 	$routeProvider.when('/search', search);
 	$routeProvider.when('/searchDetail/:contentid/:contenttypeid', searchDetail);
 	$routeProvider.when('/weather', weather);
 	$routeProvider.when('/weatherResult/:woeid/:city', weatherResult);
 	$routeProvider.when('/load', load);
-	$routeProvider.when('/loadDetail', loadDetail);
 	$routeProvider.when('/login', login);
 	$routeProvider.when('/join', join);
 	$routeProvider.when('/template', template);
-	$routeProvider.when('/templateDetail/:contentid', templateDetail);
 	$routeProvider.otherwise({redirectTo:'/'});
 	
 });

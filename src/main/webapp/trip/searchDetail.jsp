@@ -307,7 +307,7 @@
 			
 			<li data-ng-hide="stay.roomsize1 == null"><b>객 실 크 기(평) : </b> {{stay.roomsize1}}</li>
 			
-			<li data-ng-hide="stay.roomsize2 == null"><b>객 실 크 기(미터) : </b> {{stay.roomsize1\2}}</li>
+			<li data-ng-hide="stay.roomsize2 == null"><b>객 실 크 기(미터) : </b> {{stay.roomsize2}}</li>
 			
 			<li data-ng-hide="stay.roombasecount == null"><b>기 준 인 원 : </b> {{stay.roombasecount}}</li>
 			

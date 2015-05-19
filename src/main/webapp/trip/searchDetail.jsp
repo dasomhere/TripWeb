@@ -248,20 +248,50 @@
 		<ul data-ng-if="searchDetailIntro[0].contenttypeid == 38 "
 			data-ng-repeat="shopping in searchDetailIntro">
 			
-			<li data-ng-hide="leports.scaleleports == null"><b>규 모 :
-			</b> {{leports.scaleleports}}</li>
+			<li data-ng-hide="shopping.scaleshopping == null"><b>규 모 :
+			</b> {{shopping.scaleleports}}</li>
 			
-			<li data-ng-hide="leports.infocenterleports == null"><b>문의 및 안내 :
-			</b> {{leports.infocenterleports}}</li>
+			<li data-ng-hide="shopping.opendateshopping == null"><b>개 장 일 :
+			</b> {{shopping.opendateshopping}}</li>
 			
-			<li data-ng-hide="leports.parkingleports == null"><b>주 차 장 :
-			</b> {{leports.parkingleports}}</li>
+			<li data-ng-hide="shopping.opentime == null"><b>규 모 :
+			</b> {{shopping.scaleleports}}</li>
+			
+			<li data-ng-hide="shopping.scaleshopping == null"><b>영 업 시 간 :
+			</b> {{shopping.opentime}}</li>
+			
+			<li data-ng-hide="shopping.restdateshopping == null"><b>쉬 는 날 :
+			</b> {{shopping.restdateshopping}}</li>
+			
+			<li data-ng-hide="shopping.parkingshopping == null"><b>주 차 시 설 :
+			</b> {{shopping.parkingshopping}}</li>
+			
+			<li data-ng-hide="shopping.restroom == null"><b>화 장 실 :
+			</b> {{shopping.restroom}}</li>
+			
+			<li data-ng-hide="shopping.saleitem == null"><b>판 매 품 목 :
+			</b> {{shopping.saleitem}}</li>
+			
+			<li data-ng-hide="shopping.saleitemcost == null"><b>판 매 가 격 :
+			</b> {{shopping.saleitemcost}}</li>
+			
+			<li data-ng-hide="shopping.scaleshopping == null"><b>규 모 :
+			</b> {{shopping.scaleleports}}</li>
+			
+			<li data-ng-hide="shopping.infocentershpping == null"><b>문의 및 안내 :
+			</b> {{shopping.infocenterleports}}</li>
+			
+			<li data-ng-hide="shopping.parkingshopping == null"><b>주 차 장 :
+			</b> {{shopping.parkingleports}}</li>
 							
-			<li data-ng-hide="leports.chkcreditcard == null"><b>신용카드 가능 여부 :
-			</b> {{leports.chkcreditcard}}</li>
+			<li data-ng-hide="shopping.chkcreditcard == null"><b>신용카드 가능 여부 :
+			</b> {{shopping.chkcreditcard}}</li>
 			
-			<li data-ng-hide="leports.chkpet == null"><b>애완동물 가능 여부 :
-			</b> {{leports.chkpet}}</li>
+			<li data-ng-hide="shopping.chkbabycarriage == null"><b>유모차 대여 여부 :
+			</b> {{shopping.chkbabycarriage}}</li>
+			
+			<li data-ng-hide="shopping.chkpet == null"><b>애완동물 가능 여부 :
+			</b> {{shopping.chkpet}}</li>
 			
 		</ul>	
 		

@@ -21,6 +21,8 @@
 		<option value="12">관광지</option>
 		<option value="32">숙박</option>
 		<option value="39">음식점</option>
+		<option value="15">레포츠</option>
+		<option value="38">쇼핑</option>
 	</select>
 	
 	<select id="select">

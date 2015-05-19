@@ -21,10 +21,12 @@
 		 
 		<tab heading="기본정보">
 			<div class="row">
-				<div class="col-xs-6">
-					
+				<div class="col-sm-6">
+					<map center="{{searchDetailCommon[0].mapy}}, {{searchDetailCommon[0].mapx}}" zoom="16">
+						<marker position="{{searchDetailCommon[0].mapy}}, {{searchDetailCommon[0].mapx}}"></marker>
+					</map>
 				</div>
-				<div class="col-xs-6">
+				<div class="col-sm-6">
 					<ul>
 						<li>우편번호 : {{searchDetailCommon[0].zipcode}}</li>
 						<li>전화명 : {{searchDetailCommon[0].telname}}</li>
@@ -35,7 +37,6 @@
 					</ul>
 				</div>
 			</div>
-	
 		</tab>
 		
 		<tab heading="개요"> 

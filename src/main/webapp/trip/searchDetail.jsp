@@ -28,11 +28,11 @@
 				</div>
 				<div class="col-sm-6">
 					<ul>
-						<li><b>우편번호 :</b> {{searchDetailCommon[0].zipcode}}</li>
-						<li><b>전화명 : </b> {{searchDetailCommon[0].telname}}</li>
-						<li><b>전화번호 : </b> {{searchDetailCommon[0].tel}}</li>
+						<li data-ng-hide="intro.zipcode == null"><b>우편번호 :</b> {{searchDetailCommon[0].zipcode}}</li>
+						<li data-ng-hide="intro.telname == null"><b>전화명 : </b> {{searchDetailCommon[0].telname}}</li>
+						<li data-ng-hide="intro.tel == null"><b>전화번호 : </b> {{searchDetailCommon[0].tel}}</li>
 						<li data-ng-hide="intro.homepage == null"><b>홈페이지 :</b> <span data-ng-bind-html="searchDetailCommon[0].homepage"></span></li>
-						<li><b>주소 : </b>{{searchDetailCommon[0].addr1}}</li>
+						<li data-ng-hide="intro.addr1 == null"><b>주소 : </b>{{searchDetailCommon[0].addr1}}</li>
 					</ul>
 				</div>
 			</div>

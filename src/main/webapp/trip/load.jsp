@@ -22,7 +22,7 @@
 	 	<li class="list-group-item" data-ng-repeat="r in loadResult">
  			<table>
  			  <tr><td>
- 			  	<a href="#/searchDetail/{{event.contentid}}/{{event.contenttypeid}}">
+ 			  	<a href="#/searchDetail/{{r.contentid}}/{{r.contenttypeid}}">
  			  	<img src="{{r.firstimage}}" style="width: 150px; height: 100px"/>
  			  	<img src="http://placehold.it/150x100/808080/ffffff&text=No Image!" style="width: 150px; height: 100px" data-ng-hide="r.firstimage != null"/>
  			  	</a>

@@ -54,13 +54,9 @@
 <link rel="stylesheet" href="style.css"/>
 <script type="text/javascript" src="main.js"></script>
 <script type="text/javascript" src="event.js"></script>
-<script type="text/javascript" src="eventDetail.js"></script>
 <script type="text/javascript" src="join.js"></script>
 <script type="text/javascript" src="load.js"></script>
-<script type="text/javascript" src="loadDetail.js"></script>
-<script type="text/javascript" src="stayDetail.js"></script>
 <script type="text/javascript" src="local.js"></script>
-<script type="text/javascript" src="localDetail.js"></script>
 <script type="text/javascript" src="login.js"></script>
 <script type="text/javascript" src="map.js"></script>
 <script type="text/javascript" src="search.js"></script>
@@ -68,7 +64,7 @@
 <script type="text/javascript" src="weather.js"></script>
 <script type="text/javascript" src="weatherResult.js"></script>
 <script type="text/javascript" src="template.js"></script>
-<script type="text/javascript" src="templateDetail.js"></script>
+
 
 <title>main.jsp</title>
 

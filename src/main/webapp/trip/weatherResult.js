@@ -48,5 +48,41 @@ myApp.controller('weatherResultController', function($scope, $http, $routeParams
 		}
 	}
 	
+	$scope.weatherIcon = function(code) {
+		var weatherCode = code;
+		console.log(weatherCode);
+		if(weatherCode < 3) {
+			return "weatherIcons/1.png";
+		} else if((weatherCode > 2 && weatherCode < 5)||(weatherCode > 36 && weatherCode < 40)|| weatherCode == 45 || weatherCode == 47) {
+			return "weatherIcons/2.png";
+		} else if(weatherCode > 4 && weatherCode < 8) {
+			return "weatherIcons/3.png";
+		} else if((weatherCode > 8 && weatherCode < 13)|| weatherCode == 40) {
+			return "weatherIcons/4.png";
+		} else if(weatherCode == 8 ||(weatherCode > 12 && weatherCode < 17)||weatherCode == 18||(weatherCode > 40 && weatherCode < 44)||weatherCode == 46) {
+			return "weatherIcons/5.png";
+		} else if(weatherCode == 17 || weatherCode == 35) {
+			return "weatherIcons/6.png";
+		} else if(weatherCode == 19) {
+			return "weatherIcons/7.png";
+		} else if(weatherCode > 19 && weatherCode < 23) {
+			return "weatherIcons/8.png";
+		} else if(weatherCode > 22 && weatherCode < 25) {
+			return "weatherIcons/9.png";
+		} else if((weatherCode > 25 && weatherCode < 32)||weatherCode == 44) {
+			return "weatherIcons/10.png";
+		} else if(weatherCode > 31 && weatherCode < 35) {
+			return "weatherIcons/11.png";
+		} else if(weatherCode == 25) {
+			return "weatherIcons/12.png";
+		} else if(weatherCode == 36) {
+			return "weatherIcons/13.png";
+		} else {
+			return "weatherIcons/1.png";
+		} 
+			
+		
+	}
+		
 });
 

@@ -1,7 +1,7 @@
 /*
  * angular Application Module
  */
-var myApp = angular.module('tourApp', ["ngSanitize", "ngAnimate", "ngRoute", "ui.bootstrap"]);
+var myApp = angular.module('tourApp', ["ngSanitize", "ngAnimate", "ngRoute", "ngMap", "ui.bootstrap"]);
 
 myApp.config(function($routeProvider) {
 

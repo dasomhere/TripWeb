@@ -279,21 +279,21 @@
 		<tab heading="상세정보"> 
 		<ul data-ng-if="searchDetailInfo[0].contenttypeid == 12 " data-ng-repeat="info in searchDetailInfo">
 			
-			<li> <h4>{{info.infoname}}</h4> </li>
+			<li>  <b>{{info.infoname}}</b> </li>
 			<li style="list-style: none;" data-ng-bind-html="info.infotext">{{info.infotext}} <br>
 			</li>
 		</ul>
 		
 		<ul data-ng-if="searchDetailInfo[0].contenttypeid == 14 " data-ng-repeat="culture in searchDetailInfo">
 			
-			<li> <h4>{{culture.infoname}}</h4> </li>
+			<li> <b>{{culture.infoname}}</b>  </li>
 			<li style="list-style: none;" data-ng-bind-html="culture.infotext">{{culture.infotext}} <br>
 			</li>
 		</ul>
 		
 		<ul data-ng-if="searchDetailInfo[0].contenttypeid == 15 " data-ng-repeat="event in searchDetailInfo">
 			
-			<li> <h4>{{event.infoname}}</h4> </li>
+			<li><b>{{event.infoname}}</b> </li>
 			<li style="list-style: none;" data-ng-bind-html="event.infotext">{{event.infotext}} <br>
 			</li>
 			
@@ -309,7 +309,7 @@
 		
 		<ul data-ng-if="searchDetailInfo[0].contenttypeid == 28 " data-ng-repeat="leports in searchDetailInfo">
 			
-			<li> <h4>{{leports.infoname}}</h4> </li>
+			<li> <b>{{leports.infoname}}</b>  </li>
 			<li style="list-style: none;" data-ng-bind-html="leports.infotext">{{leports.infotext}} <br>
 			</li>
 			
@@ -401,7 +401,7 @@
 			
 		<ul data-ng-if="searchDetailInfo[0].contenttypeid == 39 " data-ng-repeat="food in searchDetailInfo">
 			
-			<li> <h4>{{food.infoname}}</h4> </li>
+			<li><b>{{food.infoname}}</b> </li>
 			<li style="list-style: none;" data-ng-bind-html="food.infotext">{{food.infotext}} <br>
 			</li>
 			

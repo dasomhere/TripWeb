@@ -65,9 +65,9 @@
 		
 		<ul data-ng-if="searchDetailIntro[0].contenttypeid == 14 " data-ng-repeat="culture in searchDetailIntro">
 			
-			<li data-ng-bind-html="culture.scale"><b>규 모 :</b> {{culture.scale}}</li>
+			<li data-ng-hide="culture.scale == null"><b>규 모 :</b><span data-ng-bind-html="culture.scale">{{culture.scale}}</span> </li>
 			
-			<li><b>수용 가능 인원 :</b> {{culture.accomcountculture}}</li>
+			<li data-ng-hide="culture.accomcountculture == null"><b>수용 가능 인원 :</b> {{culture.accomcountculture}}</li>
 			
 			<li data-ng-hide="culture.infocenterculture == null"><b>문의 및 안내 :</b>{{culture.infocenterculture}}</li>
 				
@@ -75,7 +75,7 @@
 			
 			<li data-ng-hide="culture.usefee == ''"><b>이 용 요 금 :</b> {{culture.usefee}}</li>
 				
-			<li data-ng-hide="culture.usetimeculture == null" data-ng-bind-html="culture.usetimeculture"><b>이 용 시 간 :</b> {{culture.usetimeculture}}</li>
+			<li data-ng-hide="culture.usetimeculture == null"><b>이 용 시 간 :</b><span  data-ng-bind-html="culture.usetimeculture">{{culture.usetimeculture}}</span> </li>
 			
 			<li data-ng-hide="culture.discountinfo == null"><b>할 인 정 보 :</b> {{culture.discountinfo}}</li>	
 				
@@ -134,7 +134,7 @@
 			
 			<li data-ng-hide="leports.openperiod == null"><b>개 장 기 간 : </b> {{leports.openperiod}}</li>
 			
-			<li data-ng-hide="leports.usetimeleports == null"><b>이 용 시 간 : </b> {{leports.usetimeleports}}</li>
+			<li data-ng-hide="leports.usetimeleports == null" ><b>이 용 시 간 : </b><span data-ng-bind-html="leports.usetimeleports">{{leports.usetimeleports}}</span> </li>
 			
 			<li data-ng-hide="leports.usefeeleports == null"><b>입 장 료 : </b> {{leports.usefeeleports}}</li> 
 			

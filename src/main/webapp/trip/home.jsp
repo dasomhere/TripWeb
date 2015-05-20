@@ -10,28 +10,20 @@
 /*       margin-left: 150px; */
 /*   	} */
 	#div {
-		border: 1px solid red; 
-		width: 800px;
-		height: 700px;
+		border: 1px solid red;
 	}
 </style>
 <div class="container">
 	<div class="row" id="div">
-		<div class="col-sm-6" >
-			<img alt="" src="http://placehold.it/350x120">
+		<div class="col-xs-6">
+			<img src="mainImage/보라색풍선.png" alt="" src="http://placehold.it/350x240"/> <br>
+			<img alt="" src="http://placehold.it/350x300"/>
 		</div>
-	    <div class="col-sm-6" style="background-color:lavender;" >
+		
+		<div class="col-xs-6">
+			<img alt="" src="http://placehold.it/350x300"> <br>
 			<img alt="" src="http://placehold.it/350x240">
-	    </div>
-	    <div class="col-sm-6">
-			<img alt="" src="http://placehold.it/350x380">
 		</div>
-	    <div class="row">
-	    	<div class="col-sm-4">
-	    		<br>
-	    		<img alt="" src="http://placehold.it/350x240">
-	    	</div>
-	    </div>
-	  </div>		
+	</div>	
 </div>
 

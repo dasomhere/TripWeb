@@ -22,7 +22,7 @@
 <!-- 	</div> -->
 	<div>
 		<label ng-repeat="c in contents" style="padding-right: 10px;">
-		  <input type="checkbox" checklist-model="selectedContents" checklist-value="c">{{c.name}}
+		  <input type="checkbox" ng-model="c.enabled">{{c.name}}
 		</label>
 	</div>
 	
@@ -38,23 +38,15 @@
 </form>
 	<hr>
 
-<!-- 	<div> -->
-<!-- 		<ul class="list-group"> -->
-<!-- 		 	<li class="list-group-item" data-ng-repeat="type in localResult.items.item"> -->
-<!-- 		 			<table> -->
-<!-- 		 			  <tr><td> -->
-<!-- 		 			  	<a href="#/searchDetail/{{type.contentid}}/{{type.contenttypeid}}"> -->
-<!--           	 			<img data-ng-src="{{type.firstimage}}" style="width: 200px" height="150px"/> -->
-<!-- 		 			  	<img data-ng-src="http://placehold.it/150x100/808080/ffffff&text=No Image!" style="width: 150px; height: 100px" data-ng-hide="type.firstimage != null"/> -->
-<!-- 		 			  	</a> -->
-<!-- 		 			  <td><tr> -->
-<!-- 		 			  <tr><td>{{type.title}}</td></tr> -->
-<!-- 		 			</table> -->
-<!-- 		 	</li> -->
-<!-- 		</ul>	 -->
-<!-- 	</div> -->
+	<div>
+		<ul class="list-group">
+		 	<li class="list-group-item" data-ng-repeat="type in mapResult.items.item">
+		 		{{type.title}}
+		 	</li>
+		</ul>	
+	</div>
 <!-- 	<div align="center"> -->
-<!-- 	<pagination total-items="localResult.totalCount"  -->
+<!-- 	<pagination total-items="mapResult.totalCount"  -->
 <!-- 				ng-model="currentPage" -->
 <!-- 				items-per-page="itemsPerPage" -->
 <!-- 				max-size="5"  -->

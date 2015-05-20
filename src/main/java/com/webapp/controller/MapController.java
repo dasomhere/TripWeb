@@ -68,4 +68,14 @@ public class MapController {
 		return tour.getApi(request.getUrl());
 	}
 	
+	@RequestMapping(value="search", method=RequestMethod.GET)
+	@ResponseBody
+	public ResponseMessage search(AreaBasedListRequestParameter request) {
+		log.info("###############");
+		log.info("search()..." + request.getAreaCode() + " " + request.getSigunguCode()+ " " + request.getContentTypeId());
+		log.info("###############");
+		
+		return tour.getApi(request.getUrl());
+	}
+	
 }

@@ -84,6 +84,7 @@
 			<a href="#event" class="btn btn-info" ng-model="radioModel" btn-radio="'행사'" uncheckable>행사</a>
 			<a href="#local" class="btn btn-info" ng-model="radioModel" btn-radio="'관광지'" uncheckable>관광지</a>
 			<a href="#load" class="btn btn-info" ng-model="radioModel" btn-radio="'추천 코스'" uncheckable>추천 코스</a>
+			<a href="#map" class="btn btn-info" ng-model="radioModel" btn-radio="'지도검색'" uncheckable>지도검색</a>
 			<a href="#weather" class="btn btn-info" ng-model="radioModel" btn-radio="'날씨'" uncheckable>날씨</a>
 		</div>
 	</div>

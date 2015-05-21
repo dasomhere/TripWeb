@@ -25,44 +25,92 @@ myApp.controller('mapController', function($scope, $http) {
 		});
 	};
 	
-//	$scope.checkboxModel = {
-//        value1 : false,
-//        value2 : false
-//	};
-
 	$scope.contents = [
-	                   {code: '12', name: '관광지', enabled: false},
-	                   {code: '14', name: '문화시설', enabled: false},
-	                   {code: '15', name: '축제공연행사', enabled: false},
-	                   {code: '25', name: '여행코스', enabled: false},
-	                   {code: '28', name: '레포츠', enabled: false},
-	                   {code: '32', name: '숙박', enabled: false},
-	                   {code: '38', name: '쇼핑', enabled: false},
-	                   {code: '39', name: '음식점', enabled: false}
+	                   {code: '',   name: '전체'},
+	                   {code: '12', name: '관광지'},
+	                   {code: '14', name: '문화시설'},
+	                   {code: '15', name: '축제공연행사'},
+	                   {code: '25', name: '여행코스'},
+	                   {code: '28', name: '레포츠'},
+	                   {code: '32', name: '숙박'},
+	                   {code: '38', name: '쇼핑'},
+	                   {code: '39', name: '음식점'}
 	];
 	
 	$scope.currentPage = 1;
-	$scope.itemsPerPage = 50;
+	$scope.itemsPerPage = 15;
 	
-	$scope.data = [];
-	
-	$scope.search = function() {
-		alert(JSON.stringify($scope.contents));
-		
+	$scope.changePage = function() {
 		var city = $("#city option:selected").val();
 		var sigunguCode = $("#sigunguCode option:selected").val();
+		var contentTypeId = $("#content option:selected").val();
 		
-		for(var i=0; i<$scope.contents.length; i++) {
-			if($scope.contents[i].enabled) {
-				var contentTypeId = $scope.contents[i].code;
-				
-				$http.get("/TripWeb/m/map/search?areaCode=" + city + "&sigunguCode=" + sigunguCode + "&contentTypeId="+contentTypeId+ "&numOfRows=" +$scope.itemsPerPage + "&pageNo=" + $scope.currentPage).success(function(mapResult) {
-					$scope.data.push(mapResult.response.body);
-				}).error(function() {
-					alert('error');
-				});	
-			}
-		}
-		console.log($scope.data);
+		$http.get("/TripWeb/m/map/search?areaCode=" + city + "&sigunguCode=" + sigunguCode + "&contentTypeId="+contentTypeId+ "&numOfRows=" +$scope.itemsPerPage + "&pageNo=" + $scope.currentPage).success(function(mapResult) {
+			$scope.mapResult = mapResult.response.body;
+			if(mapResult.response.body.totalCount > 0)
+				var i = 0;
+				while(mapResult.response.body.items.item[i].mapx == null) {
+					i++;
+				}
+				$scope.mapSearch(mapResult.response.body.items.item[i].mapx, mapResult.response.body.items.item[i].mapy);
+		}).error(function() {
+			alert('error');
+		});
+	}
+	
+	$scope.search = function() {
+		var city = $("#city option:selected").val();
+		var sigunguCode = $("#sigunguCode option:selected").val();
+		var contentTypeId = $("#content option:selected").val();
+		
+		$http.get("/TripWeb/m/map/search?areaCode=" + city + "&sigunguCode=" + sigunguCode + "&contentTypeId="+contentTypeId+ "&numOfRows=" +$scope.itemsPerPage + "&pageNo=" + $scope.currentPage).success(function(mapResult) {
+			
+//			for(i=0; i<mapResult.response.body.items.item.length; i++) {
+//				if(mapResult.response.body.items.item[i].mapx == null) {
+//					var geocoder = new google.maps.Geocoder();
+//					var address = mapResult.response.body.items.item[i].addr1;
+//					geocoder.geocode( { "address": address }, function(results, status) {
+//					     if (status == google.maps.GeocoderStatus.OK && results.length > 0) {
+//					         var location = results[0].geometry.location;
+//					         mapResult.response.body.items.item[i].splice({"mapx":"ddd"});
+//					         console.log(mapResult.response.body.items.item[i]);
+//					         mapResult.response.body.items.item[i].mapy = location.A;
+//					         console.log(location);
+//					     }
+//					 });
+//				}
+//			}
+			
+			$scope.mapResult = mapResult.response.body;
+			if(mapResult.response.body.totalCount > 0)
+				var i = 0;
+				while(mapResult.response.body.items.item[i].mapx == null) {
+					i++;
+				}
+				$scope.mapSearch(mapResult.response.body.items.item[i].mapx, mapResult.response.body.items.item[i].mapy);
+		}).error(function() {
+			alert('error');
+		});	
+		
 	};
+	
+	$scope.$on('mapInitialized', function(event, map) { 
+//		alert("mapInitialized...");
+		$scope.mapSearch = function(mapx, mapy) {
+			map.panTo({lat:mapy, lng:mapx});
+		}
+		
+		
+//		var geocoder = new google.maps.Geocoder();
+//		geocoder.geocode( { "address": "서울특별시 강서구 화곡4동 799-9번지" }, function(results, status) {
+//		     if (status == google.maps.GeocoderStatus.OK && results.length > 0) {
+//		         var location = results[0].geometry.location;
+//		         alert(location.A);
+//		         alert(location.F);
+//		         console.log(location.A);
+//		     }
+//		 });
+//		
+	});
+	
 });

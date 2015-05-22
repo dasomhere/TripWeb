@@ -246,7 +246,7 @@
 			
 			<li data-ng-hide="food.firstmenu == null"><b>대 표 매 뉴 : </b> {{food.firstmenu}}</li>
 			
-			<li data-ng-hide="food.opentimefood == null"><b>영 업 시 간 : </b> {{food.opentimefood}}</li>
+			<li data-ng-hide="food.opentimefood == null"><b>영 업 시 간 : </b><span data-ng-bind-html="food.opentimefood">{{food.opentimefood}}</span> </li>
 			
 			<li data-ng-hide="food.scalefood == null"><b>규 모 : </b> {{food.scalefood}}</li>
 			
@@ -258,7 +258,7 @@
 			
 			<li data-ng-hide="food.reservationfood == null"><b>예 약 안 내 : </b> {{food.reservationfood}}</li>
 			
-			<li data-ng-hide="food.treatmenu == null"><b>취 급 메 뉴 : </b> {{food.treatmenu}}</li>
+			<li data-ng-hide="food.treatmenu == null"><b>취 급 메 뉴 : </b> <span data-ng-bind-html="food.treatmenu"> {{food.treatmenu}}</span></li>
 			
 			<li data-ng-hide="food.parkingfood == null"><b>주 차 장 : </b> {{food.parkingfood}}</li>
 			
@@ -266,7 +266,7 @@
 			
 			<li data-ng-hide="food.chkcreditcard == null"><b>신용카드 가능 여부 : </b> {{food.chkcreditcard}}</li>
 			
-			<li data-ng-hide="food.discountinfofood == null"><b>할 인 정 보 : </b> {{food.discountinfofood}}</li>
+			<li data-ng-hide="food.discountinfofood == null"><b>할 인 정 보 : </b> <span data-ng-bind-html="food.discountinfofood">{{food.discountinfofood}}</span> </li>
 			
 			<li data-ng-hide="food.smoking == null"><b>흡 연 여 부 : </b> {{food.smoking}}</li>
 			

@@ -5,7 +5,6 @@
 <!-- local.jsp -->
 
 <section class="container">
-<hr>
 <h3>지도검색 </h3>
 <hr>
 <form data-ng-submit="search()">

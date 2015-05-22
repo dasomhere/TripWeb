@@ -53,8 +53,8 @@
 		</div>
 		<div class="col-sm-9">
 			<map center="37.5, 127" zoom="14" style="height: 600px;">
-				<div data-ng-repeat="r in mapResult.items.item" data-ng-if="r.mapx != null">
-					<marker position="{{r.mapy}}, {{r.mapx}}" on-click="showInfoWindow(event, 'info')"></marker>
+				<div data-ng-repeat="r in mapResult.items.item">
+					<marker position="{{r.mapy}}, {{r.mapx}}" title="{{r.title}}" on-click="showInfoWindow(event, 'info')"></marker>
 					<info-window id="info" visible-on-marker="foo">
 						<div>
 			 			  	<h3>{{r.title}}</h3>

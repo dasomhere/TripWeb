@@ -44,73 +44,88 @@ myApp.controller('mapController', function($scope, $http) {
 		var city = $("#city option:selected").val();
 		var sigunguCode = $("#sigunguCode option:selected").val();
 		var contentTypeId = $("#content option:selected").val();
-		
 		$http.get("/TripWeb/m/map/search?areaCode=" + city + "&sigunguCode=" + sigunguCode + "&contentTypeId="+contentTypeId+ "&numOfRows=" +$scope.itemsPerPage + "&pageNo=" + $scope.currentPage).success(function(mapResult) {
 			$scope.mapResult = mapResult.response.body;
-			if(mapResult.response.body.totalCount > 0)
-				var i = 0;
-				while(mapResult.response.body.items.item[i].mapx == null) {
-					i++;
+			for(var i=0; i<$scope.mapResult.items.item.length; i++) {
+				if($scope.mapResult.items.item[i].mapx == null) {
+					var address = $scope.mapResult.items.item[i].addr1;
+					$scope.setLocation(address, i);
 				}
-				$scope.mapSearch(mapResult.response.body.items.item[i].mapx, mapResult.response.body.items.item[i].mapy);
+			}
+			
+			if($scope.mapResult.totalCount > 0) {
+				$scope.citySearch($("#city option:selected").text());
+			}
 		}).error(function() {
 			alert('error');
-		});
+		});	
 	}
 	
 	$scope.search = function() {
 		var city = $("#city option:selected").val();
 		var sigunguCode = $("#sigunguCode option:selected").val();
 		var contentTypeId = $("#content option:selected").val();
-		
 		$http.get("/TripWeb/m/map/search?areaCode=" + city + "&sigunguCode=" + sigunguCode + "&contentTypeId="+contentTypeId+ "&numOfRows=" +$scope.itemsPerPage + "&pageNo=" + $scope.currentPage).success(function(mapResult) {
-			
-//			for(i=0; i<mapResult.response.body.items.item.length; i++) {
-//				if(mapResult.response.body.items.item[i].mapx == null) {
-//					var geocoder = new google.maps.Geocoder();
-//					var address = mapResult.response.body.items.item[i].addr1;
-//					geocoder.geocode( { "address": address }, function(results, status) {
-//					     if (status == google.maps.GeocoderStatus.OK && results.length > 0) {
-//					         var location = results[0].geometry.location;
-//					         mapResult.response.body.items.item[i].splice({"mapx":"ddd"});
-//					         console.log(mapResult.response.body.items.item[i]);
-//					         mapResult.response.body.items.item[i].mapy = location.A;
-//					         console.log(location);
-//					     }
-//					 });
-//				}
-//			}
-			
 			$scope.mapResult = mapResult.response.body;
-			if(mapResult.response.body.totalCount > 0)
-				var i = 0;
-				while(mapResult.response.body.items.item[i].mapx == null) {
-					i++;
+			for(var i=0; i<$scope.mapResult.items.item.length; i++) {
+				if($scope.mapResult.items.item[i].mapx == null) {
+					var address = $scope.mapResult.items.item[i].addr1;
+					$scope.setLocation(address, i);
 				}
-				$scope.mapSearch(mapResult.response.body.items.item[i].mapx, mapResult.response.body.items.item[i].mapy);
+			}
+			
+			if($scope.mapResult.totalCount > 0) {
+				$scope.citySearch($("#city option:selected").text());
+			}
 		}).error(function() {
 			alert('error');
 		});	
-		
 	};
 	
 	$scope.$on('mapInitialized', function(event, map) { 
 //		alert("mapInitialized...");
-		$scope.mapSearch = function(mapx, mapy) {
-			map.panTo({lat:mapy, lng:mapx});
+		
+		$scope.citySearch = function(address) {
+			
+			if($("#sigunguCode option:selected").text() != "전체") {
+				address += $(" #sigunguCode option:selected").text();
+				
+				var geocoder = new google.maps.Geocoder();
+				geocoder.geocode( { "address": address }, function(results, status) {
+				     if (status == google.maps.GeocoderStatus.OK && results.length > 0) {
+				    	 var location = results[0].geometry.location;
+				    	 map.panTo({lat:location.A, lng:location.F});
+				    	 map.setZoom(13);
+				     }
+				 });
+			}else {
+				var geocoder = new google.maps.Geocoder();
+				geocoder.geocode( { "address": address }, function(results, status) {
+				     if (status == google.maps.GeocoderStatus.OK && results.length > 0) {
+				    	 var location = results[0].geometry.location;
+				    	 map.panTo({lat:location.A, lng:location.F});
+				    	 map.setZoom(11);
+				     }
+				 });
+			}
 		}
 		
+		$scope.mapSearch = function(mapx, mapy) {
+			map.panTo({lat:mapy, lng:mapx});
+			map.setZoom(17);
+		}
 		
-//		var geocoder = new google.maps.Geocoder();
-//		geocoder.geocode( { "address": "서울특별시 강서구 화곡4동 799-9번지" }, function(results, status) {
-//		     if (status == google.maps.GeocoderStatus.OK && results.length > 0) {
-//		         var location = results[0].geometry.location;
-//		         alert(location.A);
-//		         alert(location.F);
-//		         console.log(location.A);
-//		     }
-//		 });
-//		
 	});
+	
+	$scope.setLocation = function(address, index) {
+		var geocoder = new google.maps.Geocoder();
+		geocoder.geocode( { "address": address }, function(results, status) {
+		     if (status == google.maps.GeocoderStatus.OK && results.length > 0) {
+		    	 var location = results[0].geometry.location;
+		         $scope.mapResult.items.item[index].mapx = location.F;
+		         $scope.mapResult.items.item[index].mapy = location.A;
+		     }
+		 });
+	};
 	
 });

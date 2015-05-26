@@ -61,7 +61,7 @@ myApp.controller('eventController', function($scope, $http) {
 		$scope.$parent.contenttypeid = contenttypeid;
 		console.log("contetnttypeid ## 15 =" + contenttypeid);
 		
-		location.href="#eventDetail";
+
 	};
 });
 

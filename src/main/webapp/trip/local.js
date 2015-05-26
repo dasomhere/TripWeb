@@ -1,10 +1,20 @@
 
 myApp.controller('localController', function($scope, $http) {
+
 	$scope.$parent.pageClass = 'page-local';
+	$scope.currentPage = 1;
+	$scope.itemsPerPage = 10;
 	
+	$http.get("/TripWeb/m/load/search?areaCode=1" + "&sigunguCode=1" + "&contentTypeId=12" + "&numOfRows=" +$scope.itemsPerPage + "&pageNo=" + $scope.currentPage).success(function(localResult) {
+		$scope.$parent.localResult = localResult.response.body;
+		console.log(JSON.stringify(localResult.response.body.items.item.contentid));
+		
+//		console.log(JSON.stringify($scope.$parent.localResult.contentid));
+		
+		alert(JSON.stringify(localResult.response.body.items.item.contentid));
+	});
 	
 	$http.get("/TripWeb/m/local/city").success(function(citys) {
-		console.log(citys);
 		$scope.citys = citys.response.body.items.item;
 	}).error(function() {
 		alert("local.city error...");
@@ -28,16 +38,13 @@ myApp.controller('localController', function($scope, $http) {
 	$scope.stay = function() {
 		var stay = $("#contentTypeId option:selected").val();
 		if(stay==32){
-			$('#select').html("<option value='hanOk'>한옥</option>");
-			$('#select').append("<option value='benikia'>베니키아</option>");
-			$('#select').append("<option value='goodStay'>굿스테이</option>");
+			$('#select').html("<option value='hanOk' class=form-control>한옥</option>");
+			$('#select').append("<option value='benikia'class=form-control>베니키아</option>");
+			$('#select').append("<option value='goodStay' class=form-control>굿스테이</option>");
 		}else{
-			$('#select').html("<option value='#'>선택사항 없음</option>");
+			$('#select').html("<option value='#' class=form-control>선택사항 없음</option>");
 		}
 	};
-	
-	$scope.currentPage = 1;
-	$scope.itemsPerPage = 5;
 	
 	$scope.changePage = function() {
 		console.log("page = " + $scope.currentPage);

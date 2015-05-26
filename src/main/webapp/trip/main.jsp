@@ -48,6 +48,10 @@
     .navbar>.container-fluid .navbar-brand-centered {
         margin-left: -80px;
     }
+    #footer {
+ 	 height: 60px;
+ 	 background-color: #f5f5f5;
+	}
 
 </style>
 
@@ -88,13 +92,14 @@
 			<a href="#weather" class="btn btn-info" ng-model="radioModel" btn-radio="'날씨'" uncheckable>날씨</a>
 		</div>
 	</div>
-
+	
+	
 	<div class="page {{ pageClass }}" data-ng-view
 									  data-ng-swipe-left="swipeLeft()"
 									  data-ng-swipe-right="swipeRight()"
 									  >
 	<!-- default page = home -->
 	</div>
-		
+	
 </body>
 </html>

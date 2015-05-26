@@ -1,28 +1,28 @@
+<%@page import="java.util.Date"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@include file="/WEB-INF/taglib.jspf"%>
-
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <div class="container">
 	<h1>행사</h1>
 	<div>
+	
 	<form data-ng-submit="search()">
+	
 	<select id = "city">
 		<option data-ng-repeat="city in citys" value="{{city.code}}" data-ng-selected="city.code==1">{{city.name}}</option>
 	</select>
-
+	
 	<select id = "month">
-		<option value="01">1월</option>
-		<option value="02">2월</option>
-		<option value="03">3월</option>
-		<option value="04">4월</option>
-		<option value="05">5월</option>
-		<option value="06">6월</option>
-		<option value="07">7월</option>
-		<option value="08">8월</option>
-		<option value="09">9월</option>
-		<option value="10">10월</option>
-		<option value="11">11월</option>
-		<option value="12">12월</option>
+	<c:set var="zero" value="0"></c:set>
+<c:forEach var = "i" begin="1" end="12">
+			<c:if test="${i < 11}">
+				<option value="${zero}${i}">${i}월</option>
+			</c:if>
+			<c:if test="${i > '10'}">
+ 				<option value="i">${i}월</option>
+ 			</c:if>
+		</c:forEach>
 	</select>
 	
 <button type="submit" class="btn btn-default">조회</button>	

@@ -2,14 +2,33 @@
 myApp.controller('eventController', function($scope, $http) {
 	$scope.$parent.pageClass = 'page-event';
 //	alert("eventController xxx");
+	$scope.currentPage = 1;
+	$scope.itemsPerPage = 5;
+	
+	var monthSelect = new Date().getMonth()+1;
+	
+	if(monthSelect<10){
+		monthSelect = "0"+ monthSelect;
+	}else {
+		monthSelect = monthSelect;
+	}
+	
+	for(var i = 1; i < 13; i++){
+		if(monthSelect == i)
+			$("#month option:eq(i)").attr("selected", "selected");
+	} 
+	
+	$http.get("/TripWeb/m/event/festival?areaCode=1" + "&month="+ monthSelect + "&numOfRows=" +$scope.itemsPerPage + "&pageNo=" + $scope.currentPage).success(function(events) {
+		console.log(events);
+		$scope.events = events.response.body;
+	});
 	
 	$http.get("/TripWeb/m/event/city").success(function(citys) {
 		console.log(citys);
 		$scope.citys = citys.response.body.items.item;
 	});
 	
-	$scope.currentPage = 1;
-	$scope.itemsPerPage = 5;
+
 	
 	$scope.changePage = function() {
 		console.log("page = " + $scope.currentPage);
@@ -22,7 +41,6 @@ myApp.controller('eventController', function($scope, $http) {
 		}).error(function() {
 			alert("festival error...");
 		});
-		
 	};
 	
 	$scope.search = function() {
@@ -45,8 +63,5 @@ myApp.controller('eventController', function($scope, $http) {
 		
 		location.href="#eventDetail";
 	};
-	
-	
-	
 });
 

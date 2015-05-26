@@ -3,7 +3,7 @@ myApp.controller('searchController', function($scope, $http) {
 	$scope.$parent.pageClass = 'page-load';
 	
 	$scope.currentPage = 1;
-	$scope.itemsPerPage = 10;
+	$scope.itemsPerPage = 12;
 	
 	$scope.changePage = function() {
 		console.log("page = " + $scope.currentPage);
@@ -23,10 +23,11 @@ myApp.controller('searchController', function($scope, $http) {
 	
 	$scope.search = function() {
 		var keyword=$("#keyword").val();
+		var contentTypeId = $("#content option:selected").val();
 		if(keyword == '') {
 			return false;
 		}
-		$http.get("/TripWeb/m/search/search?keyword=" + keyword + "&numOfRows=" + $scope.itemsPerPage + "&pageNo=" + $scope.currentPage).success(function(searchResult) {
+		$http.get("/TripWeb/m/search/search?keyword=" + keyword + "&contentTypeId=" + contentTypeId + "&numOfRows=" + $scope.itemsPerPage + "&pageNo=" + $scope.currentPage).success(function(searchResult) {
 			$scope.searchResult = searchResult.response.body;
 			console.log($scope.searchResult.items.item);
 		}).error(function() {
@@ -35,8 +36,16 @@ myApp.controller('searchController', function($scope, $http) {
 		
 	};
 	
-	$scope.alphabet = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 
-	                   'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
-	console.log($scope.alphabet);
+	$scope.contents = [
+	                   {code: '',   name: '전체'},
+	                   {code: '12', name: '관광지'},
+	                   {code: '14', name: '문화시설'},
+	                   {code: '15', name: '축제공연행사'},
+	                   {code: '25', name: '여행코스'},
+	                   {code: '28', name: '레포츠'},
+	                   {code: '32', name: '숙박'},
+	                   {code: '38', name: '쇼핑'},
+	                   {code: '39', name: '음식점'}
+	];
 	
 });

@@ -9,6 +9,17 @@
 <h1>관광정보 </h1>
 <hr>
 <form data-ng-submit="search()">
+	<div class="btn-group">
+    <button type="button" class="form-control btn btn-default dropdown-toggle" data-toggle="dropdown">
+        Select Business type <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu" role="menu">
+        <li><a href="#">small</a></li>
+        <li><a href="#">medium</a></li>
+        <li><a href="#">large</a></li>
+    </ul>
+	</div>
+	
 	<select id=city>
 		<option data-ng-repeat="city in citys" value="{{city.code}}" data-ng-click="cityChange()" data-ng-selected="city.code==1">{{city.name}}</option>
 	</select>

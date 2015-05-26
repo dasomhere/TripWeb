@@ -71,8 +71,9 @@
 </head>
 
 <body data-ng-controller="mainController">
+
 	<div class="container">
-		<div align="center"><a href="#event">TourWeb</a>
+		<div align="center"><a href="#home"><img src="mainImage/제목.png" style="width: 80%; height: 80%;"></a>
         	<div class="pull-right">
         		<a style="margin-right: 10px;" href="#search"><span class="glyphicon glyphicon-search"></span></a>
 				<a href="#login" class="btn btn-default" data-ng-if="loginResult.loginStatus==null || loginResult.loginStatus==false">로그인</a>

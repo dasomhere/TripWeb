@@ -51,6 +51,10 @@ myApp.config(function($routeProvider) {
 			controller : "templateController"
 	};
 	
+	var home = {
+			templateUrl : "home.jsp"
+	};
+	
 	
 	$routeProvider.when('/', event);
 	$routeProvider.when('/local', local);
@@ -63,6 +67,7 @@ myApp.config(function($routeProvider) {
 	$routeProvider.when('/login', login);
 	$routeProvider.when('/join', join);
 	$routeProvider.when('/template', template);
+	$routeProvider.when('/home', home);
 	$routeProvider.otherwise({redirectTo:'/'});
 	
 });

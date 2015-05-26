@@ -34,27 +34,27 @@
 		
 		<div class="row" style="width: 90%" align="center">
 			<div class="col-xs-2">
-				<img alt="icon_event" src="Icon/행사&축제.png">
+				<a href="#event"><img alt="icon_event" src="Icon/행사&축제.png"/></a>
 			</div>
 			
 			<div class="col-xs-2">
-				<img alt="icon_tour" src="Icon/관광지.png">
+				<a href="#local"><img alt="icon_tour" src="Icon/관광지.png"/></a>
 			</div>
 			
 			<div class="col-xs-2">
-				<img alt="icon_bestcourse" src="Icon/추천코스.png">
+				<a href="#load"><img alt="icon_bestcourse" src="Icon/추천코스.png"/></a>
 			</div>
 			
 			<div class="col-xs-2">
-				<img alt="icon_searchmap" src="Icon/지도검색.png">
+				<a href="#map"><img alt="icon_searchmap" src="Icon/지도검색.png"/></a>
 			</div>
 			
 			<div class="col-xs-2">
-				<img alt="icon_searchkeyword" src="Icon/키워드검색.png">
+				<a style="margin-right: 10px;" href="#search"><img alt="icon_searchkeyword" src="Icon/키워드검색.png"/></a>
 			</div>
 			
 			<div class="col-xs-2">
-				<img alt="icon_weather" src="Icon/날씨.png">
+				<a href="#weather"><img alt="icon_weather" src="Icon/날씨.png"/></a>
 			</div>
 		</div>
 		

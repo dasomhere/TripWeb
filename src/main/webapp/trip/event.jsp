@@ -2,6 +2,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@include file="/WEB-INF/taglib.jspf"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <div class="container">
 	<h1>행사</h1>
 	<div>
@@ -13,11 +14,14 @@
 	</select>
 	
 	<select id = "month">
-		<c:forEach var = i; begin=1; end=12;>
-			<c:if test="${i < 10}">
-				<option value="0i">i월</option>
+	<c:set var="zero" value="0"></c:set>
+<c:forEach var = "i" begin="1" end="12">
+			<c:if test="${i < 11}">
+				<option value="${zero}${i}">${i}월</option>
 			</c:if>
-			<option value="i">i월</option>
+			<c:if test="${i > '10'}">
+ 				<option value="i">${i}월</option>
+ 			</c:if>
 		</c:forEach>
 	</select>
 	

@@ -5,13 +5,15 @@
 <!-- local.jsp -->
 <style>
 	.select{
-		height: 30px;
-		border: 1px solid #737373;
-		font-size: 10px;
-		color: #666;
-		background: #fff url('select.png') no-repeat right top;
-		-webkit-border-radius :4px;
-		-webkit-appearance:none;
+		height : 28px;
+ 		border: 1px solid #ccc;
+		font-size: 13px;
+		margin-right: 5px;
+		background: url(new_arrow.png) no-repeat right white;;
+		-webkit-appearance: none;
+		text-align: center;
+		text-shadow: 5px;
+		padding: 0px;
 	}
 </style>
 
@@ -45,17 +47,23 @@
 	<hr>
 
 	<div>
-		<ul class="list-group">
-		 	<li class="list-group-item" data-ng-repeat="type in localResult.items.item">
-		 			<table>
-		 			  <tr><td>
-		 			  	<a href="#/searchDetail/{{type.contentid}}/{{type.contenttypeid}}">
-          	 			<img data-ng-src="{{type.firstimage}}" style="width: 200px" height="150px"/>
-		 			  	<img data-ng-src="http://placehold.it/150x100/808080/ffffff&text=No Image!" style="width: 150px; height: 100px" data-ng-hide="type.firstimage != null"/>
-		 			  	</a>
-		 			  <td><tr>
-		 			  <tr><td>{{type.title}}</td></tr>
-		 			</table>
+		<ul class="list-group" data-ng-repeat="type in localResult.items.item">
+		 	<li class="list-group-item" >
+		 			<div class="row">
+		 				<div class="col-sm-4">
+		 						{{type.title}}<br>
+		 						<a href="#/searchDetail/{{type.contentid}}/{{type.contenttypeid}}">
+          	 						<img data-ng-src="{{type.firstimage}}" style="width: 200px" height="150px"/>
+		 			  				<img data-ng-src="http://placehold.it/150x100/808080/ffffff&text=No Image!" style="width: 150px; height: 100px" data-ng-hide="type.firstimage != null"/>
+		 			  			</a>
+		 				</div>
+		 				<div class="col-sm-8">
+							<br>
+		 						<span>{{type.contentid}}</span>
+<!-- 		 						{{common.overview}} -->
+		 					
+		 				</div>
+		 			</div>
 		 	</li>
 		</ul>	
 	</div>

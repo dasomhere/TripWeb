@@ -2,33 +2,62 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<!-- local.jsp -->
 <style>
-
+select {
+	height: 30px;
+	width: 100%;
+}
 </style>
 
 <section class="container">
 <hr>
-<h1>관광정보 </h1>
-<hr>
 <form data-ng-submit="search()">
-		<select id="city" class="select">
-			<option data-ng-repeat="city in citys" value="{{city.code}}" data-ng-click="cityChange()" data-ng-selected="city.code==1">{{city.name}}</option>
-		</select>
+	<div class="row" style="text-align: center;">
+		<div class="col-sm-2 col-sm-offset-2">
+			<b>도시</b><br>
+			<select id="city" class="select">
+				<option data-ng-repeat="city in citys" value="{{city.code}}" data-ng-click="cityChange()" data-ng-selected="city.code==1">{{city.name}}</option>
+			</select>
+		</div>
+		<div class="col-sm-2">
+			<b>시/군/구</b><br>
+			<select id="sigunguCode" class="select">
+				<option data-ng-repeat="sigunguCode in gus" value="{{sigunguCode.code}}">{{sigunguCode.name}}</option>
+			</select>
+		</div>
+		<div class="col-sm-2">
+			<b>관광타입</b><br>
+			<select id="contentTypeId" class="select">
+				<option data-ng-repeat="typeId in contents" value="{{typeId.code}}" data-ng-click="stays(typeId.code)">{{typeId.name}}</option>
+			</select>
+		</div>
+		<div class="col-sm-2" data-ng-if="flags[0].flag">
+			<b>숙박타입</b><br>
+			<select id="select" data-ng-if="flags[0].flag">
+				<option data-ng-repeat="stay in stayss" value="{{stay.value}}">{{stay.name}}</option>
+			</select>
+		</div>
+		<div class="col-sm-2" style="text-align:left; height: 50px; position: relative;">
+			<button class="btn btn-default" type="submit" style="position: absolute; width: 50%; bottom:0px;">검색</button>
+		</div>
+	</div>
+<!-- 		<select id="city" class="select"> -->
+<!-- 			<option data-ng-repeat="city in citys" value="{{city.code}}" data-ng-click="cityChange()" data-ng-selected="city.code==1">{{city.name}}</option> -->
+<!-- 		</select> -->
 		
-		<select id="sigunguCode" class="select">
-			<option data-ng-repeat="sigunguCode in gus" value="{{sigunguCode.code}}">{{sigunguCode.name}}</option>
-		</select>
+<!-- 		<select id="sigunguCode" class="select"> -->
+<!-- 			<option data-ng-repeat="sigunguCode in gus" value="{{sigunguCode.code}}">{{sigunguCode.name}}</option> -->
+<!-- 		</select> -->
 		
-		<select id="contentTypeId" class="select">
-			<option data-ng-repeat="typeId in contents" value="{{typeId.code}}" data-ng-click="stays(typeId.code)">{{typeId.name}}</option>
-		</select>
+<!-- 		<select id="contentTypeId" class="select"> -->
+<!-- 			<option data-ng-repeat="typeId in contents" value="{{typeId.code}}" data-ng-click="stays(typeId.code)">{{typeId.name}}</option> -->
+<!-- 		</select> -->
 		
-		<select id="select" data-ng-if="flags[0].flag">
-			<option data-ng-repeat="stay in stayss" value="{{stay.value}}">{{stay.name}}</option>
-		</select>
+<!-- 		<select id="select" data-ng-if="flags[0].flag"> -->
+<!-- 			<option data-ng-repeat="stay in stayss" value="{{stay.value}}">{{stay.name}}</option> -->
+<!-- 		</select> -->
 		
-	<button class="btn btn-default" type="submit">조회</button>
+<!-- 	<button class="btn btn-default" type="submit">조회</button> -->
 </form>
 	<hr>
 	<div class="row" data-ng-repeat="(idx, result) in localResult.items.item" ng-if="idx % 3 == 0">

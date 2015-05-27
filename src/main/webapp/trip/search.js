@@ -22,6 +22,7 @@ myApp.controller('searchController', function($scope, $http) {
 	};
 	
 	$scope.search = function() {
+		$scope.currentPage = 1;
 		var keyword=$("#keyword").val();
 		var contentTypeId = $("#content option:selected").val();
 		if(keyword == '') {

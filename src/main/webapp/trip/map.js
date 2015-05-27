@@ -62,6 +62,7 @@ myApp.controller('mapController', function($scope, $http) {
 	}
 	
 	$scope.search = function() {
+		$scope.currentPage = 1;
 		var city = $("#city option:selected").val();
 		var sigunguCode = $("#sigunguCode option:selected").val();
 		var contentTypeId = $("#content option:selected").val();

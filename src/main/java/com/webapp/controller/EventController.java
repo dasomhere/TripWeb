@@ -54,16 +54,5 @@ public class EventController {
 	
 		return tour.getApi(request.getUrl());
 	}
-	
-	@RequestMapping(value="detailImage", method=RequestMethod.GET)
-	@ResponseBody
-	public ResponseMessage detailImage(ImageInfoRequestParameter request) {
-		log.info("###############");
-		log.info("detail" +request.getUrl());
-		log.info("###############");
-	
-		return tour.getApi(request.getUrl());
-	}
-	
 }
 

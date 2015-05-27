@@ -74,19 +74,19 @@
 <body data-ng-controller="mainController">
 
 	<div class="container">
-		<div align="center"><a href="#home"><img src="mainImage/제목.png" style="width: 80%; height: 80%;"></a>
-        	<div class="pull-right">
-        		<a style="margin-right: 10px;" href="#search"><span class="glyphicon glyphicon-search"></span></a>
-				<a href="#login" class="btn btn-default" data-ng-if="loginResult.loginStatus==null || loginResult.loginStatus==false">로그인</a>
-				<a data-ng-click="logout()" class="btn btn-default" data-ng-if="loginResult.loginStatus==true">로그아웃</a>
-			</div>
+		<div align="center" style="background-image:url('mainImage/윗배경.png'); background-size:cover; background-repeat:no-repeat;"><a href="#home"><img src="mainImage/제목.png" style="width: 80%; height: 80%;"></a>
+<!--         	<div class="pull-right"> -->
+<!--         		<a style="margin-right: 10px;" href="#search" ng-model="radioModel" btn-radio="'키워드검색'" uncheckable><span class="glyphicon glyphicon-search"></span></a> -->
+<!-- 				<a href="#login" class="btn btn-default" data-ng-if="loginResult.loginStatus==null || loginResult.loginStatus==false">로그인</a> -->
+<!-- 				<a data-ng-click="logout()" class="btn btn-default" data-ng-if="loginResult.loginStatus==true">로그아웃</a> -->
+<!-- 			</div> -->
 		</div>
 		
 		<div class="navbar-mobile btn-group btn-group-justified" class="dropdown">
 			<a href="#event" class="btn btn-info" ng-model="radioModel" btn-radio="'행사'" uncheckable>행사</a>
-			<a href="#local" class="btn btn-info" ng-model="radioModel" btn-radio="'관광지'" uncheckable>관광지</a>
-			<a href="#load" class="btn btn-info" ng-model="radioModel" btn-radio="'추천 코스'" uncheckable>추천 코스</a>
+			<a href="#local" class="btn btn-info" ng-model="radioModel" btn-radio="'지역별검색'" uncheckable>지역별검색</a>
 			<a href="#map" class="btn btn-info" ng-model="radioModel" btn-radio="'지도검색'" uncheckable>지도검색</a>
+			<a href="#maplocation" class="btn btn-info" ng-model="radioModel" btn-radio="'주변검색'" uncheckable>주변검색</a>
 			<a href="#weather" class="btn btn-info" ng-model="radioModel" btn-radio="'날씨'" uncheckable>날씨</a>
 		</div>
 	</div>

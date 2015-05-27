@@ -29,6 +29,7 @@ myApp.controller('localController', function($scope, $http) {
 			alert("server error...");
 		});
 	};
+	
 	$scope.stays = function(data) {
 		$scope.flags = [{flag : false}];
 		if(data=="32"){
@@ -38,33 +39,17 @@ myApp.controller('localController', function($scope, $http) {
 	
 	$scope.changePage = function() {
 		
-//		$scope.currentPage = 1;
-		
 		var city = $("#city option:selected").val();
 		var sigunguCode = $("#sigunguCode option:selected").val();
 		var contentTypeId = $("#contentTypeId option:selected").val();
 		var stay = $("#select option:selected").val();
 		
 		if(contentTypeId=='32') {
-			if(stay=="hanOk"){
-				$http.get("/TripWeb/m/local/searchhanok?areaCode=" + city + "&sigungucode=" + sigunguCode + "&contentTypeId="+contentTypeId+"&"+stay+"=1" + "&numOfRows=" +$scope.itemsPerPage + "&pageNo=" + $scope.currentPage).success(function(hanokResult) {
-					$scope.localResult = hanokResult.response.body;
-				}).error(function() {
-					alert('hanOk error');
-				});
-			}else if(stay=="goodStay"){
-				$http.get("/TripWeb/m/local/searchgoodstay?areaCode=" + city + "&sigungucode=" + sigunguCode + "&contentTypeId="+contentTypeId+"&"+stay+"=1" + "&numOfRows=" +$scope.itemsPerPage + "&pageNo=" + $scope.currentPage).success(function(hanokResult) {
-					$scope.localResult = hanokResult.response.body;
-				}).error(function() {
-					alert('hanOk error');
-				});
-			}else{
-				$http.get("/TripWeb/m/local/searchbenikia?areaCode=" + city + "&sigungucode=" + sigunguCode + "&contentTypeId="+contentTypeId+"&"+stay+"=1" + "&numOfRows=" +$scope.itemsPerPage + "&pageNo=" + $scope.currentPage).success(function(hanokResult) {
-					$scope.localResult = hanokResult.response.body;
-				}).error(function() {
-					alert('hanOk error');
-				});
-			}
+			$http.get("/TripWeb/m/local/searchstay?areaCode=" + city + "&sigunguCode=" + sigunguCode + "&contentTypeId="+contentTypeId+"&"+stay+"=1" + "&numOfRows=" +$scope.itemsPerPage + "&pageNo=" + $scope.currentPage).success(function(hanokResult) {
+				$scope.localResult = hanokResult.response.body;
+			}).error(function() {
+				alert('hanOk error');
+			});
 		}else{
 			$http.get("/TripWeb/m/load/search?areaCode=" + city + "&sigunguCode=" + sigunguCode + "&contentTypeId="+contentTypeId+ "&numOfRows=" +$scope.itemsPerPage + "&pageNo=" + $scope.currentPage).success(function(localResult) {
 				$scope.localResult = localResult.response.body;
@@ -72,37 +57,21 @@ myApp.controller('localController', function($scope, $http) {
 				alert('city error');
 			});	
 		}
-	};
+	}
 	
 	$scope.search = function() {
-		
 		$scope.currentPage = 1;
-		
+
 		var city = $("#city option:selected").val();
 		var sigunguCode = $("#sigunguCode option:selected").val();
 		var contentTypeId = $("#contentTypeId option:selected").val();
 		var stay = $("#select option:selected").val();
 		if(contentTypeId=='32') {
-			if(stay=="hanOk"){
-				$http.get("/TripWeb/m/local/searchhanok?areaCode=" + city + "&sigungucode=" + sigunguCode + "&contentTypeId="+contentTypeId+"&"+stay+"=1" + "&numOfRows=" +$scope.itemsPerPage + "&pageNo=" + $scope.currentPage).success(function(hanokResult) {
-					$scope.localResult = hanokResult.response.body;
-				}).error(function() {
-					alert('hanOk error');
-				});
-			}else if(stay=="goodStay"){
-				$http.get("/TripWeb/m/local/searchgoodstay?areaCode=" + city + "&sigungucode=" + sigunguCode + "&contentTypeId="+contentTypeId+"&"+stay+"=1" + "&numOfRows=" +$scope.itemsPerPage + "&pageNo=" + $scope.currentPage).success(function(hanokResult) {
-					$scope.localResult = hanokResult.response.body;
-				}).error(function() {
-					alert('hanOk error');
-				});
-			}else{
-				$http.get("/TripWeb/m/local/searchbenikia?areaCode=" + city + "&sigungucode=" + sigunguCode + "&contentTypeId="+contentTypeId+"&"+stay+"=1" + "&numOfRows=" +$scope.itemsPerPage + "&pageNo=" + $scope.currentPage).success(function(hanokResult) {
-					$scope.localResult = hanokResult.response.body;
-				}).error(function() {
-					alert('hanOk error');
-				});
-			}
-		
+			$http.get("/TripWeb/m/local/searchstay?areaCode=" + city + "&sigunguCode=" + sigunguCode + "&contentTypeId="+contentTypeId+"&"+stay+"=1" + "&numOfRows=" +$scope.itemsPerPage + "&pageNo=" + $scope.currentPage).success(function(hanokResult) {
+				$scope.localResult = hanokResult.response.body;
+			}).error(function() {
+				alert('hanOk error');
+			});
 		}else{
 			$http.get("/TripWeb/m/load/search?areaCode=" + city + "&sigunguCode=" + sigunguCode + "&contentTypeId="+contentTypeId+ "&numOfRows=" +$scope.itemsPerPage + "&pageNo=" + $scope.currentPage).success(function(localResult) {
 				$scope.localResult = localResult.response.body;

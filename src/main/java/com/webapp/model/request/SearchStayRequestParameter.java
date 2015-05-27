@@ -10,6 +10,8 @@ public class SearchStayRequestParameter extends RequestParameter {
 	String sigungucode = "";
 	String cat2 = "";
 	String hanOk= "";
+	String goodStay="";
+	String benikia ="";
 	
 	public String getQueryString() {
 		String queryString="";
@@ -18,6 +20,8 @@ public class SearchStayRequestParameter extends RequestParameter {
 		queryString += "&contentTypeId=" + contentTypeId;
 		queryString += "&sigungucode=" + sigungucode;
 		queryString += "&hanOk="+ hanOk;
+		queryString += "&goodStay="+ goodStay;
+		queryString += "&benikia="+ benikia;
 		queryString += "&IntroYN=Y";
 		
 		return queryString;
@@ -43,6 +47,18 @@ public class SearchStayRequestParameter extends RequestParameter {
 	}
 	public void setSigungucode(String sigungucode) {
 		this.sigungucode = sigungucode;
+	}
+	public String getGoodStay() {
+		return goodStay;
+	}
+	public void setGoodStay(String goodStay) {
+		this.goodStay = goodStay;
+	}
+	public String getBenikia() {
+		return benikia;
+	}
+	public void setBenikia(String benikia) {
+		this.benikia = benikia;
 	}
 	public String getCat2() {
 		return cat2;

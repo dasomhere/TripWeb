@@ -10,16 +10,13 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.webapp.model.request.AreaBasedListRequestParameter;
 import com.webapp.model.request.AreaCodeRequestParameter;
-import com.webapp.model.request.BenikiaStayInfoRequestParameter;
 import com.webapp.model.request.DetailCommonRequestParameter;
 import com.webapp.model.request.DetailIntroRequestParameter;
-import com.webapp.model.request.GoodStayInfoRequestParameter;
-import com.webapp.model.request.HanOkInfoRequestParameter;
 import com.webapp.model.request.ImageInfoRequestParameter;
+import com.webapp.model.request.SearchStayDifferentRequestParameter;
 import com.webapp.model.request.SearchStayRequestParameter;
 import com.webapp.model.response.ResponseMessage;
 import com.webapp.service.TourApiService;
-
 
 @Controller
 @RequestMapping("/local")
@@ -59,58 +56,11 @@ public class LocalController {
 		return tour.getApi(request.getUrl());
 	}
 	
-	@RequestMapping(value="searchhanok", method=RequestMethod.GET)
+	@RequestMapping(value="searchstay", method=RequestMethod.GET)
 	@ResponseBody
-	public ResponseMessage searchHanOk(HanOkInfoRequestParameter request) {
+	public ResponseMessage searchStay(SearchStayDifferentRequestParameter request) {
 		log.info("###############");
-		log.info("searchStay()..." + request.getAreaCode() + " " + request.getSigunguCode()+ " " + request.getContentTypeId()+" " + request.getHanOk());
-		log.info("###############");
-		
-		return tour.getApi(request.getUrl());
-	}
-	@RequestMapping(value="searchgoodstay", method=RequestMethod.GET)
-	@ResponseBody
-	public ResponseMessage searchGoodStay(GoodStayInfoRequestParameter request) {
-		log.info("###############");
-		log.info("searchStay()..." + request.getAreaCode() + " " + request.getSigunguCode()+ " " + request.getContentTypeId()+" " + request.getGoodStay());
-		log.info("###############");
-		
-		return tour.getApi(request.getUrl());
-	}
-	@RequestMapping(value="searchbenikia", method=RequestMethod.GET)
-	@ResponseBody
-	public ResponseMessage searchbenikia(BenikiaStayInfoRequestParameter request) {
-		log.info("###############");
-		log.info("searchStay()..." + request.getAreaCode() + " " + request.getSigunguCode()+ " " + request.getContentTypeId()+" " + request.getBenikia());
-		log.info("###############");
-		
-		return tour.getApi(request.getUrl());
-	}
-	@RequestMapping(value="detailcommon", method=RequestMethod.GET)
-	@ResponseBody
-	public ResponseMessage detailCommon(DetailCommonRequestParameter request) {
-		log.info("###############");
-		log.info("local detailCommon");
-		log.info("###############");
-		
-		return tour.getApi(request.getUrl());
-	}
-	
-	@RequestMapping(value="detailintro", method=RequestMethod.GET)
-	@ResponseBody
-	public ResponseMessage detailIntro(DetailIntroRequestParameter request) {
-		log.info("###############");
-		log.info("local detailintro");
-		log.info("###############");
-		
-		return tour.getApi(request.getUrl());
-	}
-	
-	@RequestMapping(value="imageIintro", method=RequestMethod.GET)
-	@ResponseBody
-	public ResponseMessage imageIntro(ImageInfoRequestParameter request) {
-		log.info("###############");
-		log.info("local imageIntro");
+		log.info("searchStay()..." + request.getAreaCode() + " " + request.getSigunguCode()+ " " + request.getContentTypeId()+" " + request.getHanOk() +" "+ request.getGoodStay() +" " + request.getBenikia());
 		log.info("###############");
 		
 		return tour.getApi(request.getUrl());

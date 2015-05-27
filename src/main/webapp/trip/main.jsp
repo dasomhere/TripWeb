@@ -36,19 +36,13 @@
 <link rel="stylesheet" type="text/css" href="${font}">
 
 <style type="text/css">
-  .navbar-brand-centered {
-        position: absolute;
-        left: 50%;
-        display: block;
-        width: 160px;
-        text-align: center;
-        background-color: #eee;
-    }
-    .navbar>.container .navbar-brand-centered, 
-    .navbar>.container-fluid .navbar-brand-centered {
-        margin-left: -80px;
-    }
-
+.nav {
+  display:table;
+}
+.nav > li{
+  width: auto;
+  display:table-cell;
+}
 </style>
 
 <link rel="stylesheet" href="style.css"/>
@@ -74,7 +68,8 @@
 <body data-ng-controller="mainController">
 
 	<div class="container">
-		<div align="center" style="background-image:url('mainImage/윗배경.png'); background-size:cover; background-repeat:no-repeat;"><a href="#home"><img src="mainImage/제목.png" style="width: 80%; height: 80%;"></a>
+		<div align="center" style="background-image:url('mainImage/윗배경.png'); background-size:cover; background-repeat:no-repeat;">
+		<a href="#home"><img src="mainImage/제목.png" style="width:100%; height:auto;max-width: 720px; max-height: 120px;"></a>
 <!--         	<div class="pull-right"> -->
 <!--         		<a style="margin-right: 10px;" href="#search" ng-model="radioModel" btn-radio="'키워드검색'" uncheckable><span class="glyphicon glyphicon-search"></span></a> -->
 <!-- 				<a href="#login" class="btn btn-default" data-ng-if="loginResult.loginStatus==null || loginResult.loginStatus==false">로그인</a> -->
@@ -82,13 +77,35 @@
 <!-- 			</div> -->
 		</div>
 		
-		<div class="navbar-mobile btn-group btn-group-justified" class="dropdown">
-			<a href="#event" class="btn btn-info" ng-model="radioModel" btn-radio="'행사'" uncheckable>행사</a>
-			<a href="#local" class="btn btn-info" ng-model="radioModel" btn-radio="'지역별검색'" uncheckable>지역별검색</a>
-			<a href="#map" class="btn btn-info" ng-model="radioModel" btn-radio="'지도검색'" uncheckable>지도검색</a>
-			<a href="#maplocation" class="btn btn-info" ng-model="radioModel" btn-radio="'주변검색'" uncheckable>주변검색</a>
-			<a href="#weather" class="btn btn-info" ng-model="radioModel" btn-radio="'날씨'" uncheckable>날씨</a>
-		</div>
+<!-- 		<div class="navbar-mobile btn-group btn-group-justified" class="dropdown"> -->
+<!-- 			<a href="#event" class="btn btn-info" ng-model="radioModel" btn-radio="'행사'" uncheckable>행사</a> -->
+<!-- 			<a href="#local" class="btn btn-info" ng-model="radioModel" btn-radio="'지역별검색'" uncheckable>지역별검색</a> -->
+<!-- 			<a href="#map" class="btn btn-info" ng-model="radioModel" btn-radio="'지도검색'" uncheckable>지도검색</a> -->
+<!-- 			<a href="#maplocation" class="btn btn-info" ng-model="radioModel" btn-radio="'주변검색'" uncheckable>주변검색</a> -->
+<!-- 			<a href="#weather" class="btn btn-info" ng-model="radioModel" btn-radio="'날씨'" uncheckable>날씨</a> -->
+<!-- 		</div> -->
+		
+		 <nav class="navbar navbar-default">
+		  <div class="container-fluid">
+		    <div class="navbar-header">
+		      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		      </button>
+		    </div>
+		    <div class="collapse navbar-collapse" id="myNavbar">
+		      <ul class="nav navbar-nav">
+		        <li><a href="#event">행사</a></li>
+		        <li><a href="#local">지역별검색</a></li>
+		        <li><a href="#map">지도검색</a></li>
+		        <li><a href="#maplocation">주변검색</a></li>
+		        <li><a href="#search">키워드검색</a></li>
+		        <li><a href="#weather">날씨</a></li>
+		      </ul>
+		    </div>
+		  </div>
+		</nav>
 	</div>
 
 	<div class="page {{ pageClass }}" data-ng-view

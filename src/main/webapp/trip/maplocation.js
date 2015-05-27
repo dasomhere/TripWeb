@@ -1,29 +1,6 @@
 
-myApp.controller('mapController', function($scope, $http) {
+myApp.controller('maplocationController', function($scope, $http) {
 	$scope.$parent.pageClass = 'page-local';
-	
-	
-	$http.get("/TripWeb/m/map/city").success(function(citys) {
-		console.log(citys);
-		$scope.citys = citys.response.body.items.item;
-	}).error(function() {
-		alert("map.city error...");
-	});;
-	
-	$http.get("/TripWeb/m/map/gus?areaCode=1").success(function(gus) {
-		$scope.gus = gus.response.body.items.item;
-	}).error(function() {
-		alert("server error...");
-	});
-	
-	$scope.cityChange = function() {
-		var city = $("#city option:selected").val();
-		$http.get("/TripWeb/m/map/gus?areaCode="+city).success(function(gus) {
-			$scope.gus = gus.response.body.items.item;
-		}).error(function() {
-			alert("server error...");
-		});
-	};
 	
 	$scope.contents = [
 	                   {code: '',   name: '전체'},
@@ -62,21 +39,12 @@ myApp.controller('mapController', function($scope, $http) {
 	}
 	
 	$scope.search = function() {
-		var city = $("#city option:selected").val();
-		var sigunguCode = $("#sigunguCode option:selected").val();
 		var contentTypeId = $("#content option:selected").val();
-		$http.get("/TripWeb/m/map/search?areaCode=" + city + "&sigunguCode=" + sigunguCode + "&contentTypeId="+contentTypeId+ "&numOfRows=" +$scope.itemsPerPage + "&pageNo=" + $scope.currentPage).success(function(mapResult) {
+		var radius = $("#radius option:selected").val();
+		console.log($scope.marker.position.A + "," + $scope.marker.position.F)
+		$http.get("/TripWeb/m/maplocation/search?contentTypeId=" + contentTypeId + "&mapX=" + $scope.marker.position.F + "&mapY="+ $scope.marker.position.A + "&radius=" + radius + "&numOfRows=" +$scope.itemsPerPage + "&pageNo=" + $scope.currentPage).success(function(mapResult) {
 			$scope.mapResult = mapResult.response.body;
-			for(var i=0; i<$scope.mapResult.items.item.length; i++) {
-				if($scope.mapResult.items.item[i].mapx == null) {
-					var address = $scope.mapResult.items.item[i].addr1;
-					$scope.setLocation(address, i);
-				}
-			}
 			
-			if($scope.mapResult.totalCount > 0) {
-				$scope.citySearch($("#city option:selected").text());
-			}
 		}).error(function() {
 			alert('error');
 		});	
@@ -85,45 +53,28 @@ myApp.controller('mapController', function($scope, $http) {
 	$scope.$on('mapInitialized', function(event, map) { 
 //		alert("mapInitialized...");
 		
-		$scope.citySearch = function(address) {
-			
-			if($("#sigunguCode option:selected").text() != "전체") {
-				address += $(" #sigunguCode option:selected").text();
-				
-				var geocoder = new google.maps.Geocoder();
-				geocoder.geocode( { "address": address }, function(results, status) {
-				     if (status == google.maps.GeocoderStatus.OK && results.length > 0) {
-				    	 var location = results[0].geometry.location;
-				    	 map.panTo({lat:location.A, lng:location.F});
-				    	 map.setZoom(13);
-				     }
-				 });
-			}else {
-				var geocoder = new google.maps.Geocoder();
-				geocoder.geocode( { "address": address }, function(results, status) {
-				     if (status == google.maps.GeocoderStatus.OK && results.length > 0) {
-				    	 var location = results[0].geometry.location;
-				    	 map.panTo({lat:location.A, lng:location.F});
-				    	 map.setZoom(11);
-				     }
-				 });
-			}
-		}
 		
+		
+		var marker = new google.maps.Marker({
+	        map: map,
+	        position: {lat: 37.5, lng:127},
+	        draggable:true,
+	      });
 		navigator.geolocation.getCurrentPosition(function(position) {
 			  console.log(position.coords.latitude, position.coords.longitude);
 			  map.panTo({lat: position.coords.latitude, lng:position.coords.longitude});
-			  $scope.marker = new google.maps.Marker({
-			        map: map,
-			        position: {lat: position.coords.latitude, lng:position.coords.longitude},
-			        draggable:true,
-			      });
-
+			  marker.setPosition({lat: position.coords.latitude, lng:position.coords.longitude});
+			  
+			  $scope.getAddr(marker.getPosition());
 		});
-		
-		$scope.xxx = function() {
-			console.log($scope.marker.position.A);
-		}
+		console.log(marker);
+		google.maps.event.addListener(marker, 'dragend', function() {
+		    map.setCenter(marker.getPosition());
+		    console.log(marker.getPosition());
+		    
+		    $scope.getAddr(marker.getPosition());
+		});
+		$scope.marker = marker;
 		
 		$scope.mapSearch = function(mapx, mapy) {
 			map.panTo({lat:mapy, lng:mapx});
@@ -132,15 +83,19 @@ myApp.controller('mapController', function($scope, $http) {
 		
 	});
 	
-	$scope.setLocation = function(address, index) {
+	$scope.getAddr = function(latLng) {
 		var geocoder = new google.maps.Geocoder();
-		geocoder.geocode( { "address": address }, function(results, status) {
-		     if (status == google.maps.GeocoderStatus.OK && results.length > 0) {
-		    	 var location = results[0].geometry.location;
-		         $scope.mapResult.items.item[index].mapx = location.F;
-		         $scope.mapResult.items.item[index].mapy = location.A;
-		     }
-		 });
-	};
+		geocoder.geocode({'latLng': latLng}, function(results, status) {
+	        if (status == google.maps.GeocoderStatus.OK) {
+	          if (results[1]) {
+	        	$("#location").text(results[1].formatted_address);
+	          } else {
+	            alert('No results found');
+	          }
+	        } else {
+	          alert('Geocoder failed due to: ' + status);
+	        }
+	    });
+	}
 	
 });

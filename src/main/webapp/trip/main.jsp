@@ -59,6 +59,7 @@
 <script type="text/javascript" src="local.js"></script>
 <script type="text/javascript" src="login.js"></script>
 <script type="text/javascript" src="map.js"></script>
+<script type="text/javascript" src="maplocation.js"></script>
 <script type="text/javascript" src="search.js"></script>
 <script type="text/javascript" src="searchDetail.js"></script>
 <script type="text/javascript" src="weather.js"></script>

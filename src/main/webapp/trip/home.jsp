@@ -54,7 +54,7 @@
 		
 		<div class="row" style="width: 90%; position: relative; right: -10px; top: -200px;" align="center" >
 			<div class="col-xs-2">
-				<a href="#event" ><img alt="icon_event" src="Icon/행사&축제.png"/></a>
+				<a href="#event"><img alt="icon_event" src="Icon/행사&축제.png"/></a>
 			</div>
 			
 			<div class="col-xs-2">

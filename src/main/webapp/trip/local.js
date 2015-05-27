@@ -7,11 +7,11 @@ myApp.controller('localController', function($scope, $http) {
 	
 	$http.get("/TripWeb/m/load/search?areaCode=1" + "&sigunguCode=1" + "&contentTypeId=12" + "&numOfRows=" +$scope.itemsPerPage + "&pageNo=" + $scope.currentPage).success(function(localResult) {
 		$scope.$parent.localResult = localResult.response.body;
-		console.log(JSON.stringify(localResult.response.body.items.item.contentid));
+		console.log(JSON.stringify(localResult));
 		
 //		console.log(JSON.stringify($scope.$parent.localResult.contentid));
 		
-		alert(JSON.stringify(localResult.response.body.items.item.contentid));
+//		alert(JSON.stringify(localResult.response.body.items.item.contentid));
 	});
 	
 	$http.get("/TripWeb/m/local/city").success(function(citys) {

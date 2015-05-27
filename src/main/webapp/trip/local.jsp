@@ -9,7 +9,7 @@
  		border: 1px solid #ccc;
 		font-size: 13px;
 		margin-right: 5px;
-		background: url(new_arrow.png) no-repeat right white;;
+ 		background: url(#new_arrow.png) no-repeat right white;
 		-webkit-appearance: none;
 		text-align: center;
 		text-shadow: 5px;
@@ -22,17 +22,6 @@
 <h1>관광정보 </h1>
 <hr>
 <form data-ng-submit="search()">
-	<div class="btn-group">
-    <button type="button" class="form-control btn btn-default dropdown-toggle" data-toggle="dropdown">
-        Select Business type <span class="caret"></span>
-    </button>
-    <ul class="dropdown-menu" role="menu">
-        <li><a href="#">small</a></li>
-        <li><a href="#">medium</a></li>
-        <li><a href="#">large</a></li>
-    </ul>
-	</div>
-	
 
 	<select id="city" class="select">
 
@@ -72,7 +61,7 @@
 		 				</div>
 		 				<div class="col-sm-8">
 							<br>
-		 						<span>{{type.contentid}}</span>
+<!-- 		 						<span>{{type.contentid}}</span> -->
 <!-- 		 						{{common.overview}} -->
 		 					
 		 				</div>

@@ -1,13 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+    pageEncoding="UTF-8"%>
+<%@include file="/WEB-INF/taglib.jspf" %>
+<!DOCTYPE html>
+<html data-ng-app="tourApp">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width; initial-scale=1.0">
+
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 
-
 <link rel="stylesheet" href="style.css"/>
-<script type="text/javascript" src="main.js"></script>
+<script type="text/javascript" src="home.js"></script>
 <script type="text/javascript" src="event.js"></script>
 <script type="text/javascript" src="join.js"></script>
 <script type="text/javascript" src="load.js"></script>
@@ -21,6 +26,8 @@
 <script type="text/javascript" src="weatherResult.js"></script>
 <script type="text/javascript" src="template.js"></script>
 
+</head>
+<body data-ng-controller="mainController">
 <section style="background-color: #e3fcfe; height: 100%">
 
 	<div class="container">
@@ -79,4 +86,6 @@
 		</div>
 	</div>
 </section>
+</body>
+</html>
 

@@ -9,7 +9,7 @@
  		border: 1px solid #ccc;
 		font-size: 13px;
 		margin-right: 5px;
-		background: url(new_arrow.png) no-repeat right white;;
+ 		background: url(#new_arrow.png) no-repeat right white;
 		-webkit-appearance: none;
 		text-align: center;
 		text-shadow: 5px;

@@ -18,21 +18,12 @@ myApp.controller('maplocationController', function($scope, $http) {
 	$scope.itemsPerPage = 15;
 	
 	$scope.changePage = function() {
-		var city = $("#city option:selected").val();
-		var sigunguCode = $("#sigunguCode option:selected").val();
 		var contentTypeId = $("#content option:selected").val();
-		$http.get("/TripWeb/m/map/search?areaCode=" + city + "&sigunguCode=" + sigunguCode + "&contentTypeId="+contentTypeId+ "&numOfRows=" +$scope.itemsPerPage + "&pageNo=" + $scope.currentPage).success(function(mapResult) {
+		var radius = $("#radius option:selected").val();
+		console.log($scope.marker.position.A + "," + $scope.marker.position.F)
+		$http.get("/TripWeb/m/maplocation/search?contentTypeId=" + contentTypeId + "&mapX=" + $scope.marker.position.F + "&mapY="+ $scope.marker.position.A + "&radius=" + radius + "&numOfRows=" +$scope.itemsPerPage + "&pageNo=" + $scope.currentPage).success(function(mapResult) {
 			$scope.mapResult = mapResult.response.body;
-			for(var i=0; i<$scope.mapResult.items.item.length; i++) {
-				if($scope.mapResult.items.item[i].mapx == null) {
-					var address = $scope.mapResult.items.item[i].addr1;
-					$scope.setLocation(address, i);
-				}
-			}
 			
-			if($scope.mapResult.totalCount > 0) {
-				$scope.citySearch($("#city option:selected").text());
-			}
 		}).error(function() {
 			alert('error');
 		});	
@@ -54,12 +45,20 @@ myApp.controller('maplocationController', function($scope, $http) {
 //		alert("mapInitialized...");
 		
 		
-		
+		var image = {
+			url: 'Icon/marker.png',
+		}
 		var marker = new google.maps.Marker({
 	        map: map,
 	        position: {lat: 37.5, lng:127},
 	        draggable:true,
-	      });
+	        icon: image
+	    });
+		var infowindow = new google.maps.InfoWindow({
+		      content: '현재위치'
+		});
+		infowindow.open(map, marker);
+		
 		navigator.geolocation.getCurrentPosition(function(position) {
 			  console.log(position.coords.latitude, position.coords.longitude);
 			  map.panTo({lat: position.coords.latitude, lng:position.coords.longitude});
@@ -67,7 +66,6 @@ myApp.controller('maplocationController', function($scope, $http) {
 			  
 			  $scope.getAddr(marker.getPosition());
 		});
-		console.log(marker);
 		google.maps.event.addListener(marker, 'dragend', function() {
 		    map.setCenter(marker.getPosition());
 		    console.log(marker.getPosition());

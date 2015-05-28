@@ -85,4 +85,80 @@
 .page-weather.ng-enter       { animation: FadeIn 1.0s both ease-in; animation-delay: 0.5s;}
 .page-weather.ng-leave       { animation: FadeOut 0.5s both ease-in; }
 
+/*
+ * navbar css
+ */
+
+.navbar-default {
+	background-color: #56bff7;
+	margin-bottom: 0;
+}
+.navbar-collapse {
+	padding: 0;
+}
+.navbar-default .navbar-nav > li > a {
+	font-size: 15px;
+	color: white;
+}
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus {
+	background-color: #e7e7e7;
+}
+
+.navbar-nav > li > a {
+    padding-top:8px !important; 
+    padding-bottom:0 !important;
+    height: 35px;
+}
+.navbar {
+	min-height:35px !important;
+}
+
+.navbar-nav{
+	    margin: 0;
+}
+.navbar-toggle {
+	border: 2px solid #e7e7e7;
+	padding: 0px 10px;
+	margin-top: 2px;
+	margin-bottom: 2px;
+    height: 30px;
+}
+.pageClass {
+	width: 50%;
+	padding-top: 8px;
+	margin-top: 0px;
+	margin-left: 5px;
+	float: left;
+	border: 0;
+	color: white;
+}
+.navbar-default .pageClass:hover,
+.navbar-default .pageClass:focus {
+	background-color: #56bff7;
+}
+.navbar-default .navbar-toggle .icon-bar {
+	background-color: #cccccc;
+}
+
+.navbar-header {
+	min-height:35px !important;
+}
+
+ @media (min-width: 768px){
+	.navbar-nav{
+	    margin: 0;
+	    display: table;
+	    table-layout: fixed;
+	    float: none;
+	    width: 100%;
+	}
+	.navbar-nav > li {
+	    width: 16.6%;
+	  } 
+}
+.navbar-nav > li {
+    text-align: center;
+  } 
+}
 

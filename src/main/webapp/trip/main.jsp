@@ -35,83 +35,6 @@
 
 <link rel="stylesheet" type="text/css" href="${font}">
 
-<style type="text/css">
-.navbar-default {
-	background-color: #56bff7;
-	margin-bottom: 0;
-}
-.navbar-collapse {
-	padding: 0;
-}
-.navbar-default .navbar-nav > li > a {
-	font-size: 15px;
-	color: white;
-}
-.navbar-default .navbar-nav > li > a:hover,
-.navbar-default .navbar-nav > li > a:focus {
-	background-color: #e7e7e7;
-}
-
-.navbar-nav > li > a {
-    padding-top:8px !important; 
-    padding-bottom:0 !important;
-    height: 35px;
-}
-.navbar {
-	min-height:35px !important;
-}
-
-.navbar-nav{
-	    margin: 0;
-}
-.navbar-toggle {
-	border: 2px solid #e7e7e7;
-	padding: 0px 10px;
-	margin-top: 2px;
-	margin-bottom: 2px;
-    height: 30px;
-}
-.pageClass {
-	width: 50%;
-	padding-top: 8px;
-	margin-top: 0px;
-	margin-left: 5px;
-	float: left;
-	border: 0;
-	color: white;
-}
-.navbar-default .pageClass:hover,
-.navbar-default .pageClass:focus {
-	background-color: #56bff7;
-}
-.navbar-default .navbar-toggle .icon-bar {
-	background-color: #cccccc;
-}
-
-.navbar-header {
-	min-height:35px !important;
-}
-
- @media (min-width: 768px){
-	.navbar-nav{
-	    margin: 0;
-	    display: table;
-	    table-layout: fixed;
-	    float: none;
-	    width: 100%;
-	}
-	.navbar-nav > li {
-	    width: 16.6%;
-	  } 
-}
-.navbar-nav > li {
-    text-align: center;
-  } 
-}
-
-
-</style>
-
 <link rel="stylesheet" href="style.css"/>
 <script type="text/javascript" src="main.js"></script>
 <script type="text/javascript" src="event.js"></script>
@@ -143,14 +66,6 @@
 <!-- 				<a data-ng-click="logout()" class="btn btn-default" data-ng-if="loginResult.loginStatus==true">로그아웃</a> -->
 <!-- 			</div> -->
 		</div>
-		
-<!-- 		<div class="navbar-mobile btn-group btn-group-justified" class="dropdown"> -->
-<!-- 			<a href="#event" class="btn btn-info" ng-model="radioModel" btn-radio="'행사'" uncheckable>행사</a> -->
-<!-- 			<a href="#local" class="btn btn-info" ng-model="radioModel" btn-radio="'지역별검색'" uncheckable>지역별검색</a> -->
-<!-- 			<a href="#map" class="btn btn-info" ng-model="radioModel" btn-radio="'지도검색'" uncheckable>지도검색</a> -->
-<!-- 			<a href="#maplocation" class="btn btn-info" ng-model="radioModel" btn-radio="'주변검색'" uncheckable>주변검색</a> -->
-<!-- 			<a href="#weather" class="btn btn-info" ng-model="radioModel" btn-radio="'날씨'" uncheckable>날씨</a> -->
-<!-- 		</div> -->
 		
 		 <nav class="navbar navbar-default">
 		    <div class="navbar-header">

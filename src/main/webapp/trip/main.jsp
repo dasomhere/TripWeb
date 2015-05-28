@@ -36,13 +36,39 @@
 <link rel="stylesheet" type="text/css" href="${font}">
 
 <style type="text/css">
-.nav {
-  display:table;
+.navbar-default {
+	background-color: #56bff7
 }
-.nav > li{
-  width: auto;
-  display:table-cell;
+.navbar-collapse {
+	padding: 0;
 }
+.navbar-default .navbar-nav > li > a {
+	font-size: 16px;
+	color: white;
+}
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus {
+	background-color: white;
+}
+
+ @media (min-width: 768px){
+	.navbar-nav{
+	    margin: 0;
+	    display: table;
+	    table-layout: fixed;
+	    float:none;
+	    width: 100%;
+	}
+	.navbar-nav > li {
+	    width: 16.6%;
+	  } 
+}
+.navbar-nav > li {
+    text-align: center;
+  } 
+}
+
+
 </style>
 
 <link rel="stylesheet" href="style.css"/>
@@ -86,7 +112,6 @@
 <!-- 		</div> -->
 		
 		 <nav class="navbar navbar-default">
-		  <div class="container-fluid">
 		    <div class="navbar-header">
 		      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
 		        <span class="icon-bar"></span>
@@ -104,7 +129,6 @@
 		        <li><a href="#weather">날씨</a></li>
 		      </ul>
 		    </div>
-		  </div>
 		</nav>
 	</div>
 

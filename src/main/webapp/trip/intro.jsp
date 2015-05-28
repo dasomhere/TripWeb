@@ -13,18 +13,6 @@
 
 <link rel="stylesheet" href="style.css"/>
 <script type="text/javascript" src="home.js"></script>
-<script type="text/javascript" src="event.js"></script>
-<script type="text/javascript" src="join.js"></script>
-<script type="text/javascript" src="load.js"></script>
-<script type="text/javascript" src="local.js"></script>
-<script type="text/javascript" src="login.js"></script>
-<script type="text/javascript" src="map.js"></script>
-<script type="text/javascript" src="maplocation.js"></script>
-<script type="text/javascript" src="search.js"></script>
-<script type="text/javascript" src="searchDetail.js"></script>
-<script type="text/javascript" src="weather.js"></script>
-<script type="text/javascript" src="weatherResult.js"></script>
-<script type="text/javascript" src="template.js"></script>
 
 </head>
 <body data-ng-controller="mainController">
@@ -55,33 +43,33 @@
 		
 		<div class="row"  >
 			<div style="position: relative; right: -15px; top: -40px;" >
-				<img alt="titleboackground" src="mainImage/아래.jpg"/>
+				<img alt="titlebackground" src="mainImage/아래.jpg"/>
 			</div>
 		</div>
 		
 		<div class="row" style="width: 90%; position: relative; right: -10px; top: -200px;" align="center" >
 			<div class="col-xs-2">
-				<a href="#event"><img alt="icon_event" src="Icon/행사&축제.png"/></a>
+				<a href="main.jsp#/event"><img alt="icon_event" src="Icon/행사&축제.png"/></a>
 			</div>
 			
 			<div class="col-xs-2">
-				<a href="#local"><img alt="icon_tour" src="Icon/지역별.png"/></a>
+				<a href="main.jsp#/local"><img alt="icon_tour" src="Icon/지역별.png"/></a>
 			</div>
 			
 			<div class="col-xs-2">
-				<a href="#map"><img alt="icon_bestcourse" src="Icon/지도검색.png"/></a>
+				<a href="main.jsp#/map"><img alt="icon_bestcourse" src="Icon/지도검색.png"/></a>
 			</div>
 			
 			<div class="col-xs-2">
-				<a href="#maplocation"><img alt="icon_searchmap" src="Icon/주변검색.png"/></a>
+				<a href="main.jsp#/maplocation"><img alt="icon_searchmap" src="Icon/주변검색.png"/></a>
 			</div>
 			
 			<div class="col-xs-2">
-				<a style="margin-right: 10px;" href="#search"><img alt="icon_searchkeyword" src="Icon/키워드.png"/></a>
+				<a style="margin-right: 10px;" href="main.jsp#/search"><img alt="icon_searchkeyword" src="Icon/키워드.png"/></a>
 			</div>
 			
 			<div class="col-xs-2">
-				<a href="#weather"><img alt="icon_weather" src="Icon/날씨.png"/></a>
+				<a href="main.jsp#/weather"><img alt="icon_weather" src="Icon/날씨.png"/></a>
 			</div>
 		</div>
 	</div>

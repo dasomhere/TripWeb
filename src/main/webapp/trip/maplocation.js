@@ -1,6 +1,6 @@
 
 myApp.controller('maplocationController', function($scope, $http) {
-	$scope.$parent.pageClass = 'page-local';
+	$scope.$parent.pageClass = 'page-maplocation'; $scope.$parent.nowPage = '주변검색';
 	
 	$scope.contents = [
 	                   {code: '',   name: '전체'},

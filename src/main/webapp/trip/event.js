@@ -1,6 +1,6 @@
 
 myApp.controller('eventController', function($scope, $http) {
-	$scope.$parent.pageClass = 'page-event';
+	$scope.$parent.pageClass = 'page-event'; $scope.$parent.nowPage = '행사';
 //	alert("eventController xxx");
 	$scope.currentPage = 1;
 	$scope.itemsPerPage = 12;

@@ -1,6 +1,6 @@
 
 myApp.controller('loadController', function($scope, $http) {
-	$scope.$parent.pageClass = 'page-load';
+	$scope.$parent.pageClass = 'page-load'; $scope.$parent.nowPage = '코스';
 	$http.get("/TripWeb/m/load/city").success(function(citys) {
 		console.log(citys);
 		$scope.citys = citys.response.body.items.item;

@@ -1,7 +1,7 @@
 
 myApp.controller('localController', function($scope, $http) {
 
-	$scope.$parent.pageClass = 'page-local';
+	$scope.$parent.pageClass = 'page-local'; $scope.$parent.nowPage = '지역별검색';
 	$scope.currentPage = 1;
 	$scope.itemsPerPage = 10;
 	

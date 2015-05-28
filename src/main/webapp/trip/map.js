@@ -1,6 +1,6 @@
 
 myApp.controller('mapController', function($scope, $http) {
-	$scope.$parent.pageClass = 'page-local';
+	$scope.$parent.pageClass = 'page-map'; $scope.$parent.nowPage = '지도검색';
 	
 	
 	$http.get("/TripWeb/m/map/city").success(function(citys) {

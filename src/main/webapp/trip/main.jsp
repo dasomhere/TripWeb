@@ -37,18 +37,59 @@
 
 <style type="text/css">
 .navbar-default {
-	background-color: #56bff7
+	background-color: #56bff7;
+	margin-bottom: 0;
 }
 .navbar-collapse {
 	padding: 0;
 }
 .navbar-default .navbar-nav > li > a {
-	font-size: 16px;
+	font-size: 15px;
 	color: white;
 }
 .navbar-default .navbar-nav > li > a:hover,
 .navbar-default .navbar-nav > li > a:focus {
-	background-color: white;
+	background-color: #e7e7e7;
+}
+
+.navbar-nav > li > a {
+    padding-top:8px !important; 
+    padding-bottom:0 !important;
+    height: 35px;
+}
+.navbar {
+	min-height:35px !important;
+}
+
+.navbar-nav{
+	    margin: 0;
+}
+.navbar-toggle {
+	border: 2px solid #e7e7e7;
+	padding: 0px 10px;
+	margin-top: 2px;
+	margin-bottom: 2px;
+    height: 30px;
+}
+.pageClass {
+	width: 50%;
+	padding-top: 8px;
+	margin-top: 0px;
+	margin-left: 5px;
+	float: left;
+	border: 0;
+	color: white;
+}
+.navbar-default .pageClass:hover,
+.navbar-default .pageClass:focus {
+	background-color: #56bff7;
+}
+.navbar-default .navbar-toggle .icon-bar {
+	background-color: #cccccc;
+}
+
+.navbar-header {
+	min-height:35px !important;
 }
 
  @media (min-width: 768px){
@@ -56,7 +97,7 @@
 	    margin: 0;
 	    display: table;
 	    table-layout: fixed;
-	    float:none;
+	    float: none;
 	    width: 100%;
 	}
 	.navbar-nav > li {
@@ -113,11 +154,12 @@
 		
 		 <nav class="navbar navbar-default">
 		    <div class="navbar-header">
-		      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+		      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar" ng-model="toggle">
 		        <span class="icon-bar"></span>
 		        <span class="icon-bar"></span>
 		        <span class="icon-bar"></span>
 		      </button>
+		      <div class="navbar-toggle pageClass">{{nowPage}}</div>
 		    </div>
 		    <div class="collapse navbar-collapse" id="myNavbar">
 		      <ul class="nav navbar-nav">

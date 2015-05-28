@@ -81,7 +81,7 @@ myApp.config(function($routeProvider) {
  * mainController
  */
 myApp.controller('mainController', function($scope, $http) {
-
+	
 	$scope.logout = function() {
 		$http.get("/TripWeb/m/login/logout").success(function(loginResult) {
 			alert("loginResult = " + JSON.stringify(loginResult));

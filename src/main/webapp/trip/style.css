@@ -55,6 +55,30 @@
 .page-local.ng-enter       { animation: FadeIn 1.0s both ease-in; animation-delay: 0.5s;}
 .page-local.ng-leave       { animation: FadeOut 0.5s both ease-in; }
 
+.page-map {
+	
+}
+.page-map.ng-enter       { animation: FadeIn 1.0s both ease-in; animation-delay: 0.5s;}
+.page-map.ng-leave       { animation: FadeOut 0.5s both ease-in; }
+
+.page-maplocation {
+	
+}
+.page-maplocation.ng-enter       { animation: FadeIn 1.0s both ease-in; animation-delay: 0.5s;}
+.page-maplocation.ng-leave       { animation: FadeOut 0.5s both ease-in; }
+
+.page-search {
+	
+}
+.page-search.ng-enter       { animation: FadeIn 1.0s both ease-in; animation-delay: 0.5s;}
+.page-search.ng-leave       { animation: FadeOut 0.5s both ease-in; }
+
+.page-searchDetail {
+	
+}
+.page-searchDetail.ng-enter       { animation: FadeIn 1.0s both ease-in; animation-delay: 0.5s;}
+.page-searchDetail.ng-leave       { animation: FadeOut 0.5s both ease-in; }
+
 .page-weather {
 	
 }

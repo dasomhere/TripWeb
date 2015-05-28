@@ -23,7 +23,7 @@ select {
 			<b>거리</b><br>
 			<select id="radius">
 				<c:forEach var="i" begin="1" end="20">
-					<option value="${i*1000}">${i}km</option>
+					<option value="${i*1000}" ng-click="radiusChange()">${i}km</option>
 				</c:forEach>
 			</select>
 		</div>

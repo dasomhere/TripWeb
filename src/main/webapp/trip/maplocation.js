@@ -45,7 +45,6 @@ myApp.controller('maplocationController', function($scope, $http) {
 	$scope.$on('mapInitialized', function(event, map) { 
 //		alert("mapInitialized...");
 		
-		
 		var image = {
 			url: 'Icon/marker.png',
 		}
@@ -60,25 +59,45 @@ myApp.controller('maplocationController', function($scope, $http) {
 		});
 		infowindow.open(map, marker);
 		
+		var cityCircle = new google.maps.Circle({
+			strokeColor: '#FF0000',
+		    strokeOpacity: 0.8,
+		    strokeWeight: 2,
+		    fillColor: '#FF0000',
+		    fillOpacity: 0.1,
+		    map: map,
+		    center: marker.getPosition(),
+		    radius: parseInt($("#radius option:selected").val())
+		});
+		
 		$scope.getAddr(marker.getPosition());
+		
 		navigator.geolocation.getCurrentPosition(function(position) {
-			  console.log(position.coords.latitude, position.coords.longitude);
 			  map.panTo({lat: position.coords.latitude, lng:position.coords.longitude});
 			  marker.setPosition({lat: position.coords.latitude, lng:position.coords.longitude});
 			  
 			  $scope.getAddr(marker.getPosition());
+			  $scope.drawCircle(marker.getPosition());
 		});
+		
 		google.maps.event.addListener(marker, 'dragend', function() {
 		    map.setCenter(marker.getPosition());
-		    console.log(marker.getPosition());
 		    
 		    $scope.getAddr(marker.getPosition());
+		    $scope.drawCircle(marker.getPosition());
 		});
 		$scope.marker = marker;
 		
 		$scope.mapSearch = function(mapx, mapy) {
 			map.panTo({lat:mapy, lng:mapx});
 			map.setZoom(17);
+		}
+		
+		$scope.drawCircle = function(latLng) {
+			cityCircle.setCenter({lat: latLng.A, lng: latLng.F});
+		}
+		$scope.radiusChange = function() {
+			cityCircle.setRadius(parseInt($("#radius option:selected").val()));
 		}
 		
 	});

@@ -60,6 +60,7 @@ myApp.controller('maplocationController', function($scope, $http) {
 		});
 		infowindow.open(map, marker);
 		
+		$scope.getAddr(marker.getPosition());
 		navigator.geolocation.getCurrentPosition(function(position) {
 			  console.log(position.coords.latitude, position.coords.longitude);
 			  map.panTo({lat: position.coords.latitude, lng:position.coords.longitude});

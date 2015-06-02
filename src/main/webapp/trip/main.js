@@ -72,7 +72,6 @@ myApp.config(function($routeProvider) {
 	$routeProvider.when('/login', login);
 	$routeProvider.when('/join', join);
 	$routeProvider.when('/template', template);
-	$routeProvider.when('/home', home);
 	$routeProvider.otherwise({redirectTo:'/'});
 	
 });

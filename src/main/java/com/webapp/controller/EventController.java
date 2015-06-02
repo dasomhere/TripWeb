@@ -39,7 +39,7 @@ public class EventController {
 	@ResponseBody
 	public ResponseMessage festival(SearchFestivalRequestParameter request) {
 		log.info("###############");
-		log.info("festival");
+		log.info("festival");	
 		log.info("###############");
 	
 		return tour.getApi(request.getUrl());

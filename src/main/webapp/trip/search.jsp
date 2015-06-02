@@ -37,7 +37,7 @@ select, input {
 		  	<img ng-src="http://placehold.it/170x150/EAEAEA/808080&text=No Image!" class="img-circle" ng-hide="searchResult.items.item[idx + elIdx].firstimage != null"/>
 		  	<b>{{searchResult.items.item[idx + elIdx].title}}</b><br>
 		  	주소 : {{searchResult.items.item[idx + elIdx].addr1}}<br>
-		  	전화번호 : {{searchResult.items.item[idx + elIdx].tel}}
+		  	전화번호 : <span data-ng-bind-html="searchResult.items.item[idx + elIdx].tel"></span>
 	 	</a>
 	</div>
 </div>

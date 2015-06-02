@@ -1,9 +1,9 @@
 
 myApp.controller('localController', function($scope, $http) {
 
-	$scope.$parent.pageClass = 'page-local';
+	$scope.$parent.pageClass = 'page-local'; $scope.$parent.nowPage = '지역별검색';
 	$scope.currentPage = 1;
-	$scope.itemsPerPage = 10;
+	$scope.itemsPerPage = 12;
 	
 	$http.get("/TripWeb/m/load/search?areaCode=1" + "&sigunguCode=1" + "&contentTypeId=12" + "&numOfRows=" +$scope.itemsPerPage + "&pageNo=" + $scope.currentPage).success(function(localResult) {
 		$scope.$parent.localResult = localResult.response.body;
@@ -66,7 +66,7 @@ myApp.controller('localController', function($scope, $http) {
 		var sigunguCode = $("#sigunguCode option:selected").val();
 		var contentTypeId = $("#contentTypeId option:selected").val();
 		var stay = $("#select option:selected").val();
-		if(contentTypeId=='32') {
+		if(contentTypeId=='32' && stay!='') {
 			$http.get("/TripWeb/m/local/searchstay?areaCode=" + city + "&sigunguCode=" + sigunguCode + "&contentTypeId="+contentTypeId+"&"+stay+"=1" + "&numOfRows=" +$scope.itemsPerPage + "&pageNo=" + $scope.currentPage).success(function(hanokResult) {
 				$scope.localResult = hanokResult.response.body;
 			}).error(function() {
@@ -82,6 +82,7 @@ myApp.controller('localController', function($scope, $http) {
 	};
 	
 	$scope.contents = [
+	                   {code: '',   name: '전체'},
 	                   {code: '12', name: '관광지'},
 	                   {code: '14', name: '문화시설'},
 	                   {code: '15', name: '축제공연행사'},
@@ -93,9 +94,10 @@ myApp.controller('localController', function($scope, $http) {
 	];
 	
 	$scope.stayss =[
+	               {value : '', name :'전체'},
 	               {value : 'hanOk', name :'한옥'},
 	               {value : 'benikia', name :'베니키아'},
 	               {value : 'goodStay', name :'굿스테이'}
-	             ];
+	];
 	
 });

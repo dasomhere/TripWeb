@@ -1,6 +1,6 @@
 
 myApp.controller('searchDetailController', function($scope, $http, $routeParams) {
-	$scope.$parent.pageClass = 'page-load';
+	$scope.$parent.pageClass = 'page-searchDetail';
 	
 	
 	

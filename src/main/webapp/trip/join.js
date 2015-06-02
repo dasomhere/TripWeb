@@ -1,6 +1,6 @@
 
 myApp.controller('joinController', function($scope, $http) {
-	$scope.$parent.pageClass = 'page-join';
+	$scope.$parent.pageClass = 'page-join'; $scope.$parent.nowPage = '회원가입';
 	$scope.dis = true;
 	$scope.insertId = function() {
 		var id=$("#id").val();

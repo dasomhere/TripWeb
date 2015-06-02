@@ -48,7 +48,7 @@
 			
 			<li data-ng-hide="intro.infocenter == null"><b>문의 및 안내 :</b>	{{intro.infocenter}}</li>
 				
-			<li data-ng-hide="intro.parking == null"><b>주 차 장 :</b> {{intro.parking}}</li>
+			<li data-ng-hide="intro.parking == null"><b>주 차 장 :</b><span data-ng-bind-html="intro.parking"></span></li>
 			
 			<li data-ng-hide="intro.restdate == null"><b>쉬 는 날 : </b>{{intro.restdate}}</li>
 				

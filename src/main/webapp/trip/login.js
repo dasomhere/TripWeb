@@ -1,6 +1,6 @@
 
 myApp.controller('loginController', function($scope, $http) {
-	$scope.$parent.pageClass = 'page-login';
+	$scope.$parent.pageClass = 'page-login'; $scope.$parent.nowPage = '로그인';
 	$scope.loginResult={};
 	
 	$scope.login = function() {

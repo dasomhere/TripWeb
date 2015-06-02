@@ -1,6 +1,6 @@
 
 myApp.controller('searchController', function($scope, $http) {
-	$scope.$parent.pageClass = 'page-load';
+	$scope.$parent.pageClass = 'page-search'; $scope.$parent.nowPage = '키워드검색';
 	
 	$scope.currentPage = 1;
 	$scope.itemsPerPage = 12;

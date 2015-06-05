@@ -59,7 +59,7 @@
 
 	<div class="container">
 		<div align="center" style="background-image:url('mainImage/윗배경.png'); background-size:cover; background-repeat:no-repeat;">
-		<a href="#home"><img src="mainImage/제목.png" style="width:100%; height:auto;max-width: 720px; max-height: 120px;"></a>
+		<a href="intro.jsp"><img src="mainImage/제목.png" style="width:100%; height:auto;max-width: 720px; max-height: 120px;"></a>
 <!--         	<div class="pull-right"> -->
 <!--         		<a style="margin-right: 10px;" href="#search" ng-model="radioModel" btn-radio="'키워드검색'" uncheckable><span class="glyphicon glyphicon-search"></span></a> -->
 <!-- 				<a href="#login" class="btn btn-default" data-ng-if="loginResult.loginStatus==null || loginResult.loginStatus==false">로그인</a> -->

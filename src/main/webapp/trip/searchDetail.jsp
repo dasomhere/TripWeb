@@ -3,8 +3,7 @@
 <%@include file="/WEB-INF/taglib.jspf"%>
 <section class="container">
 
-	<h3>{{searchDetailCommon[0].title}}</h3>
-	<hr>
+	<h3 align="center">{{searchDetailCommon[0].title}}</h3>
 	<div align="center">
 		<carousel> 
 			<slide> 

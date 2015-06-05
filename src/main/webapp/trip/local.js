@@ -5,7 +5,7 @@ myApp.controller('localController', function($scope, $http) {
 	$scope.currentPage = 1;
 	$scope.itemsPerPage = 12;
 	
-	$http.get("/TripWeb/m/load/search?areaCode=1" + "&sigunguCode=1" + "&contentTypeId=12" + "&numOfRows=" +$scope.itemsPerPage + "&pageNo=" + $scope.currentPage).success(function(localResult) {
+	$http.get("/TripWeb/m/local/search?areaCode=1" + "&sigunguCode=1" + "&contentTypeId=12" + "&numOfRows=" +$scope.itemsPerPage + "&pageNo=" + $scope.currentPage).success(function(localResult) {
 		$scope.$parent.localResult = localResult.response.body;
 	});
 	
@@ -51,7 +51,7 @@ myApp.controller('localController', function($scope, $http) {
 				alert('hanOk error');
 			});
 		}else{
-			$http.get("/TripWeb/m/load/search?areaCode=" + city + "&sigunguCode=" + sigunguCode + "&contentTypeId="+contentTypeId+ "&numOfRows=" +$scope.itemsPerPage + "&pageNo=" + $scope.currentPage).success(function(localResult) {
+			$http.get("/TripWeb/m/local/search?areaCode=" + city + "&sigunguCode=" + sigunguCode + "&contentTypeId="+contentTypeId+ "&numOfRows=" +$scope.itemsPerPage + "&pageNo=" + $scope.currentPage).success(function(localResult) {
 				$scope.localResult = localResult.response.body;
 			}).error(function() {
 				alert('city error');
@@ -73,7 +73,7 @@ myApp.controller('localController', function($scope, $http) {
 				alert('hanOk error');
 			});
 		}else{
-			$http.get("/TripWeb/m/load/search?areaCode=" + city + "&sigunguCode=" + sigunguCode + "&contentTypeId="+contentTypeId+ "&numOfRows=" +$scope.itemsPerPage + "&pageNo=" + $scope.currentPage).success(function(localResult) {
+			$http.get("/TripWeb/m/local/search?areaCode=" + city + "&sigunguCode=" + sigunguCode + "&contentTypeId="+contentTypeId+ "&numOfRows=" +$scope.itemsPerPage + "&pageNo=" + $scope.currentPage).success(function(localResult) {
 				$scope.localResult = localResult.response.body;
 			}).error(function() {
 				alert('city error');

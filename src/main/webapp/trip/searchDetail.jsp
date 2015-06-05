@@ -52,7 +52,7 @@
 			
 			<li data-ng-hide="intro.restdate == null"><b>쉬 는 날 : </b>{{intro.restdate}}</li>
 				
-			<li data-ng-hide="intro.usetime == null"><b>이 용 시 간 :</b> {{intro.usetime}}</li>
+			<li data-ng-hide="intro.usetime == null"><b>이 용 시 간 :</b><span data-ng-bind-html="intro.usetime"></span></li>
 			
 			<li data-ng-hide="intro.homepage == null"><b>홈 페 이 지 : </b>{{intro.homepage}}</li>
 				
